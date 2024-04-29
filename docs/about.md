@@ -1,17 +1,25 @@
-# 为什么做UCBTA项目
+# 清华
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+[网络学堂](https://learn.tsinghua.edu.cn/f/wlxt/index/course/student/)
+[清华info](https://info2021.tsinghua.edu.cn/f/info/gxfw_fg/common/index)
+[清华邮箱](https://mails.tsinghua.edu.cn)
 
-## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
 
-## Project layout
+# 计算机
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+[github](https://github.com/dghtucs)
+
+
+# 数学
+
+
+
+
+# 技能
+
+
+
+
+
+# 知识
