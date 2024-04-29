@@ -1,17 +1,15 @@
-# Welcome to UCBTA
+# Welcome to HomePage of DGH
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Currently studying in [Tsinghua University](https://www.tsinghua.edu.cn/).
 
-## Commands
+## education
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+* `化学竞赛省队` - 化学竞赛省级一等奖
+* `北京大学降一本录取资格` - 博雅计划
+* `清华大学降30分录取资格` - 领军计划
+* `清华大学` - 清华大学计算机系
 
-## Project layout
+## intern
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* `面壁智能` - 大语言模型
+* `大模型机器人智能抓取` - 清华大学计算机系
