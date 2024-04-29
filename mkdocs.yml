@@ -1,0 +1,25 @@
+site_name: UCBTA
+nav:
+  - 首页: "index.md"
+  - 原因: "about.md"
+  - '数学':
+    - 数学: "数学/math.md"
+    - 微积分: "数学/caculus.md"
+  - '编程语言':
+    - "C语言":
+      - C: "编程语言/c/c.md"
+    - "C++语言":
+      - C++: "编程语言/cpp/cpp.md"
+  - '数据结构':
+    - 总述: "数据结构/dsa.md"
+  - '操作系统':
+    - 总述: "操作系统/os.md"
+  - '计算机组成原理':
+    - 总述: "计算机组成原理/jz.md"
+  - '计算机网络':
+    - 总述: "计算机网络/jw.md"
+
+
+
+theme:
+  name: material
