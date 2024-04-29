@@ -1,7 +1,7 @@
 site_name: UCBTA
 nav:
-  - 首页: "index.md"
-  - 原因: "about.md"
+  - 个人首页: "index.md"
+  - 工具链接网址: "about.md"
   - '数学':
     - 数学: "数学/math.md"
     - 微积分: "数学/caculus.md"
