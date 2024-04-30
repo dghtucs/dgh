@@ -54,3 +54,13 @@ markdown中使用[mathjax](https://www.mathjax.org/)来表示公式
 
 
 ## 知识
+
+
+## 梦想
+
+### 毕业旅行
+
+[美丽的地方](https://www.youtube.com/watch?v=Fz8VQipErGQ)
+
+
+
