@@ -12,4 +12,4 @@ Currently studying in [Tsinghua University](https://www.tsinghua.edu.cn/).
 ## intern
 
 * `面壁智能` - 大语言模型
-* `大模型机器人智能抓取` - 清华大学计算机系
+* `大模型机器人智能抓取` - 清华大学计算机系任务
