@@ -2,9 +2,9 @@ site_name: 勿怯 勿惰 勿贪 勿我
 nav:
   - 个人首页: "index.md"
   - 工具链接网址: "about.md"
-  - '数学':
-    - 数学: "数学/math.md"
-    - 微积分: "数学/caculus.md"
+  - 数学:
+    - 数学: "math/math.md"
+    - 微积分: "math/caculus.md"
   - '编程语言':
     - "C语言":
       - C: "编程语言/c/c.md"
