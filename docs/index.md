@@ -1,6 +1,8 @@
 # Welcome to HomePage of DGH
 
-Currently studying in [Tsinghua University](https://www.tsinghua.edu.cn/).
+
+Hi, I'm a student currently studying in [Tsinghua University](https://www.tsinghua.edu.cn/).
+我的兴趣方向是人工智能和金融
 
 ## education
 
