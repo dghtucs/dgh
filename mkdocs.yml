@@ -24,7 +24,7 @@ nav:
       - bitcoin: "finance/crypto/bitcoin/bitcoin.md"
   - 艺体:
     - 文学: "art/art.md"
-    - 读书: "books/book.md"
+    - 读书:
       - 海军: 
         - 海军炊事兵物语 : "books/navy/海军炊事兵物语.md"
   - 生活记录: 
