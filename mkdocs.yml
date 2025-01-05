@@ -27,8 +27,7 @@ nav:
     - 读书:
       - 计算机:
         - 编程语言: "books/cs/编程语言/lan.md"
-      - 个人成长:
-        - 自律 : "books/个人成长/自律修炼手册.md"
+      - 个人成长: "books/个人成长/gr.md"
       - 杂书: "books/navy/zashu.md"
       
   - 生活记录: 
