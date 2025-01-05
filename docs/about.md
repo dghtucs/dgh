@@ -1,7 +1,16 @@
 # 工具链接
 这里保存我经常用的一些网站
 
-## 清华
+## 学习
+
+### 校内
+
+[笔记1](https://git.tsinghua.edu.cn/THUanonymous/bypass-thu-cst)
+[笔记2](https://cloud.tsinghua.edu.cn/d/38765e42b4f5414ea0d0/?p=%2F&mode=list)
+
+## 外界自学资源
+
+[csdiy](https://csdiy.wiki/)
 
 ### 清华相关
 
