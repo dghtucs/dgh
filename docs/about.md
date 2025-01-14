@@ -3,12 +3,17 @@
 
 ## 学习
 
+[我的](cs/learn.md)
+
 ### 校内
 
-[笔记1](https://git.tsinghua.edu.cn/THUanonymous/bypass-thu-cst)
-[笔记2](https://cloud.tsinghua.edu.cn/d/38765e42b4f5414ea0d0/?p=%2F&mode=list)
+[笔记1在gitlab上](https://git.tsinghua.edu.cn/THUanonymous/bypass-thu-cst)
 
-## 外界自学资源
+[笔记2 清华云盘](https://cloud.tsinghua.edu.cn/d/38765e42b4f5414ea0d0/?p=%2F&mode=list)
+
+[笔记3 github上](https://github.com/PKUanonym/REKCARC-TSC-UHT)
+
+### 外界自学资源
 
 [csdiy](https://csdiy.wiki/)
 
