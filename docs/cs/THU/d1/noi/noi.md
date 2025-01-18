@@ -1,5 +1,8 @@
 在这里解决编程和相关数学的学习
 
+
+
+
 # 2025年1月
 
 ## 2025年1月18日
@@ -41,18 +44,70 @@ int main() {
 // 将三个数放入数组中
     int arr[] = {a, b, c};
 
+### codeforces
+
+[求第k位](https://codeforces.com/problemset/problem/158/A)
+
+这个题我想更新一个count和k作比较，但是不知道怎么搞
+
+最快的答案
+```c
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+    int n,k;
+    scanf("%d %d", &n, &k);
+    int curr, ak=0;
+    for(int i=0;i<n;i++){
+        scanf("%d", &curr);
+        if (curr==0){
+            printf("%d", i);
+            exit(0);
+        }
+        if (k==(i+1)){
+            ak=curr;
+        }
+        if (curr<ak){
+            printf("%d", i);
+            exit(0);
+        }
+    }
+    printf("%d", n);
+    return 0;
+}
+
+```
+我本来写的代码是
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
 
 
 
+int a[55];
+ 
+int main() {
+    int n,k;
+    cin >> n >> k;
+    for(int i = 1;i <= n;i++)
+    {
+        cin >> a[i];
+        if(a[i] == 0)
+        {
+            cout << i-1;
+            return 0;
+        }
+    }
+    int count = k;
+    for(int i = k+1;i <= n;i++)
+    {
+        if(a[i] == a[i+1])
+            count++;
+    }
+    cout << count;
+    return 0;
+}
+```
 
-
-
-
-
-
-
-
-
-
-
+过不了第三个点
 
