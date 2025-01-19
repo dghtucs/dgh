@@ -111,3 +111,68 @@ int main() {
 
 过不了第三个点
 
+
+
+## 2025年1月19日
+
+### 一本通
+
+[买笔](http://ybt.ssoier.cn:8088/problem_show.php?pid=2059)
+
+
+这个思路太秒了
+```c
+#include<stdio.h>
+using namespace std;
+int main()
+{
+	int a,b,c;
+	int x,y;
+	scanf("%d",&x);
+	c=x/4;
+	y=x%4;
+	switch(y)
+	{
+		case 0:
+		a=0;
+		b=0;
+		break;
+		case 1:
+		a=0;
+		b=1;
+		c--;
+		break;
+		case 2:
+		a=1;
+		b=0;
+		c--;
+		break;
+		case 3:	
+		a=1;
+		b=1;
+		c-=2;
+	}
+	printf("%d %d %d",a,b,c);
+	return 0;
+}
+```
+
+在 C++ 中，`int` 类型通常占用 4 字节（32 位）。因此，我们可以计算出在 1 MB 的内存中可以存放多少个 `int`。
+
+### 计算过程：
+1 MB = 1024 KB  
+1 KB = 1024 字节  
+因此，1 MB = 1024 * 1024 字节 = 1,048,576 字节。
+
+如果每个 `int` 类型占用 4 字节，那么可以存放的 `int` 数量为：
+
+\[
+\text{int 数量} = \frac{1,048,576 \text{ 字节}}{4 \text{ 字节/个}} = 262,144 \text{ 个 int}
+\]
+
+### 结论：
+1 MB 的内存可以存放 262,144 个 `int`。
+
+
+
+

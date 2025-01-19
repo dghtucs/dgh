@@ -16,6 +16,7 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "xlocnum": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "cstdlib": "cpp"
     }
 }
