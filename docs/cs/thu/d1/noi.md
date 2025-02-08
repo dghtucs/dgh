@@ -569,11 +569,108 @@ int main()
 }
 ```
 
+## 2025年2月7日
 
+### 一本通
 
+http://ybt.ssoier.cn:8088/problem_show.php?pid=1307
 
+这道题实现大数高精度乘法
+#### string方法
 
+```c
+/******************************************************************************
 
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string m,n;
+    cin >> m >> n;
+    int len1 = m.size();
+    int len2 = n.size();
+    vector<int> res(len1+len2,0);
+    
+    for(int i = len1-1;i>=0;i--)
+    {
+        for(int j = len2-1;j>=0;j--)
+        {
+            int temp = (m[i] - '0')*(n[j] - '0') + res[i+j+1];
+            res[i+j+1] = temp%10;
+            res[i+j] += temp/10;   //这里错了，应该是递增的，少了+=
+        }
+    }
+    
+    string a = "";
+    for(int i = 0;i < res.size();i++)
+    {
+        if(!(a.empty() && res[i] == 0))  //这里不能是'0',因为res是一个int数组
+        {
+            a += res[i] + '0';
+        }
+
+    }
+    
+    if(a.empty())
+    cout << "0";
+    else
+    cout << a;
+    
+
+    return 0;
+}
+```
+
+#### char数组方法
+
+```c
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+const int MAX_LEN = 200;
+int main()
+{
+    char m[MAX_LEN],n[MAX_LEN];
+    cin >> m >> n;
+    int len1 = strlen(m);
+    int len2 = strlen(n);
+    int res[MAX_LEN] = {0}; //初始化为零数组
+    
+    for(int i = len1-1;i>=0;i--)
+    {
+        for(int j = len2-1;j>=0;j--)
+        {
+            int temp = (m[i] - '0')*(n[j] - '0') + res[i+j+1];
+            res[i+j+1] = temp%10;
+            res[i+j] += temp/10;   //这里错了，应该是递增的，少了+=
+        }
+    }
+    
+    int start = 0;
+    while(start < len1+len2-1 && res[start] == 0) //0 × 123 = 0，应该输出 0，而不是空字符串，所以是start < len1+len2-1,至少保留一个0
+        start++;
+        
+    for(int i = start;i < len1+len2;i++)
+        cout << res[i];
+
+    return 0;
+}
+
+```
 
 
 
