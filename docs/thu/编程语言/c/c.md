@@ -1,5 +1,7 @@
 # C语言
 
+[测试深层目录](a/b/c/c.md)
+
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## 语言是代码的基础
