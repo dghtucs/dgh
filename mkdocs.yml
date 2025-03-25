@@ -1,7 +1,7 @@
 site_name: 勿怯 勿惰 勿贪 勿我
 nav:
+  - 个人首页: "about.md"
   - 工具链接网址: "about.md"
-  - 个人首页: "index.md"
   - 清华:
     - 清华: "thu/thu.md"
     - 大一: "thu/d1/d1.md"
