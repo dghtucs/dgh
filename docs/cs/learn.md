@@ -5,7 +5,7 @@ this is an area to save my learnings
 ## 学习
 
 ### 大一
-[大一的总结](thu/d1/d1.md)
+[大一的总结](../thu/d1/d1.md)
 
 #### 微积分
 
