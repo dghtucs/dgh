@@ -111,6 +111,7 @@ A9
 
 ## career
 
+yh说实习日薪1600
 
 ![Alt text](image-1.png)
 

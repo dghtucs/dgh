@@ -12,6 +12,8 @@
 
 [habitica](https://habitica.com/)
 
+[tradingview](https://cn.tradingview.com/chart/THK55X2F/)
+
 ## 人工智能助手
 
 [chatgpt](https://chatgpt.com/)
