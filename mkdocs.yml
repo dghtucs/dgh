@@ -1,0 +1,75 @@
+site_name: 勿怯 勿惰 勿贪 勿我
+nav:
+  - 个人首页: "index.md"
+  - 工具链接网址: "about.md"
+  - 清华:
+    - 清华: "thu/thu.md"
+    - 大一: "thu/d1/d1.md"
+    - 大二: "thu/d2/d2.md"
+    - 大三: "thu/d3/d3.md"
+    - 大四: "thu/d4/d4.md"
+  - 数学:
+    - 数学: "math/math.md"
+    - 微积分: "math/caculus.md"
+    - 线性代数: "math/linear.md"
+    - 概率论: "math/probability.md"
+  - 计算机:
+    - 计算机: "cs/cs.md"
+    - '编程语言':
+      - "C语言":
+        - C: "cs/编程语言/c/c.md"
+      - "C++语言":
+        - C++: "cs/编程语言/cpp/cpp.md"
+    - '数据结构':
+      - 总述: "cs/数据结构/dsa.md"
+    - '操作系统':
+      - 总述: "cs/操作系统/os.md"
+    - '计算机组成原理':
+      - 总述: "cs/计算机组成原理/jz.md"
+    - '计算机网络':
+      - 总述: "cs/计算机网络/jw.md"
+  - 金融量化:
+      - 金融: "finance/finance.md"
+      - 币: "finance/crypto/crypto.md"
+      - 股票: "finance/stock/stock.md"
+      - 量化: "finance/quant/quant.md"
+  - 艺体:
+    - 文学: "art/art.md"
+    - 英语: "art/English/english.md"
+    - 读书:
+      - 计算机:
+        - 编程语言: "books/cs/编程语言/lan.md"
+      - 个人成长: "books/个人成长/gr.md"
+      - 杂书: "books/navy/zashu.md"
+    - 音乐: "art/music.md"
+      
+  - 生活记录: 
+    - 我是谁: "me/dgh.md"
+    - 2024:
+      - 2024年: "me/2024/2024.md"
+      - 8月:
+        - 2024年8月6日: "me/2024/8/2024年8月6日.md"
+        - 2024年8月7日: "me/2024/8/2024年8月7日.md"
+        - 2024年8月8日: "me/2024/8/2024年8月8日.md"
+        - 2024年8月9日: "me/2024/8/2024年8月9日.md"
+        - 2024年8月10日: "me/2024/8/2024年8月10日.md"
+        - 2024年8月11日: "me/2024/8/2024年8月11日.md"
+        - 2024年8月12日: "me/2024/8/2024年8月12日.md"
+        - 2024年8月13日: "me/2024/8/2024年8月13日.md"
+        - 2024年8月14日: "me/2024/8/2024年8月14日.md"
+      - 11月:
+        - 2024年11月28日: "me/2024/11/2024年11月28日.md"
+    - 2025:
+      - 2025年: "me/2025/2025年.md"
+      - 2025年1月: "me/2025/1月/2025年1月.md"
+
+
+
+
+
+
+
+
+theme:
+  name: cyborg
+  logo: res/logo.png
