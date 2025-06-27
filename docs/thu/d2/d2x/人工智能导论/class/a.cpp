@@ -12,6 +12,10 @@ std::vector<int> sorted_list(const std::vector<int>& lst) {
     return sorted_lst;
 }
 #include <iostream>
+// Example usage of sorted_list function
+// This function sorts a list of integers and handles exceptions if the input is invalid.   
+
+
 
 int main() {
     std::vector<int> my_list = {5, 3, 8, 1, 2};
@@ -58,6 +62,7 @@ public:
     void insert(int value) {
         root = insertRec(root, value);
     }
+    
 
 private:
     TreeNode* root;

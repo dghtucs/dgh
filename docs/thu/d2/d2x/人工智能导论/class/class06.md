@@ -63,6 +63,20 @@ GoogLeNet 的L大写，用来致敬LeNet
 
 
 ### 过拟合问题
+#### Dropout
+Dropout is a regularization technique used in neural networks to prevent overfitting. It works by randomly setting a fraction of the input units to zero at each update during training time, which helps to break the co-adaptation of neurons. This means that the model cannot rely on any specific neuron, and must learn more robust features that are useful in conjunction with many different random subsets of the other neurons.
 
+期权
+#### 期权
+期权是一种金融衍生工具，赋予持有者在特定时间以特定价格买入或卖出标的资产的权利，但没有义务。期权广泛应用于风险管理和投资策略中。
+期权的主要类型包括看涨期权（Call Option）和看跌期权（Put Option）。看涨期权允许持有者在到期日或之前以执行价格购买标的资产，而看跌期权则允许持有者以执行价格出售标的资产。
+公式
+期权的价值通常由两个部分组成：内在价值和时间价值。内在价值是指期权在当前市场条件下的实际价值，而时间价值则反映了期权到期前可能获得的额外收益。
+期权定价模型，如Black-Scholes模型，提供了一种计算期权理论价值
+的方法，考虑了标的资产价格、执行价格、无风险利率、波动率和到期时间等因素。
+期权的数学公式如下：
+- 内在价值（Call Option） = max(0, S - K)
+- 内在价值（Put Option） = max(0, K - S)    
+- 时间价值 = 期权价格 - 内在价值
 
 
