@@ -2,6 +2,17 @@
 这里保存我经常用的一些网站
 
 
+[编译](thu/d3/d3s/cp/cp.md)
+[数据库](thu/d3/d3s/db/db.md)
+[数据结构](thu/d3/d3s/dsa/dsa.md)
+[计算机网络](thu/d3/d3s/jw/jw.md)
+[计算机组成原理](thu/d3/d3s/jz/jz.md)
+
+毕业&量化
+[图形学](thu/d3/d3s/cg/cg.md)
+[oi](thu/d3/d3s/oi/oi.md)
+
+
 ## 打卡
 
 [Roger](https://www.xiaohongshu.com/user/profile/5bea7b1fc2ae8c00019a43f9?xsec_token=ABcfJAYJDIr7si25rzsug3GVEvp-jk1tSJSrCPnBoJNFA=&xsec_source=pc_note)
