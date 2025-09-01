@@ -17,6 +17,8 @@
 
 [oi](thu/d3/d3s/oi/oi.md)
 
+[量化](thu/d3/d3s/quant/quant.md)
+
 
 ## 打卡
 
