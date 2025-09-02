@@ -4,48 +4,48 @@ oi plus cpp python java
 # 算法OJ
 
 ## leetcode
-网址 https://leetcode.com
-
+[网址](https://leetcode.com)
+[会员专享内容](./oj/lc/lc.md)
 
 
 ## codeforces
-网址 https://codeforces.com
+ [网址](https://codeforces.com)
 
 
 
 ## 洛谷
-网址 https://www.luogu.com.cn
+[网址](https://www.luogu.com.cn)
 
 ## 牛客网
-网址 https://www.nowcoder.com
+[网址](https://www.nowcoder.com)
 
 ## AtCoder
-网址 https://atcoder.jp
+[网址](https://atcoder.jp)
 
 ## loj
-网址 https://loj.ac
+ [网址](https://loj.ac)
 
 ## CodeChef
-网址 https://www.codechef.com
+ [网址](https://www.codechef.com)
 
 
 ## TopCoder
-网址 https://www.topcoder.com
+ [网址](https://www.topcoder.com)
 
 
 # 编程语言
 
 ## C++
-网址 https://en.cppreference.com/
+ [网址](https://en.cppreference.com/)
 
 
 ## Python
-网址 https://docs.python.org/3/
+ [网址](https://docs.python.org/3/)
 
 
 
 ## Java
-网址 https://docs.oracle.com/javase/8/docs/api/
+ [网址](https://docs.oracle.com/javase/8/docs/api/)
 
 
 
