@@ -53,18 +53,102 @@ here to write my code in leetcode
 ### 双指针
 只有一个输入, 从两端开始遍历
 
-```cpp
-int fn(vector<int>& arr) {
-    int left = 0;
-    int right = int(arr.size()) - 1;
+![alt text](image-15.png)
+
+![alt text](image-16.png)
+
+![alt text](image-17.png)
+
+### 双指针
+有两个输入, 两个都需要遍历完
+
+![alt text](image-18.png)
+
+![alt text](image-19.png)
+
+![alt text](image-20.png)
+
+### 滑动窗口
+
+![alt text](image-21.png)
+
+![alt text](image-22.png)
+
+![alt text](image-23.png)
+
+### 构建前缀和
+
+![alt text](image-24.png)
+
+![alt text](image-25.png)
+
+![alt text](image-26.png)
+
+
+### 高效的字符串构建
+
+![alt text](image-27.png)
+
+![alt text](image-28.png)
+
+![alt text](image-29.png)
+
+
+### 链表: 快慢指针
+
+![alt text](image-30.png)
+
+![alt text](image-31.png)
+
+![alt text](image-32.png)
+
+### 反转链表
+![alt text](image-33.png)
+
+![alt text](image-34.png)
+
+![alt text](image-35.png)
+
+### 找到符合确切条件的子数组数
+
+![alt text](image-36.png)
+
+![alt text](image-37.png)
+
+![alt text](image-38.png)
+
+### 单调递增栈
+
+![alt text](image-39.png)
+
+![alt text](image-40.png)
+
+![alt text](image-41.png)
+
+### 二叉树: DFS (递归)
+
+![alt text](image-42.png)
+
+![alt text](image-43.png)
+
+![alt text](image-44.png)
+
+### 二叉树: DFS (迭代)
+
+```java
+public int dfs(TreeNode root) {
+    Stack<TreeNode> stack = new Stack<>();
+    stack.push(root);
     int ans = 0;
 
-    while (left < right) {
-        // 一些根据 letf 和 right 相关的代码补充
-        if (CONDITION) {
-            left++;
-        } else {
-            right--;
+    while (!stack.empty()) {
+        TreeNode node = stack.pop();
+        // 根据题意补充代码
+        if (node.left != null) {
+            stack.push(node.left);
+        }
+        if (node.right != null) {
+            stack.push(node.right);
         }
     }
 
@@ -72,6 +156,104 @@ int fn(vector<int>& arr) {
 }
 
 ```
+```cpp
+int dfs(TreeNode* root) {
+    stack<TreeNode*> stack;
+    stack.push(root);
+    int ans = 0;
+
+    while (!stack.empty()) {
+        TreeNode* node = stack.top();
+        stack.pop();
+        // 根据题意补充代码
+        if (node->left != nullptr) {
+            stack.push(node->left);
+        }
+        if (node->right != nullptr) {
+            stack.push(node->right);
+        }
+    }
+
+    return ans;
+}
+```
+
+
+```python
+def dfs(root):
+    stack = [root]
+    ans = 0
+
+    while stack:
+        node = stack.pop()
+        # 根据题意补充代码
+        if node.left:
+            stack.append(node.left)
+        if node.right:
+            stack.append(node.right)
+
+    return ans
+
+
+
+```
+
+### 二叉树: BFS
+
+```java
+public int fn(TreeNode root) {
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(root);
+    int ans = 0;
+
+    while (!queue.isEmpty()) {
+        int currentLength = queue.size();
+        // 做一些当前层的操作
+
+        for (int i = 0; i < currentLength; i++) {
+            TreeNode node = queue.remove();
+            // 根据题意补充代码
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+    }
+
+    return ans;
+}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
