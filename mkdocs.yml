@@ -71,5 +71,5 @@ nav:
 
 
 theme:
-  name: cyborg
+  name: mkdocs
   logo: res/logo.png
