@@ -660,6 +660,99 @@ def fn(arr, target):
 
 ### 二分查找: 重复元素，最左边的插入点
 
+```java
+public int fn(int[] arr, int target) {
+    int left = 0;
+    int right = arr.length;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] >= target) {
+            right = mid
+        } else {
+            left = mid + 1;
+        }
+    }
+
+    return left;
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/arithmetic-interview-cheat-sheet/0etkbe/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+```cpp
+int binarySearch(vector<int>& arr, int target) {
+    int left = 0;
+    int right = arr.size();
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] >= target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    
+    return left;
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/arithmetic-interview-cheat-sheet/0etkbe/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+```python
+def fn(arr, target):
+    left = 0
+    right = len(arr)
+    while left < right:
+        mid = (left + right) // 2
+        if arr[mid] >= target:
+            right = mid
+        else:
+            left = mid + 1
+
+    return left
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/arithmetic-interview-cheat-sheet/0etkbe/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
