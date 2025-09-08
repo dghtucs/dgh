@@ -1715,6 +1715,1533 @@ public static void quickSort(int[] arr, int start, int end) {
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
 
+更进一步，由上文所说的 middle >= start && middle <= end 可以推出，除了start == end || start == end + 1这两个条件之外，其他的情况下 start 都小于 end。所以我们可以将这个判断条件再次简写为：
+
+```java
+
+public static void quickSort(int[] arr, int start, int end) {
+    // 如果区域内的数字少于 2 个，退出递归
+    if (start >= end) return;
+    // 将数组分区，并获得中间值的下标
+    int middle = partition(arr, start, end);
+    // 对左边区域快速排序
+    quickSort(arr, start, middle - 1);
+    // 对右边区域快速排序
+    quickSort(arr, middle + 1, end);
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/eul7hm/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+![alt text](image-59.png)
+
+```java
+// 将 arr 从 start 到 end 分区，左边区域比基数小，右边区域比基数大，然后返回中间值的下标
+public static int partition(int[] arr, int start, int end) {
+    // 取第一个数为基数
+    int pivot = arr[start];
+    // 从第二个数开始分区
+    int left = start + 1;
+    // 右边界
+    int right = end;
+    // TODO
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/eul7hm/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+最简单的分区算法
+分区的方式也有很多种，最简单的思路是：从 left 开始，遇到比基数大的数，就交换到数组最后，并将 right 减一，直到 left 和 right 相遇，此时数组就被分成了左右两个区域。再将基数和中间的数交换，返回中间值的下标即可。
+
+按照这个思路，我们敲出了如下代码：
+
+```java
+public static void quickSort(int[] arr) {
+    quickSort(arr, 0, arr.length - 1);
+}
+public static void quickSort(int[] arr, int start, int end) {
+    // 如果区域内的数字少于 2 个，退出递归
+    if (start >= end) return;
+    // 将数组分区，并获得中间值的下标
+    int middle = partition(arr, start, end);
+    // 对左边区域快速排序
+    quickSort(arr, start, middle - 1);
+    // 对右边区域快速排序
+    quickSort(arr, middle + 1, end);
+}
+// 将 arr 从 start 到 end 分区，左边区域比基数小，右边区域比基数大，然后返回中间值的下标
+public static int partition(int[] arr, int start, int end) {
+    // 取第一个数为基数
+    int pivot = arr[start];
+    // 从第二个数开始分区
+    int left = start + 1;
+    // 右边界
+    int right = end;
+    // left、right 相遇时退出循环
+    while (left < right) {
+        // 找到第一个大于基数的位置
+        while (left < right && arr[left] <= pivot) left++;
+        // 交换这两个数，使得左边分区都小于或等于基数，右边分区大于或等于基数
+        if (left != right) {
+            exchange(arr, left, right);
+            right--;
+        }
+    }
+    // 如果 left 和 right 相等，单独比较 arr[right] 和 pivot
+    if (left == right && arr[right] > pivot) right--;
+    // 将基数和中间数交换
+    if (right != start) exchange(arr, start, right);
+    // 返回中间值的下标
+    return right;
+}
+private static void exchange(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+
+
+```
+
+
+![alt text](image-60.png)
+
+```java
+public static void quickSort(int[] arr) {
+    quickSort(arr, 0, arr.length - 1);
+}
+public static void quickSort(int[] arr, int start, int end) {
+    // 如果区域内的数字少于 2 个，退出递归
+    if (start >= end) return;
+    // 将数组分区，并获得中间值的下标
+    int middle = partition(arr, start, end);
+    // 对左边区域快速排序
+    quickSort(arr, start, middle - 1);
+    // 对右边区域快速排序
+    quickSort(arr, middle + 1, end);
+}
+// 将 arr 从 start 到 end 分区，左边区域比基数小，右边区域比基数大，然后返回中间值的下标
+public static int partition(int[] arr, int start, int end) {
+    // 取第一个数为基数
+    int pivot = arr[start];
+    // 从第二个数开始分区
+    int left = start + 1;
+    // 右边界
+    int right = end;
+    while (left < right) {
+        // 找到第一个大于基数的位置
+        while (left < right && arr[left] <= pivot) left++;
+        // 找到第一个小于基数的位置
+        while (left < right && arr[right] >= pivot) right--;
+        // 交换这两个数，使得左边分区都小于或等于基数，右边分区大于或等于基数
+        if (left < right) {
+            exchange(arr, left, right);
+            left++;
+            right--;
+        }
+    }
+    // 如果 left 和 right 相等，单独比较 arr[right] 和 pivot
+    if (left == right && arr[right] > pivot) right--;
+    // 将基数和轴交换
+    exchange(arr, start, right);
+    return right;
+}
+private static void exchange(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/eul7hm/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+![alt text](image-61.png)
+
+![alt text](image-62.png)
+
+
+![alt text](image-63.png)
+
+
+```java
+private static final int SHUFFLE_THRESHOLD = 5;
+
+public static void shuffle(List<?> list, Random rnd) {
+    int size = list.size();
+    if (size < SHUFFLE_THRESHOLD || list instanceof RandomAccess) {
+        for (int i=size; i>1; i--)
+            swap(list, i-1, rnd.nextInt(i));
+    } else {
+        Object arr[] = list.toArray();
+        // Shuffle array
+        for (int i=size; i>1; i--)
+            swap(arr, i-1, rnd.nextInt(i));
+        // Dump array back into list
+        // instead of using a raw type here, it's possible to capture
+        // the wildcard but it will require a call to a supplementary
+        // private method
+        ListIterator it = list.listIterator();
+        for (int i=0; i<arr.length; i++) {
+            it.next();
+            it.set(arr[i]);
+        }
+    }
+}
+
+public static void swap(List<?> list, int i, int j) {
+    // instead of using a raw type here, it's possible to capture
+    // the wildcard but it will require a call to a supplementary
+    // private method
+    final List l = list;
+    l.set(i, l.set(j, l.get(i)));
+}
+
+private static void swap(Object[] arr, int i, int j) {
+    Object tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/eul7hm/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+![alt text](image-64.png)
+
+
+### 归并排序
+
+![alt text](image-65.png)
+
+```java
+// 将两个有序数组合并为一个有序数组
+private static int[] merge(int[] arr1, int[] arr2) {
+    int[] result = new int[arr1.length + arr2.length];
+    int index1 = 0, index2 = 0;
+    while (index1 < arr1.length && index2 < arr2.length) {
+        if (arr1[index1] <= arr2[index2]) {
+            result[index1 + index2] = arr1[index1];
+            index1++;
+        } else {
+            result[index1 + index2] = arr2[index2];
+            index2++;
+        }
+    }
+    // 将剩余数字补到结果数组之后
+    while (index1 < arr1.length) {
+        result[index1 + index2] = arr1[index1];
+        index1++;
+    }
+    while (index2 < arr2.length) {
+        result[index1 + index2] = arr2[index2];
+        index2++;
+    }
+    return result;
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/euivj1/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+![alt text](image-66.png)
+
+```java
+public static void mergeSort(int[] arr) {
+    if (arr.length == 0) return;
+    int[] result = mergeSort(arr, 0, arr.length - 1);
+    // 将结果拷贝到 arr 数组中
+    for (int i = 0; i < result.length; i++) {
+        arr[i] = result[i];
+    }
+}
+
+// 对 arr 的 [start, end] 区间归并排序
+private static int[] mergeSort(int[] arr, int start, int end) {
+    // 只剩下一个数字，停止拆分，返回单个数字组成的数组
+    if (start == end) return new int[]{arr[start]};
+    int middle = (start + end) / 2;
+    // 拆分左边区域
+    int[] left = mergeSort(arr, start, middle);
+    // 拆分右边区域
+    int[] right = mergeSort(arr, middle + 1, end);
+    // 合并左右区域
+    return merge(left, right);
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/euivj1/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```
+
+![alt text](image-67.png)
+
+```java
+public static void mergeSort(int[] arr) {
+    if (arr.length == 0) return;
+    int[] result = new int[arr.length];
+    mergeSort(arr, 0, arr.length - 1, result);
+}
+
+// 对 arr 的 [start, end] 区间归并排序
+private static void mergeSort(int[] arr, int start, int end, int[] result) {
+    // 只剩下一个数字，停止拆分
+    if (start == end) return;
+    int middle = (start + end) / 2;
+    // 拆分左边区域，并将归并排序的结果保存到 result 的 [start, middle] 区间
+    mergeSort(arr, start, middle, result);
+    // 拆分右边区域，并将归并排序的结果保存到 result 的 [middle + 1, end] 区间
+    mergeSort(arr, middle + 1, end, result);
+    // 合并左右区域到 result 的 [start, end] 区间
+    merge(arr, start, end, result);
+}
+
+// 将 result 的 [start, middle] 和 [middle + 1, end] 区间合并
+private static void merge(int[] arr, int start,  int end, int[] result) {
+    int middle = (start + end) / 2;
+    // 数组 1 的首尾位置
+    int start1 = start;
+    int end1 = middle;
+    // 数组 2 的首尾位置
+    int start2 = middle + 1;
+    int end2 = end;
+    // 用来遍历数组的指针
+    int index1 = start1;
+    int index2 = start2;
+    // 结果数组的指针
+    int resultIndex = start1;
+    while (index1 <= end1 && index2 <= end2) {
+        if (arr[index1] <= arr[index2]) {
+            result[resultIndex++] = arr[index1++];
+        } else {
+            result[resultIndex++] = arr[index2++];
+        }
+    }
+    // 将剩余数字补到结果数组之后
+    while (index1 <= end1) {
+        result[resultIndex++] = arr[index1++];
+    }
+    while (index2 <= end2) {
+        result[resultIndex++] = arr[index2++];
+    }
+    // 将 result 操作区间的数字拷贝到 arr 数组中，以便下次比较
+    for (int i = start; i <= end; i++) {
+        arr[i] = result[i];
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/euivj1/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+![alt text](image-68.png)
+
+```java
+public static void mergeSort(int[] arr) {
+    if (arr.length == 0) return;
+    int[] result = new int[arr.length];
+    mergeSort(arr, 0, arr.length - 1, result);
+}
+
+// 对 arr 的 [start, end] 区间归并排序
+private static void mergeSort(int[] arr, int start, int end, int[] result) {
+    // 只剩下一个数字，停止拆分
+    if (start == end) return;
+    int middle = (start + end) / 2;
+    // 拆分左边区域，并将归并排序的结果保存到 result 的 [start, middle] 区间
+    mergeSort(arr, start, middle, result);
+    // 拆分右边区域，并将归并排序的结果保存到 result 的 [middle + 1, end] 区间
+    mergeSort(arr, middle + 1, end, result);
+    // 合并左右区域到 result 的 [start, end] 区间
+    merge(arr, start, end, result);
+}
+
+// 将 result 的 [start, middle] 和 [middle + 1, end] 区间合并
+private static void merge(int[] arr, int start, int end, int[] result) {
+    int end1 = (start + end) / 2;
+    int start2 = end1 + 1;
+    // 用来遍历数组的指针
+    int index1 = start;
+    int index2 = start2;
+    while (index1 <= end1 && index2 <= end) {
+        if (arr[index1] <= arr[index2]) {
+            result[index1 + index2 - start2] = arr[index1++];
+        } else {
+            result[index1 + index2 - start2] = arr[index2++];
+        }
+    }
+    // 将剩余数字补到结果数组之后
+    while (index1 <= end1) {
+        result[index1 + index2 - start2] = arr[index1++];
+    }
+    while (index2 <= end) {
+        result[index1 + index2 - start2] = arr[index2++];
+    }
+    // 将 result 操作区间的数字拷贝到 arr 数组中，以便下次比较
+    while (start <= end) {
+        arr[start] = result[start++];
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/euivj1/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+原地归并排序？
+现在的归并排序看起来仍"美中不足"，那就是仍然需要开辟额外的空间，能不能实现不开辟额外空间的归并排序呢？好像是可以做到的。在一些文章中，将这样的归并排序称之为 In-Place Merge Sort，直译为原地归并排序。
+
+代码实现思路主要有两种：
+
+```java
+public static void mergeSort(int[] arr) {
+    if (arr.length == 0) return;
+    mergeSort(arr, 0, arr.length - 1);
+}
+
+// 对 arr 的 [start, end] 区间归并排序
+private static void mergeSort(int[] arr, int start, int end) {
+    // 只剩下一个数字，停止拆分
+    if (start == end) return;
+    int middle = (start + end) / 2;
+    // 拆分左边区域
+    mergeSort(arr, start, middle);
+    // 拆分右边区域
+    mergeSort(arr, middle + 1, end);
+    // 合并左右区域
+    merge(arr, start, end);
+}
+
+// 将 arr 的 [start, middle] 和 [middle + 1, end] 区间合并
+private static void merge(int[] arr, int start, int end) {
+    int end1 = (start + end) / 2;
+    int start2 = end1 + 1;
+    // 用来遍历数组的指针
+    int index1 = start;
+    int index2 = start2;
+    while (index1 <= end1 && index2 <= end) {
+        if (arr[index1] <= arr[index2]) {
+            index1++;
+        } else {
+            // 右边区域的这个数字比左边区域的数字小，于是它站了起来
+            int value = arr[index2];
+            int index = index2;
+            // 前面的数字不断地后移
+            while (index > index1) {
+                arr[index] = arr[index - 1];
+                index--;
+            }
+            // 这个数字坐到 index1 所在的位置上
+            arr[index] = value;
+            // 更新所有下标，使其前进一格
+            index1++;
+            index2++;
+            end1++;
+        }
+    }
+}
+
+
+```
+
+这段代码在合并 arr 的 [start, middle] 区间和 [middle + 1, end] 区间时，将两个区间较小的数字移动到 index1 的位置，并且将左边区域不断后移，目的是给新插入的数字腾出位置。最后更新两个区间的下标，继续合并更新后的区间。
+
+第二种实现思路：
+
+
+```java
+
+public static void mergeSort(int[] arr) {
+    if (arr.length == 0) return;
+    mergeSort(arr, 0, arr.length - 1);
+}
+
+// 对 arr 的 [start, end] 区间归并排序
+private static void mergeSort(int[] arr, int start, int end) {
+    // 只剩下一个数字，停止拆分
+    if (start == end) return;
+    int middle = (start + end) / 2;
+    // 拆分左边区域
+    mergeSort(arr, start, middle);
+    // 拆分右边区域
+    mergeSort(arr, middle + 1, end);
+    // 合并左右区域
+    merge(arr, start, end);
+}
+
+// 将 arr 的 [start, middle] 和 [middle + 1, end] 区间合并
+private static void merge(int[] arr, int start, int end) {
+    int end1 = (start + end) / 2;
+    int start2 = end1 + 1;
+    // 用来遍历数组的指针
+    int index1 = start;
+    while (index1 <= end1 && start2 <= end) {
+        if (arr[index1] > arr[start2]) {
+            // 将 index1 和 start2 下标的数字交换
+            exchange(arr, index1, start2);
+            if (start2 != end) {
+                // 调整交换到 start2 上的这个数字的位置，使右边区域继续保持有序
+                int value = arr[start2];
+                int index = start2;
+                // 右边区域比 arr[start2] 小的数字不断前移
+                while (index < end && arr[index + 1] < value) {
+                    arr[index] = arr[index + 1];
+                    index++;
+                }
+                // 交换到右边区域的这个数字找到了自己合适的位置，坐下
+                arr[index] = value;
+            }
+        }
+        index1++;
+    }
+}
+
+private static void exchange(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/euivj1/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+![alt text](image-69.png)
+
+![alt text](image-70.png)
+
+### 小结
+
+
+![alt text](image-71.png)
+
+![alt text](image-72.png)
+
+## O(n) 级排序算法
+
+
+### 计数排序
+
+![alt text](image-73.png)
+
+
+```java
+public static void countingSort9(int[] arr) {
+    // 建立长度为 9 的数组，下标 0~8 对应数字 1~9
+    int[] counting = new int[9];
+    // 遍历 arr 中的每个元素
+    for (int element : arr) {
+        // 将每个整数出现的次数统计到计数数组中对应下标的位置
+        counting[element - 1]++;
+    }
+    int index = 0;
+    // 遍历计数数组，将每个元素输出
+    for (int i = 0; i < 9; i++) {
+        // 输出的次数就是对应位置记录的次数
+        while (counting[i] != 0) {
+            arr[index++] = i + 1;
+            counting[i]--;
+        }
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/ozyo63/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+```
+
+![alt text](image-74.png)
+
+```java
+public static void countingSort9(int[] arr) {
+    // 建立长度为 9 的数组，下标 0~8 对应数字 1~9
+    int[] counting = new int[9];
+    // 记录每个下标中包含的真实元素，使用队列可以保证排序的稳定性
+    HashMap<Integer, Queue<Integer>> records = new HashMap<>();
+    // 遍历 arr 中的每个元素
+    for (int element : arr) {
+        // 将每个整数出现的次数统计到计数数组中对应下标的位置
+        counting[element - 1]++;
+        if (!records.containsKey(element - 1)) {
+            records.put(element - 1, new LinkedList<>());
+        }
+        records.get(element - 1).add(element);
+    }
+    int index = 0;
+    // 遍历计数数组，将每个元素输出
+    for (int i = 0; i < 9; i++) {
+        // 输出的次数就是对应位置记录的次数
+        while (counting[i] != 0) {
+            // 输出记录的真实元素
+            arr[index++] = records.get(i).remove();
+            counting[i]--;
+        }
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/ozyo63/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```
+
+
+![alt text](image-75.png)
+
+```java
+public static void countingSort9(int[] arr) {
+    // 建立长度为 9 的数组，下标 0~8 对应数字 1~9
+    int[] counting = new int[9];
+    // 遍历 arr 中的每个元素
+    for (int element : arr) {
+        // 将每个整数出现的次数统计到计数数组中对应下标的位置
+        counting[element - 1]++;
+    }
+    // 记录前面比自己小的数字的总数
+    int preCounts = 0;
+    for (int i = 0; i < counting.length; i++) {
+        int temp = counting[i];
+        // 将 counting 计算成当前数字在结果中的起始下标位置。位置 = 前面比自己小的数字的总数。
+        counting[i] = preCounts;
+        // 当前的数字比下一个数字小，累计到 preCounts 中
+        preCounts += temp;
+    }
+    int[] result = new int[arr.length];
+    for (int element : arr) {
+        // counting[element - 1] 表示此元素在结果数组中的下标
+        int index = counting[element - 1];
+        result[index] = element;
+        // 更新 counting[element - 1]，指向此元素的下一个下标
+        counting[element - 1]++;
+    }
+    // 将结果赋值回 arr
+    for (int i = 0; i < arr.length; i++) {
+        arr[i] = result[i];
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/ozyo63/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+![alt text](image-76.png)
+
+```java
+public static void countingSort(int[] arr) {
+    // 判空及防止数组越界
+    if (arr == null || arr.length <= 1) return;
+    // 找到最大值，最小值
+    int max = arr[0];
+    int min = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] > max) max = arr[i];
+        else if (arr[i] < min) min = arr[i];
+    }
+    // 确定计数范围
+    int range = max - min + 1;
+    // 建立长度为 range 的数组，下标 0~range-1 对应数字 min~max
+    int[] counting = new int[range];
+    // 遍历 arr 中的每个元素
+    for (int element : arr) {
+        // 将每个整数出现的次数统计到计数数组中对应下标的位置，这里需要将每个元素减去 min，才能映射到 0～range-1 范围内
+        counting[element - min]++;
+    }
+    // 记录前面比自己小的数字的总数
+    int preCounts = 0;
+    for (int i = 0; i < range; i++) {
+        // 当前的数字比下一个数字小，累计到 preCounts 中
+        preCounts += counting[i];
+        // 将 counting 计算成当前数字在结果中的起始下标位置。位置 = 前面比自己小的数字的总数。
+        counting[i] = preCounts - counting[i];
+    }
+    int[] result = new int[arr.length];
+    for (int element : arr) {
+        // counting[element - min] 表示此元素在结果数组中的下标
+        result[counting[element - min]] = element;
+        // 更新 counting[element - min]，指向此元素的下一个下标
+        counting[element - min]++;
+    }
+    // 将结果赋值回 arr
+    for (int i = 0; i < arr.length; i++) {
+        arr[i] = result[i];
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/ozyo63/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+这就是完整的计数排序算法。
+
+倒序遍历的计数排序
+计数排序还有一种写法，在计算元素在最终结果数组中的下标位置这一步，不是计算初始下标位置，而是计算最后一个下标位置。最后倒序遍历 arr 数组，逐个将 arr 中的元素放到最终位置上。
+
+代码如下：
+
+```java
+public static void countingSort(int[] arr) {
+    // 防止数组越界
+    if (arr == null || arr.length <= 1) return;
+    // 找到最大值，最小值
+    int max = arr[0];
+    int min = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] > max) max = arr[i];
+        else if (arr[i] < min) min = arr[i];
+    }
+    // 确定计数范围
+    int range = max - min + 1;
+    // 建立长度为 range 的数组，下标 0~range-1 对应数字 min~max
+    int[] counting = new int[range];
+    // 遍历 arr 中的每个元素
+    for (int element : arr) {
+        // 将每个整数出现的次数统计到计数数组中对应下标的位置，这里需要将每个元素减去 min，才能映射到 0～range-1 范围内
+        counting[element - min]++;
+    }
+    // 每个元素在结果数组中的最后一个下标位置 = 前面比自己小的数字的总数 + 自己的数量 - 1。我们将 counting[0] 先减去 1，后续 counting 直接累加即可
+    counting[0]--;
+    for (int i = 1; i < range; i++) {
+        // 将 counting 计算成当前数字在结果中的最后一个下标位置。位置 = 前面比自己小的数字的总数 + 自己的数量 - 1
+        // 由于 counting[0] 已经减了 1，所以后续的减 1 可以省略。
+        counting[i] += counting[i - 1];
+    }
+    int[] result = new int[arr.length];
+    // 从后往前遍历数组，通过 counting 中记录的下标位置，将 arr 中的元素放到 result 数组中
+    for (int i = arr.length - 1; i >= 0; i--) {
+        // counting[arr[i] - min] 表示此元素在结果数组中的下标
+        result[counting[arr[i] - min]] = arr[i];
+        // 更新 counting[arr[i] - min]，指向此元素的前一个下标
+        counting[arr[i] - min]--;
+    }
+    // 将结果赋值回 arr
+    for (int i = 0; i < arr.length; i++) {
+        arr[i] = result[i];
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/ozyo63/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+![alt text](image-77.png)
+
+![alt text](image-78.png)
+
+
+![alt text](image-79.png)
+![alt text](image-80.png)
+
+### 基数排序
+
+![alt text](image-81.png)
+
+
+![alt text](image-82.png)
+
+```java
+int mod = 10;
+int dev = 1;
+for (int i = 0; i < maxDigitLength; i++) {
+    for (int value : arr) {
+        int radix = value % mod / dev;
+        // 对基数进行排序
+    }
+    mod *= 10;
+    dev *= 10;
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/raydw2/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+second
+```java
+int dev = 1;
+for (int i = 0; i < maxDigitLength; i++) {
+    for (int value : arr) {
+        int radix = value / dev % 10;
+        // 对基数进行排序
+    }
+    dev *= 10;
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/raydw2/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+两者的区别是先做除法运算还是先做模运算，推荐使用第二种写法，因为它可以节省一个变量。
+
+对基数进行排序
+对基数进行排序非常适合使用我们在上一节中学习的计数排序算法，因为每一个基数都在 [0,9] 之间，并且计数排序是一种稳定的算法。
+
+LSD 方式的基数排序代码如下：
+
+
+```java
+public class RadixSort {
+
+    public static void radixSort(int[] arr) {
+        if (arr == null) return;
+        // 找出最大值
+        int max = 0;
+        for (int value : arr) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        // 计算最大数字的长度
+        int maxDigitLength = 0;
+        while (max != 0) {
+            maxDigitLength++;
+            max /= 10;
+        }
+        // 使用计数排序算法对基数进行排序
+        int[] counting = new int[10];
+        int[] result = new int[arr.length];
+        int dev = 1;
+        for (int i = 0; i < maxDigitLength; i++) {
+            for (int value : arr) {
+                int radix = value / dev % 10;
+                counting[radix]++;
+            }
+            for (int j = 1; j < counting.length; j++) {
+                counting[j] += counting[j - 1];
+            }
+            // 使用倒序遍历的方式完成计数排序
+            for (int j = arr.length - 1; j >= 0; j--) {
+                int radix = arr[j] / dev % 10;
+                result[--counting[radix]] = arr[j];
+            }
+            // 计数排序完成后，将结果拷贝回 arr 数组
+            System.arraycopy(result, 0, arr, 0, arr.length);
+            // 将计数数组重置为 0
+            Arrays.fill(counting, 0);
+            dev *= 10;
+        }
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/raydw2/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```
+
+![alt text](image-83.png)
+
+
+```java
+public class RadixSort {
+
+    public static void radixSort(int[] arr) {
+        if (arr == null) return;
+        // 找出最长的数
+        int max = 0;
+        for (int value : arr) {
+            if (Math.abs(value) > max) {
+                max = Math.abs(value);
+            }
+        }
+        // 计算最长数字的长度
+        int maxDigitLength = 0;
+        while (max != 0) {
+            maxDigitLength++;
+            max /= 10;
+        }
+        // 使用计数排序算法对基数进行排序，下标 [0, 18] 对应基数 [-9, 9]
+        int[] counting = new int[19];
+        int[] result = new int[arr.length];
+        int dev = 1;
+        for (int i = 0; i < maxDigitLength; i++) {
+            for (int value : arr) {
+                // 下标调整
+                int radix = value / dev % 10 + 9;
+                counting[radix]++;
+            }
+            for (int j = 1; j < counting.length; j++) {
+                counting[j] += counting[j - 1];
+            }
+            // 使用倒序遍历的方式完成计数排序
+            for (int j = arr.length - 1; j >= 0; j--) {
+                // 下标调整
+                int radix = arr[j] / dev % 10 + 9;
+                result[--counting[radix]] = arr[j];
+            }
+            // 计数排序完成后，将结果拷贝回 arr 数组
+            System.arraycopy(result, 0, arr, 0, arr.length);
+            // 将计数数组重置为 0
+            Arrays.fill(counting, 0);
+            dev *= 10;
+        }
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/raydw2/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```
+
+![alt text](image-84.png)
+
+
+```java
+public class RadixSort {
+
+    public static void radixSort(int[] arr) {
+        if (arr == null) return;
+        // 找到最大值
+        int max = 0;
+        for (int value : arr) {
+            if (Math.abs(value) > max) {
+                max = Math.abs(value);
+            }
+        }
+        // 计算最大长度
+        int maxDigitLength = 0;
+        while (max != 0) {
+            maxDigitLength++;
+            max /= 10;
+        }
+        radixSort(arr, 0, arr.length - 1, maxDigitLength);
+    }
+
+    // 对 arr 数组中的 [start, end] 区间进行基数排序
+    private static void radixSort(int[] arr, int start, int end, int position) {
+        if (start == end || position == 0) return;
+        // 使用计数排序对基数进行排序
+        int[] counting = new int[19];
+        int[] result = new int[end - start + 1];
+        int dev = (int) Math.pow(10, position - 1);
+        for (int i = start; i <= end; i++) {
+            // MSD, 从最高位开始
+            int radix = arr[i] / dev % 10 + 9;
+            counting[radix]++;
+        }
+        for (int j = 1; j < counting.length; j++) {
+            counting[j] += counting[j - 1];
+        }
+        // 拷贝 counting，用于待会的递归
+        int[] countingCopy = new int[counting.length];
+        System.arraycopy(counting, 0, countingCopy, 0, counting.length);
+        for (int i = end; i >= start; i--) {
+            int radix = arr[i] / dev % 10 + 9;
+            result[--counting[radix]] = arr[i];
+        }
+        // 计数排序完成后，将结果拷贝回 arr 数组
+        System.arraycopy(result, 0, arr, start, result.length);
+        // 对 [start, end] 区间内的每一位基数进行递归排序
+        for (int i = 0; i < counting.length; i++) {
+            radixSort(arr, i == 0 ? start : start + countingCopy[i - 1], start + countingCopy[i] - 1, position - 1);
+        }
+    }
+
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/raydw2/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+![alt text](image-85.png)
+
+
+### 桶排序
+
+![alt text](image-86.png)
+
+```java
+public static void bucketSort(int[] arr) {
+    // 判空及防止数组越界
+    if (arr == null || arr.length <= 1) return;
+    // 找到最大值，最小值
+    int max = arr[0];
+    int min = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] > max) max = arr[i];
+        else if (arr[i] < min) min = arr[i];
+    }
+    // 确定取值范围
+    int range = max - min;
+    // ...
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/phtz1j/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+这里需要遍历一轮数组。
+
+下一步，开始装桶：
+
+
+```java
+// 设置桶的数量，这里我们设置为 100 个，可以根据实际情况修改。
+int bucketAmount = 100;
+// 桶和桶之间的间距
+double gap = range * 1.0 / (bucketAmount - 1);
+// 用二维数组来装桶，第一个维度是桶的编号，第二个维度是桶中的数字。每个桶的长度必须设置为 arr.length，因为我们要做好最坏的打算：所有的数字都被装入了一个桶中。
+int[][] buckets = new int[bucketAmount][arr.length];
+// 单独采用一个数组来记录每个桶当前的长度，也就是当前桶内共有多少个数字。
+int[] bucketLength = new int[bucketAmount];
+// 装桶
+for (int value : arr) {
+    // 找到 value 属于哪个桶
+    int index = (int) ((value - min) / gap);
+    // 装桶后，更新 bucketLength[index]
+    buckets[index][bucketLength[index]++] = value;
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/phtz1j/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+![alt text](image-87.png)
+
+这就是以数组作为桶实现的桶排序，它最大的缺点就是每个桶都和待排序数组一样长，非常消耗内存，容易导致「超出内存限制」错误。
+
+我们可以在这份代码的基础上做一个优化：声明时所有的数组都为空，当需要添加数字时，不断扩容，并加入新数字。完整代码如下：
+
+```java
+public static void bucketSort(int[] arr) {
+    // 判空及防止数组越界
+    if (arr == null || arr.length <= 1) return;
+    // 找到最大值，最小值
+    int max = arr[0];
+    int min = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] > max) max = arr[i];
+        else if (arr[i] < min) min = arr[i];
+    }
+    // 确定取值范围
+    int range = max - min;
+    // 设置桶的数量，这里我们设置为 100 个，可以根据实际情况修改。
+    int bucketAmount = 100;
+    // 桶和桶之间的间距
+    double gap = range * 1.0 / (bucketAmount - 1);
+    // 用二维数组来装桶，第一个维度是桶的编号，第二个维度是桶中的数字。初始化长度为 0
+    int[][] buckets = new int[bucketAmount][];
+    // 装桶
+    for (int value : arr) {
+        // 找到 value 属于哪个桶
+        int index = (int) ((value - min) / gap);
+        buckets[index] = add(buckets[index], value);
+    }
+    int index = 0;
+    // 对每个桶内的数字进行单独排序
+    for (int i = 0; i < bucketAmount; i++) {
+        if (buckets[i] == null || buckets[i].length == 0) continue;
+        // 这里需要结合其他排序算法，例如：插入排序
+        insertSort(buckets[i]);
+        // 排序完成后将桶内的结果收集起来
+        System.arraycopy(buckets[i], 0, arr, index, buckets[i].length);
+        index += buckets[i].length;
+    }
+}
+// 数组扩容
+public static int[] add(int[] arr, int num) {
+    if (arr == null) return new int[]{num};
+    int[] newArr = Arrays.copyOf(arr, arr.length + 1);
+    newArr[arr.length] = num;
+    return newArr;
+}
+// 插入排序
+public static void insertSort(int[] arr) {
+    // 从第二个数开始，往前插入数字
+    for (int i = 1; i < arr.length; i++) {
+        int currentNumber = arr[i];
+        int j = i - 1;
+        // 寻找插入位置的过程中，不断地将比 currentNumber 大的数字向后挪
+        while (j >= 0 && currentNumber < arr[j]) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        // 两种情况会跳出循环：1. 遇到一个小于或等于 currentNumber 的数字，跳出循环，currentNumber 就坐到它后面。
+        // 2. 已经走到数列头部，仍然没有遇到小于或等于 currentNumber 的数字，也会跳出循环，此时 j 等于 -1，currentNumber 就坐到数列头部。
+        arr[j + 1] = currentNumber;
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/phtz1j/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```
+
+![alt text](image-88.png)
+
+
+```java
+
+public static void bucketSort(int[] arr) {
+    // 判空及防止数组越界
+    if (arr == null || arr.length <= 1) return;
+    // 找到最大值，最小值
+    int max = arr[0];
+    int min = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] > max) max = arr[i];
+        else if (arr[i] < min) min = arr[i];
+    }
+    // 确定取值范围
+    int range = max - min;
+    // 设置桶的数量，这里我们设置为 100 个，可以任意修改。
+    int bucketAmount = 100;
+    // 桶和桶之间的间距
+    double gap = range * 1.0 / (bucketAmount - 1);
+    HashMap<Integer, LinkedList<Integer>> buckets = new HashMap<>();
+    // 装桶
+    for (int value : arr) {
+        // 找到 value 属于哪个桶
+        int index = (int) ((value - min) / gap);
+        if (!buckets.containsKey(index)) {
+            buckets.put(index, new LinkedList<>());
+        }
+        buckets.get(index).add(value);
+    }
+    int index = 0;
+    // 对每个桶内的数字进行单独排序
+    for (int i = 0; i < bucketAmount; i++) {
+        LinkedList<Integer> bucket = buckets.get(i);
+        if (bucket == null) continue;
+        // 这里需要结合其他排序算法，例如：插入排序
+        insertSort(bucket);
+        // 排序完成后将桶内的结果收集起来
+        for (int num : bucket) {
+            arr[index++] = num;
+        }
+    }
+}
+// 对链表插入排序
+public static void insertSort(LinkedList<Integer> arr) {
+    // 从第二个数开始，往前插入数字
+    for (int i = 1; i < arr.size(); i++) {
+        int currentNumber = arr.get(i);
+        int j = i - 1;
+        // 寻找插入位置的过程中，不断地将比 currentNumber 大的数字向后挪
+        while (j >= 0 && currentNumber < arr.get(j)) {
+            arr.set(j + 1, arr.get(j));
+            j--;
+        }
+        // 两种情况会跳出循环：1. 遇到一个小于或等于 currentNumber 的数字，跳出循环，currentNumber 就坐到它后面。
+        // 2. 已经走到数列头部，仍然没有遇到小于或等于 currentNumber 的数字，也会跳出循环，此时 j 等于 -1，currentNumber 就坐到数列头部。
+        arr.set(j + 1, currentNumber);
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/phtz1j/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```
+
+
+![alt text](image-89.png)
+
+
+```java
+public static void bucketSort(int[] arr) {
+    // 判空及防止数组越界
+    if (arr == null || arr.length <= 1) return;
+    // 找到最大值，最小值
+    int max = arr[0];
+    int min = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] > max) max = arr[i];
+        else if (arr[i] < min) min = arr[i];
+    }
+    // 确定取值范围
+    int range = max - min;
+    // 设置桶的数量，这里我们设置为 100 个，可以任意修改。
+    int bucketAmount = 100;
+    // 桶和桶之间的间距
+    double gap = range * 1.0 / (bucketAmount - 1);
+    HashMap<Integer, Queue<Integer>> buckets = new HashMap<>();
+    // 装桶
+    for (int value : arr) {
+        // 找到 value 属于哪个桶
+        int index = (int) ((value - min) / gap);
+        if (!buckets.containsKey(index)) {
+            buckets.put(index, new LinkedList<>());
+        }
+        buckets.get(index).add(value);
+    }
+    int index = 0;
+    // 对每个桶内的数字进行单独排序
+    for (int i = 0; i < bucketAmount; i++) {
+        Queue<Integer> bucket = buckets.get(i);
+        if (bucket == null) continue;
+        // 将链表转换为数组，提升排序性能
+        int[] arrInBucket = bucket.stream().mapToInt(Integer::intValue).toArray();
+        // 这里需要结合其他排序算法，例如：插入排序
+        insertSort(arrInBucket);
+        // 排序完成后将桶内的结果收集起来
+        System.arraycopy(arrInBucket, 0, arr, index, arrInBucket.length);
+        index += arrInBucket.length;
+    }
+}
+// 插入排序
+public static void insertSort(int[] arr) {
+    // 从第二个数开始，往前插入数字
+    for (int i = 1; i < arr.length; i++) {
+        int currentNumber = arr[i];
+        int j = i - 1;
+        // 寻找插入位置的过程中，不断地将比 currentNumber 大的数字向后挪
+        while (j >= 0 && currentNumber < arr[j]) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        // 两种情况会跳出循环：1. 遇到一个小于或等于 currentNumber 的数字，跳出循环，currentNumber 就坐到它后面。
+        // 2. 已经走到数列头部，仍然没有遇到小于或等于 currentNumber 的数字，也会跳出循环，此时 j 等于 -1，currentNumber 就坐到数列头部。
+        arr[j + 1] = currentNumber;
+    }
+}
+
+作者：LeetCode
+链接：https://leetcode.cn/leetbook/read/sort-algorithms/phtz1j/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+![alt text](image-90.png)
+
+
+![alt text](image-91.png)
+
+
+![alt text](image-92.png)
+
+## 工业级排序：Java 源码中的 Arrays.sort() 原理解析
+
+### Arrays.sort() 源码分析（一）—— 脉络
+
+
+
+# 并查集
+
+
+并查集（Union Find）也叫「不相交集合（Disjoint Set）」，专门用于 动态处理 不相交集合的「查询」与「合并」问题。
+
+很多数据结构都因为具有 动态 处理问题的能力而变得高效，例如「堆」「二叉查找树」等。所谓「动态」的意思是：要处理的数据不是一开始就确定好的，理解「并查集」动态处理数据的最好的例子是「最小生成树」算法（本专题第 3 节介绍）。
+
+可以使用并查集的问题一般都可以使用基于遍历的搜索算法（深度优先搜索、广度优先搜索）完成，但是使用并查集会使得解决问题的过程更加清晰、直观。
+
+并查集的问题属于竞赛级别需要掌握的数据结构，但其本身代码量少且好理解，但难在应用。目前看来「并查集」不是普通公司面试和笔试的考点，请大家合理分配时间进行学习。
+
+
+![alt text](image-93.png)
+
+## 基本知识
+
+并查集动态处理的
+### 两个问题
+
+![alt text](image-94.png)
+
+
+### 设计并查集的两种思想
+
+![alt text](image-95.png)
+
+「基于 id」的思想并不常用，了解即可，效率太低
+
+![alt text](image-96.png)
+
+
+![alt text](image-97.png)
+
+
+### 按秩合并
+
+
+![alt text](image-98.png)
+
+
+![alt text](image-99.png)
+
+
+### 路径压缩
+
+![alt text](image-100.png)
+
+
+![alt text](image-101.png)
+
+![alt text](image-102.png)
+
+
+# 哈希表
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
