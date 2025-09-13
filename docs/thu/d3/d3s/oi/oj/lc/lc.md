@@ -3031,39 +3031,140 @@ public static void insertSort(int[] arr) {
 
 比较合理的负载因子是 0.7，如果数据量是 7，则会创建 10 个桶，以此类推。随着插入的数据量的增加，计算机会逐渐增加桶的个数，并选择合适的哈希函数，使得数据经过映射之后能均匀地分布在桶中。
 
+## 设计哈希表
+
+![Alt text](image-106.png)
+
+![Alt text](image-107.png)
+
+![Alt text](image-108.png)
+
+解决冲突的办法
+
+### 线性试探法
+
+![Alt text](image-109.png)
 
 
+![Alt text](image-110.png)
+
+![Alt text](image-111.png)
+
+![Alt text](image-112.png)
 
 
+## 实际应用
+
+哈希集合的操作
+哈希集合是集合的实现方式之一，它是一种存储 不重复值 的数据结构。
+
+```cpp
+#include <unordered_set>               
+
+int main() {
+    // 1. 初始化哈希集
+    unordered_set<int> hashset;   
+    // 2. 新增键
+    hashset.insert(3);
+    hashset.insert(2);
+    hashset.insert(1);
+    // 3. 删除键
+    hashset.erase(2);
+    // 4. 查询键是否包含在哈希集合中
+    if (hashset.count(2) <= 0) {
+        cout << "键 2 不在哈希集合中" << endl;
+    }
+    // 5. 哈希集合的大小
+    cout << "哈希集合的大小为: " << hashset.size() << endl; 
+    // 6. 遍历哈希集合
+    for (auto it = hashset.begin(); it != hashset.end(); ++it) {
+        cout << (*it) << " ";
+    }
+    cout << "在哈希集合中" << endl;
+    // 7. 清空哈希集合
+    hashset.clear();
+    // 8. 查看哈希集合是否为空
+    if (hashset.empty()) {
+        cout << "哈希集合为空！" << endl;
+    }
+}
 
 
+```
 
 
+```py
+# 1. 初始化集合
+hashset = set() 
+# 2. 新增键
+hashset.add(3)
+hashset.add(2)
+hashset.add(1)
+# 3. 删除键
+hashset.remove(2)
+# 4. 查询键是否包含在集合中
+if (2 not in hashset):
+    print("2 不在集合中")
+# 5. 集合的大小
+print("集合的大小为：", len(hashset)) 
+# 6. 遍历集合
+for x in hashset:
+    print(x, end=" ")
+print("在集合中")
+# 7. 清空集合
+hashset.clear()                         
+print("集合的大小为：", len(hashset))
 
 
+```
 
 
+使用哈希集合查重
+我们知道，由于哈希集合中的元素是 不重复的，因此可以使用哈希集合来判断是否包含重复元素。
+
+    让我们来看一个例子：
+
+给定一个整数数组，判断该数组中是否包含重复元素。
+
+这是一个典型的问题，用来判断某个数据结构中是否包含重复元素，或者对某个数据结构进行 去重 的操作。
+
+解决这类问题的简单思路是遍历该数据结构，并将值插入到哈希集合中。如果该值已经存在于哈希集合中，表明发生了重复。
 
 
+```cpp
+/*
+ * 使用哈希集合寻找重复元素的模板
+ */
+bool findDuplicates(vector<Type>& keys) {
+    // 将 type 替换为 keys 的实际类型
+    unordered_set<Type> hashset;
+    for (Type key : keys) {
+        if (hashset.count(key) > 0) {
+            return true;
+        }
+        hashset.insert(key);
+    }
+    return false;
+}
+
+```
+
+## 哈希映射
+
+![Alt text](image-113.png)
 
 
+# 堆
 
+在计算机的世界里，很多的应用场景只需要取得当前数据集中最大或者最小的元素，而对于数据集中其它数据，并不需要他们一定是有序的。那么，我们如何高效快速地取得当前数据集中最大或者最小的元素呢？此时，新的数据结构「堆」就诞生了。
 
+在本 LeetBook 中，我们将介绍「堆」，完成后，你将：
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+理解「堆」数据结构和实现；
+理解「最大堆」和「最小堆」的基础概念和核心操作；
+理解「堆排序」；
+理解「堆」的应用场景；
+能够运用「堆」解决实际问题。
 
 
 
