@@ -3166,183 +3166,771 @@ bool findDuplicates(vector<Type>& keys) {
 理解「堆」的应用场景；
 能够运用「堆」解决实际问题。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 定义
+
+![Alt text](image-114.png)
+
+在堆的数据结构中，我们常用堆的插入、删除、获取堆顶元素的操作。
+
+我们可以用数组实现堆。我们将堆中的元素以二叉树的形式存入在数组中。以下代码将使用数组实现整数类型的「最大堆」和「最小堆」，仅供大家参考（在实际解题或者工作中，一般很少需要自己去实现堆）
+
+```py
+# 「最大堆」的实现
+import sys
+
+class MaxHeap:
+    def __init__(self, heapSize):
+        # heapSize用于数组的大小，因为数组在创建的时候至少需要指明数组的元素个数
+        self.heapSize = heapSize
+        # 使用数组创建完全二叉树的结构，然后使用二叉树构建一个「堆」
+        self.maxheap = [0]*(heapSize+1)
+        # realSize用于记录「堆」的元素个数
+        self.realSize = 0
+
+    #  添加元素函数
+    def add(self, element):
+        self.realSize += 1
+        # 如果「堆」中元素的个数大于一开始设定的数组的个数，则返回「Add too many elements」
+        if self.realSize > self.heapSize:
+            print("Add too many elements!")
+            self.realSize -= 1
+            return
+        # 将添加的元素添加到数组中
+        self.maxheap[self.realSize] = element
+        # 新增元素的索引位置
+        index = self.realSize
+        # 新增元素的父节点的索引位置
+        # 注意，如果用数组表示完全二叉树，并且根结点存储在数组的索引1的位置的时候，任何一个节点的父节点索引位置为「该节点的索引位置/2」，任何一个节点的左孩子节点的索引位置为「该节点的索引位置*2」，任何一个节点的右孩子节点的索引位置为「该节点的索引位置*2+1」
+        parent = index // 2
+        # 当添加的元素大于父节点时，需要将父节点的值和新增元素的值交换
+        while (self.maxheap[index] > self.maxheap[parent] and index > 1):
+            self.maxheap[parent], self.maxheap[index] = self.maxheap[index], self.maxheap[parent]
+            index = parent
+            parent = index // 2
+            
+    # 获取堆顶元素函数
+    def peek(self):
+        return self.maxheap[1]
+    
+    # 删除堆顶元素函数
+    def pop(self):
+        # 如果当前「堆」的元素个数为0， 则返回「Don't have any element」
+        if self.realSize < 1:
+            print("Don't have any element!")
+            return sys.maxsize
+        else:
+            # 当前「堆」中含有元素
+            # self.realSize >= 1
+            removeElement = self.maxheap[1]
+            # 将「堆」中的最后一个元素赋值给堆顶元素
+            self.maxheap[1] = self.maxheap[self.realSize]
+            self.realSize -= 1
+            index = 1
+            # 当删除的元素不是孩子节点时
+            while (index < self.realSize and index <= self.realSize // 2):
+                # 被删除节点的左孩子节点
+                left = index * 2
+                # 被删除节点的右孩子节点
+                right = (index * 2) + 1
+                # 当删除节点的元素小于 左孩子节点或者右孩子节点，代表该元素的值小，此时需要将该元素与左、右孩子节点中最大的值进行交换
+                if (self.maxheap[index] < self.maxheap[left] or self.maxheap[index] < self.maxheap[right]):
+                    if self.maxheap[left] > self.maxheap[right]:
+                        self.maxheap[left], self.maxheap[index] = self.maxheap[index], self.maxheap[left]
+                        index = left
+                    else:
+                        self.maxheap[right], self.maxheap[index] = self.maxheap[index], self.maxheap[right]
+                        index = right
+                else:
+                    break
+            return removeElement
+    
+    # 返回「堆」的元素个数
+    def size(self):
+        return self.realSize
+    
+    def toString(self):
+        print(self.maxheap[1 : self.realSize+1])
+        
+
+if __name__ == "__main__":
+    	# 测试用例
+        maxHeap = MaxHeap(5)
+        maxHeap.add(1)
+        maxHeap.add(2)
+        maxHeap.add(3)
+        # [3,1,2]
+        maxHeap.toString()
+        # 3
+        print(maxHeap.peek())
+        # 3
+        print(maxHeap.pop())
+        # 2
+        print(maxHeap.pop())
+        # 1
+        print(maxHeap.pop())
+        maxHeap.add(4)
+        maxHeap.add(5)
+        # [5,4]
+        maxHeap.toString()
+
+作者：爱学习的饲养员
+链接：https://leetcode.cn/leetbook/read/heap/evmih5/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+```py
+# 「最小堆」的实现
+import sys
+
+class MinHeap:
+    def __init__(self, heapSize):
+        # heapSize用于数组的大小，因为数组在创建的时候至少需要指明数组的元素个数
+        self.heapSize = heapSize
+        # 使用数组创建完全二叉树的结构，然后使用二叉树构建一个「堆」
+        self.minheap = [0]*(heapSize+1)
+        # realSize用于记录「堆」的元素个数
+        self.realSize = 0
+
+    #  添加元素函数
+    def add(self, element):
+        self.realSize += 1
+        # 如果「堆」中元素的个数大于一开始设定的数组的个数，则返回「Add too many elements」
+        if self.realSize > self.heapSize:
+            print("Add too many elements!")
+            self.realSize -= 1
+            return
+        # 将添加的元素添加到数组中
+        self.minheap[self.realSize] = element
+        # 新增元素的索引位置
+        index = self.realSize
+        # 新增元素的父节点的索引位置
+        # 注意，如果用数组表示完全二叉树，并且根结点存储在数组的索引1的位置的时候，任何一个节点的父节点索引位置为「该节点的索引位置/2」，任何一个节点的左孩子节点的索引位置为「该节点的索引位置*2」，任何一个节点的右孩子节点的索引位置为「该节点的索引位置*2+1」
+        parent = index // 2
+        # 当添加的元素小于父节点时，需要将父节点的值和新增元素的值交换
+        while (self.minheap[index] < self.minheap[parent] and index > 1):
+            self.minheap[parent], self.minheap[index] = self.minheap[index], self.minheap[parent]
+            index = parent
+            parent = index // 2
+    
+    # 获取堆顶元素函数
+    def peek(self):
+        return self.minheap[1]
+    
+    # 删除堆顶元素函数
+    def pop(self):
+        # 如果当前「堆」的元素个数为0， 则返回「Don't have any element」
+        if self.realSize < 1:
+            print("Don't have any element!")
+            return sys.maxsize
+        else:
+            # 当前「堆」中含有元素
+            # self.realSize >= 1
+            removeElement = self.minheap[1]
+            # 将「堆」中的最后一个元素赋值给堆顶元素
+            self.minheap[1] = self.minheap[self.realSize]
+            self.realSize -= 1
+            index = 1
+            # 当删除的元素不是孩子节点时
+            while (index < self.realSize and index <= self.realSize // 2):
+                # 被删除节点的左孩子节点
+                left = index * 2
+                # 被删除节点的右孩子节点
+                right = (index * 2) + 1
+                # 当删除节点的元素大于 左孩子节点或者右孩子节点，代表该元素的值大，此时需要将该元素与左、右孩子节点中最小的值进行交换
+                if (self.minheap[index] > self.minheap[left] or self.minheap[index] > self.minheap[right]):
+                    if self.minheap[left] < self.minheap[right]:
+                        self.minheap[left], self.minheap[index] = self.minheap[index], self.minheap[left]
+                        index = left
+                    else:
+                        self.minheap[right], self.minheap[index] = self.minheap[index], self.minheap[right]
+                        index = right
+                else:
+                    break
+            return removeElement
+    
+    # 返回「堆」的元素个数
+    def size(self):
+        return self.realSize
+    
+    def toString(self):
+        print(self.minheap[1 : self.realSize+1])
+        
+
+if __name__ == "__main__":
+    	# 测试用例
+        minHeap = MinHeap(5)
+        minHeap.add(3)
+        minHeap.add(1)
+        minHeap.add(2)
+        # [1,3,2]
+        minHeap.toString()
+        # 1
+        print(minHeap.peek())
+        # 1
+        print(minHeap.pop())
+        # 2
+        print(minHeap.pop())
+        # 3
+        print(minHeap.pop())
+        minHeap.add(4)
+        minHeap.add(5)
+        # [4,5]
+        minHeap.toString()
+
+作者：爱学习的饲养员
+链接：https://leetcode.cn/leetbook/read/heap/evmih5/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```
+
+## 堆的常用方法
+
+创建 堆 指的是初始化一个堆实例。所有堆方法的前提必须是在堆实例上进行操作。换句话说，我们必须要首先创建一个 堆 实例，然后才能使用 堆 的常用方法。在创建 堆 的过程中，我们也可以同时进行 堆化 操作。堆化 就是将一组数据变成 堆 的过程。
+
+时间复杂度： O(N)。
+
+空间复杂度： O(N)。
+
+```py
+import heapq
+# 创建一个空的最小堆
+minHeap = []
+heapq.heapify(minHeap)
+
+# 创建一个空的最大堆
+# 由于Python中并没有内置的函数可以直接创建最大堆，所以一般我们不会直接创建一个空的最大堆。
+
+# 创建带初始值的「堆」， 或者称为「堆化」操作，此时的「堆」为「最小堆」
+heapWithValues = [3,1,2]
+heapq.heapify(heapWithValues)
+
+# 创建最大堆技巧
+# Python中并没有内置的函数可以直接创建最大堆。
+# 但我们可以将[每个元素*-1]，再将新元素集进行「堆化」操作。此时，堆顶元素是新的元素集的最小值，也可以转换成原始元素集的最大值。
+# 示例
+maxHeap = [1,2,3]
+maxHeap = [-x for x in maxHeap]
+heapq.heapify(maxHeap)
+# 此时的maxHeap的堆顶元素是-3
+# 将-3转换为原来的元素3，既可获得原来的maxHeap中最大的值是3
+
+作者：爱学习的饲养员
+链接：https://leetcode.cn/leetbook/read/heap/en1ztc/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+![Alt text](image-115.png)
+
+![Alt text](image-116.png)
+
+![Alt text](image-117.png)
+
+![Alt text](image-118.png)
+
+## 堆的应用
+
+![Alt text](image-119.png)
+
+![Alt text](image-120.png)
+解法2
+![Alt text](image-121.png)
+
+![Alt text](image-122.png)
+
+![Alt text](image-123.png)
+
+# 图
+
+![Alt text](image-124.png)
+
+你将了解到：
+
+并查集（ Union Find ）数据结构
+「图」的深度优先搜索算法
+「图」的广度优先搜索算法
+最小生成树相关定理和算法
+切分定理
+Kruskal 算法
+Prim 算法
+单源最短路径相关算法
+Dijkstra 算法
+Bellman-Ford 算法
+拓扑排序之 Kahn 算法
+
+## 图的存储
+
+矩阵
+![Alt text](image-125.png)
+
+邻接表
+![Alt text](image-126.png)
+
+链式前向星存图法
+![Alt text](image-127.png)
+
+![Alt text](image-128.png)
+
+
+## 并查集
+
+![Alt text](image-129.png)
+
+![Alt text](image-130.png)
+
+以下是 Quick Find 的「并查集」实现代码
+
+```java
+// UnionFind.class
+public class UnionFind {
+    int root[];
+
+    public UnionFind(int size) {
+        root = new int[size];
+        for (int i = 0; i < size; i++) {
+            root[i] = i;
+        }
+    }
+
+    public int find(int x) {
+        return root[x];
+    }
+		
+    public void union(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        if (rootX != rootY) {
+            for (int i = 0; i < root.length; i++) {
+                if (root[i] == rootY) {
+                    root[i] = rootX;
+                }
+            }
+        }
+    };
+
+    public boolean connected(int x, int y) {
+        return find(x) == find(y);
+    }
+}
+
+// App.java
+// 测试样例
+public class App {
+    public static void main(String[] args) throws Exception {
+        UnionFind uf = new UnionFind(10);
+        // 1-2-5-6-7 3-8-9 4
+        uf.union(1, 2);
+        uf.union(2, 5);
+        uf.union(5, 6);
+        uf.union(6, 7);
+        uf.union(3, 8);
+        uf.union(8, 9);
+        System.out.println(uf.connected(1, 5)); // true
+        System.out.println(uf.connected(5, 7)); // true
+        System.out.println(uf.connected(4, 9)); // false
+        // 1-2-5-6-7 3-8-9-4
+        uf.union(9, 4);
+        System.out.println(uf.connected(4, 9)); // true
+    }
+}
+
+
+```
+
+![Alt text](image-131.png)
+
+
+以下是 Quick Union 的「并查集」实现代码
+
+```java
+public class UnionFind {
+    int root[];
+
+    public UnionFind(int size) {
+        root = new int[size];
+        for (int i = 0; i < size; i++) {
+            root[i] = i;
+        }
+    }
+
+    public int find(int x) {
+        while (x != root[x]) {
+            x = root[x];
+        }
+        return x;
+    }
+
+    public void union(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        if (rootX != rootY) {
+            root[rootY] = rootX;
+        }
+    };
+
+    public boolean connected(int x, int y) {
+        return find(x) == find(y);
+    }
+}
+
+// App.java
+// 测试样例
+public class App {
+    public static void main(String[] args) throws Exception {
+        UnionFind uf = new UnionFind(10);
+        // 1-2-5-6-7 3-8-9 4
+        uf.union(1, 2);
+        uf.union(2, 5);
+        uf.union(5, 6);
+        uf.union(6, 7);
+        uf.union(3, 8);
+        uf.union(8, 9);
+        System.out.println(uf.connected(1, 5)); // true
+        System.out.println(uf.connected(5, 7)); // true
+        System.out.println(uf.connected(4, 9)); // false
+        // 1-2-5-6-7 3-8-9-4
+        uf.union(9, 4);
+        System.out.println(uf.connected(4, 9)); // true
+    }
+}
+
+
+```
+
+![Alt text](image-132.png)
+
+按秩合并
+```java
+// UnionFind.class
+public class UnionFind {
+    int root[];
+    int rank[];
+
+    public UnionFind(int size) {
+        root = new int[size];
+        rank = new int[size];
+        for (int i = 0; i < size; i++) {
+            root[i] = i;
+            rank[i] = 1; 
+        }
+    }
+
+    public int find(int x) {
+        while (x != root[x]) {
+            x = root[x];
+        }
+        return x;
+    }
+
+    public void union(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        if (rootX != rootY) {
+            if (rank[rootX] > rank[rootY]) {
+                root[rootY] = rootX;
+            } else if (rank[rootX] < rank[rootY]) {
+                root[rootX] = rootY;
+            } else {
+                root[rootY] = rootX;
+                rank[rootX] += 1;
+            }
+        }
+    };
+
+    public boolean connected(int x, int y) {
+        return find(x) == find(y);
+    }
+}
+
+// App.java
+// 测试样例
+public class App {
+    public static void main(String[] args) throws Exception {
+        UnionFind uf = new UnionFind(10);
+        // 1-2-5-6-7 3-8-9 4
+        uf.union(1, 2);
+        uf.union(2, 5);
+        uf.union(5, 6);
+        uf.union(6, 7);
+        uf.union(3, 8);
+        uf.union(8, 9);
+        System.out.println(uf.connected(1, 5)); // true
+        System.out.println(uf.connected(5, 7)); // true
+        System.out.println(uf.connected(4, 9)); // false
+        // 1-2-5-6-7 3-8-9-4
+        uf.union(9, 4);
+        System.out.println(uf.connected(4, 9)); // true
+    }
+}
+
+
+```
+
+![Alt text](image-133.png)
+
+![Alt text](image-134.png)
+
+路径压缩优化
+```java
+// UnionFind.class
+public class UnionFind {
+    int root[];
+
+    public UnionFind(int size) {
+        root = new int[size];
+        for (int i = 0; i < size; i++) {
+            root[i] = i;
+        }
+    }
+
+    public int find(int x) {
+        if (x == root[x]) {
+            return x;
+        }
+        return root[x] = find(root[x]);
+    }
+
+    public void union(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        if (rootX != rootY) {
+            root[rootY] = rootX;
+        }
+    };
+
+    public boolean connected(int x, int y) {
+        return find(x) == find(y);
+    }
+}
+
+// App.java
+// 测试样例
+public class App {
+    public static void main(String[] args) throws Exception {
+        UnionFind uf = new UnionFind(10);
+        // 1-2-5-6-7 3-8-9 4
+        uf.union(1, 2);
+        uf.union(2, 5);
+        uf.union(5, 6);
+        uf.union(6, 7);
+        uf.union(3, 8);
+        uf.union(8, 9);
+        System.out.println(uf.connected(1, 5)); // true
+        System.out.println(uf.connected(5, 7)); // true
+        System.out.println(uf.connected(4, 9)); // false
+        // 1-2-5-6-7 3-8-9-4
+        uf.union(9, 4);
+        System.out.println(uf.connected(4, 9)); // true
+    }
+}
+
+
+```
+![Alt text](image-135.png)
+
+基于路径压缩的按秩合并优化的「并查集」
+这个优化就是将「路径压缩优化」和「按秩合并优化」合并后形成的「并查集」的实现方式。
+
+```java
+// UnionFind.class
+public class UnionFind {
+    int root[];
+    // 添加了 rank 数组来记录每个顶点的高度，也就是每个顶点的「秩」
+    int rank[];
+
+    public UnionFind(int size) {
+        root = new int[size];
+        rank = new int[size];
+        for (int i = 0; i < size; i++) {
+            root[i] = i;
+            rank[i] = 1; // 一开始每个顶点的初始「秩」为1，因为它们只有自己本身的一个顶点。
+        }
+    }
+
+		// 此处的 find 函数与路径压优化缩版本的 find 函数一样。
+    public int find(int x) {
+        if (x == root[x]) {
+            return x;
+        }
+        return root[x] = find(root[x]);
+    }
+
+		// 按秩合并优化的 union 函数
+    public void union(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        if (rootX != rootY) {
+            if (rank[rootX] > rank[rootY]) {
+                root[rootY] = rootX;
+            } else if (rank[rootX] < rank[rootY]) {
+                root[rootX] = rootY;
+            } else {
+                root[rootY] = rootX;
+                rank[rootX] += 1;
+            }
+        }
+    };
+
+    public boolean connected(int x, int y) {
+        return find(x) == find(y);
+    }
+}
+
+// App.java
+// 测试样例
+public class App {
+    public static void main(String[] args) throws Exception {
+        UnionFind uf = new UnionFind(10);
+        // 1-2-5-6-7 3-8-9 4
+        uf.union(1, 2);
+        uf.union(2, 5);
+        uf.union(5, 6);
+        uf.union(6, 7);
+        uf.union(3, 8);
+        uf.union(8, 9);
+        System.out.println(uf.connected(1, 5)); // true
+        System.out.println(uf.connected(5, 7)); // true
+        System.out.println(uf.connected(4, 9)); // false
+        // 1-2-5-6-7 3-8-9-4
+        uf.union(9, 4);
+        System.out.println(uf.connected(4, 9)); // true
+    }
+}
+
+
+```
+![Alt text](image-136.png)
+
+![Alt text](image-137.png)
+
+![Alt text](image-138.png)
+
+![Alt text](image-139.png)
+
+![Alt text](image-140.png)
+
+## 深度优先
+
+
+遍历所有顶点 - 深度优先搜索算法
+![Alt text](image-141.png)
+
+遍历两点之间所有路径 - 深度优先搜索算法
+![Alt text](image-142.png)
+
+
+## 广度优先搜索
+
+![Alt text](image-143.png)
+
+![Alt text](image-144.png)
+
+遍历所有顶点 - 广度优先搜索算法
+![Alt text](image-145.png)
+
+求两点之间最短路径 - 广度优先搜索算法
+
+![Alt text](image-146.png)
+
+
+## 最小生成树相关算法
+
+![Alt text](image-147.png)
+
+![Alt text](image-148.png)
+
+### 切分定理
+
+![Alt text](image-149.png)
+
+![Alt text](image-150.png)
+
+
+### Kruskal 算法
+
+「Kruskal 算法」是求解「加权无向图」的「最小生成树」的一种算法
+
+
+![Alt text](image-151.png)
+
+![Alt text](image-152.png)
+
+![Alt text](image-153.png)
+
+![Alt text](image-154.png)
+
+### Prim 算法
+
+「Prim 算法」是求解「加权无向图」的「最小生成树」的另一种算法。
+
+这两个都是计算最小生成树的算法
+
+![Alt text](image-155.png)
+
+![Alt text](image-156.png)
+
+
+## 单源最短路径相关算法
+
+![Alt text](image-157.png)
+
+
+
+
+我们将学习两个「单源最短路径」的算法：
+
+Dijkstra 算法
+Bellman-Ford 算法
+其中，「Dijkstra 算法」只能解决加权有向图的权重为非负数的「单源最短路径」问题。「Bellman-Ford 算法」能解决加权有向图中包含权重为负数的「单源最短路径」问题。
+
+### Dijkstra 算法
+
+「Dijkstra 算法」解决的是加权有向图「单源最短路径」问题，其中该图的所有权重必须为非负数。
+
+![Alt text](image-158.png)
+
+![Alt text](image-159.png)
+
+
+### Bellman-Ford 算法
+
+在前面介绍的「Dijkstra 算法」中，它只能解决没有「负权图」的「单源最短路径」问题。如果遇到有「负权图」，应该怎么解决「单源最短路径」问题呢？那就是这一小节的重点：「Bellman-Ford 算法」。
+
+![Alt text](image-160.png)
+
+
+### 基于「队列」优化的 Bellman-Ford 算法 — SPFA 算法
+
+在前面我们介绍了「Bellman-Ford 算法」，也同时引进了优化版的 Bellman-Ford 算法：针对一个无负权环的图来说，对所有边进行 N-1 次的松弛操作之后，我们就可以得出一个起点到所有其他顶点的最短距离。但是，这个算法在选择边遍历的时候会做很多无用功，这无疑会增加我们算法的运行时间。
+
+![Alt text](image-161.png)
+
+![Alt text](image-162.png)
+
+## 拓扑排序之 Kahn 算法
+
+
+
+![Alt text](image-163.png)
+
+![Alt text](image-164.png)
+
+
+![Alt text](image-165.png)
+
+
+# 深度优先搜索
+
+
+# 广度优先搜索
+
+
+# 递归和分治
+
+
+# 普通树
 
 
 
