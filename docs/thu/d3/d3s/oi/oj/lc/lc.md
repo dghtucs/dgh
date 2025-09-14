@@ -1,5 +1,11 @@
 here to write my code in leetcode
 
+
+[算法进阶](./other/algo_jinjie.md)
+
+
+
+
 # 算法面试小抄
 
 ## 算法和数据结构
