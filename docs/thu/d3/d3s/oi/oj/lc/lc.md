@@ -3923,8 +3923,463 @@ Bellman-Ford 算法
 
 # 深度优先搜索
 
+## 深度优先遍历
+
+
+
+![alt text](image-166.png)
+
+### 树
+
+![alt text](image-167.png)
+
+
+![alt text](image-168.png)
+
+
+![alt text](image-169.png)
+
+
+### 图
+
+![alt text](image-170.png)
+
+
+
+遍历可以用于搜索，思想是穷举，遍历是实现搜索的手段；
+树的「前、中、后」序遍历都是深度优先遍历；
+树的后序遍历很重要；
+由于图中存在环（回路），图的深度优先遍历需要记录已经访问过的结点，以避免重复访问；
+遍历是一种简单、朴素但是很重要的算法思想，很多树和图的问题就是在树和图上执行一次遍历，在遍历的过程中记录有用的信息，得到需要结果，区别在于为了解决不同的问题，在遍历的时候传递了不同的 与问题相关 的数据。
+
+## 栈
+
+![alt text](image-171.png)
+
+### 深度优先遍历的两种实现方式
+
+在深度优先遍历的过程中，需要将 当前遍历到的结点 的相邻结点 暂时保存 起来，以便在回退的时候可以继续访问它们。遍历到的结点的顺序呈现「后进先出」的特点，因此 深度优先遍历可以通过「栈」实现。
+
+再者，深度优先遍历有明显的递归结构。我们知道支持递归实现的数据结构也是栈。因此实现深度优先遍历有以下两种方式：
+
+编写递归方法；
+编写栈，通过迭代的方式实现。
+
+![alt text](image-172.png)
+
+## 深度优先遍历的应用
+![alt text](image-173.png)
+
+### 获得图（树）的一些属性
+
+在一些树的问题中，其实就是通过一次深度优先遍历，获得树的某些属性。例如：「二叉树」的最大深度、「二叉树」的最小深度、平衡二叉树、是否 BST。在遍历的过程中，通常需要设计一些变量，一边遍历，一边更新设计的变量的值
+
+### 计算无向图的连通分量
+
+
+![alt text](image-174.png)
+
+
+```java
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+
+    public int countComponents(int n, int[][] edges) {
+        // 第 1 步：构建图
+        List<Integer>[] adj = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            adj[i] = new ArrayList<>();
+        }
+        // 无向图，所以需要添加双向引用
+        for (int[] edge : edges) {
+            adj[edge[0]].add(edge[1]);
+            adj[edge[1]].add(edge[0]);
+        }
+
+        // 第 2 步：开始深度优先遍历
+        int count = 0;
+        boolean[] visited = new boolean[n];
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                dfs(adj, i, visited);
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * @param adj     邻接表
+     * @param u       从顶点 u 开始执行深度优先遍历
+     * @param visited 记录某个结点是否被访问过
+     */
+    private void dfs(List<Integer>[] adj, int u, boolean[] visited) {
+        visited[u] = true;
+        List<Integer> successors = adj[u];
+        for (int successor : successors) {
+            if (!visited[successor]) {
+                dfs(adj, successor, visited);
+            }
+        }
+    }
+}
+
+
+```
+
+![alt text](Snipaste_2025-09-13_20-02-01.png)
+
+
+### 检测图中是否存在环
+
+在无向图中，环的检测可以通过深度优先遍历（DFS）来实现。我们需要在遍历过程中记录每个节点的父节点，以便在遇到已访问的节点时判断是否形成环。
+
+```java
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+
+    public boolean hasCycle(int n, int[][] edges) {
+        // 第 1 步：构建图
+        List<Integer>[] adj = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            adj[i] = new ArrayList<>();
+        }
+        // 无向图，所以需要添加双向引用
+        for (int[] edge : edges) {
+            adj[edge[0]].add(edge[1]);
+            adj[edge[1]].add(edge[0]);
+        }
+
+        // 第 2 步：开始深度优先遍历
+        boolean[] visited = new boolean[n];
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                if (dfs(adj, i, visited, -1)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param adj     邻接表
+     * @param u       从顶点 u 开始执行深度优先遍历
+     * @param visited 记录某个结点是否被访问过
+     * @param parent  记录当前结点的父节点
+     */
+    private boolean dfs(List<Integer>[] adj, int u, boolean[] visited, int parent) {
+        visited[u] = true;
+        List<Integer> successors = adj[u];
+        for (int successor : successors) {
+            if (!visited[successor]) {
+                if (dfs(adj, successor, visited, u)) {
+                    return true;
+                }
+            } else if (successor != parent) {
+                // 如果当前节点的相邻节点被访问过，并且不是父节点，则说明存在环
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+
+```
+
+
+### 二分图检测
+
+在无向图中，二分图的检测可以通过深度优先遍历（DFS）来实现。我们可以尝试给每个节点染色，使用两种颜色交替着色，如果发现相邻的两个节点颜色相同，则说明该图不是二分图。
+
+```java
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+
+    public boolean isBipartite(int n, int[][] edges) {
+        // 第 1 步：构建图
+        List<Integer>[] adj = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            adj[i] = new ArrayList<>();
+        }
+        // 无向图，所以需要添加双向引用
+        for (int[] edge : edges) {
+            adj[edge[0]].add(edge[1]);
+            adj[edge[1]].add(edge[0]);
+        }
+
+        // 第 2 步：开始深度优先遍历
+        int[] color = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (color[i] == 0) {
+                if (!dfs(adj, i, color, 1)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * @param adj   邻接表
+     * @param u     从顶点 u 开始执行深度优先遍历
+     * @param color 记录每个结点的颜色
+     * @param c     当前节点的颜色
+     */
+    private boolean dfs(List<Integer>[] adj, int u, int[] color, int c) {
+        color[u] = c;
+        List<Integer> successors = adj[u];
+        for (int successor : successors) {
+            if (color[successor] == 0) {
+                // 如果相邻节点未被染色，则继续深度优先遍历
+                if (!dfs(adj, successor, color, 3 - c)) {
+                    return false;
+                }
+            } else if (color[successor] == c) {
+                // 如果相邻节点已被染色，并且颜色相同，则说明不是二分图
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+
+```
+
+
+### 拓扑排序
+
+在有向图中，拓扑排序是将图中的所有顶点排成一个线性序列，使得对于每一条有向边 (u, v)，顶点 u 在顶点 v 之前。拓扑排序可以通过深度优先遍历（DFS）或 Kahn 算法实现。
+
+#### 方法一：深度优先遍历（DFS）
+
+```java
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        // 第 1 步：构建图
+        List<Integer>[] adj = new ArrayList[numCourses];
+        for (int i = 0; i < numCourses; i++) {
+            adj[i] = new ArrayList<>();
+        }
+        for (int[] edge : prerequisites) {
+            adj[edge[1]].add(edge[0]);
+        }
+
+        // 第 2 步：开始深度优先遍历
+        boolean[] visited = new boolean[numCourses];
+        boolean[] onPath = new boolean[numCourses];
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (!visited[i]) {
+                if (dfs(adj, i, visited, onPath, result)) {
+                    return new int[0]; // 有环，无法完成拓扑排序
+                }
+            }
+        }
+
+        // 将结果转换为数组并返回
+        int[] order = new int[result.size()];
+        for (int i = 0; i < result.size(); i++) {
+            order[i] = result.get(result.size() - 1 - i);
+        }
+        return order;
+    }
+
+    /**
+     * @param adj     邻接表
+     * @param u       从顶点 u 开始执行深度优先遍历
+     * @param visited 记录某个结点是否被访问过
+     * @param onPath  记录当前路径上的结点
+     * @param result  存放拓扑排序结果
+     */
+    private boolean dfs(List<Integer>[] adj, int u, boolean[] visited, boolean[] onPath, List<Integer> result) {
+        visited[u] = true;
+        onPath[u] = true;
+        List<Integer> successors = adj[u];
+        for (int successor : successors) {
+            if (!visited[successor]) {
+                if (dfs(adj, successor, visited, onPath, result)) {
+                    return true;
+                }
+            } else if (onPath[successor]) {
+                // 如果当前节点的相邻节点在当前路径上，则说明存在环
+                return true;
+            }
+        }
+        onPath[u] = false;
+        result.add(u);
+        return false;
+    }
+}
+
+
+```
+
+#### 方法二：Kahn 算法
+
+```java
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+public class Solution {
+
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        // 第 1 步：构建图
+        List<Integer>[] adj = new ArrayList[numCourses];
+        int[] inDegree = new int[numCourses];
+        for (int i = 0; i < numCourses; i++) {
+            adj[i] = new ArrayList<>();
+        }
+        for (int[] edge : prerequisites) {
+            adj[edge[1]].add(edge[0]);
+            inDegree[edge[0]]++;
+        }
+
+        // 第 2 步：使用队列进行拓扑排序
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (inDegree[i] == 0) {
+                queue.offer(i);
+            }
+        }
+
+        int[] order = new int[numCourses];
+        int index = 0;
+        while (!queue.isEmpty()) {
+            int u = queue.poll();
+            order[index++] = u;
+            List<Integer> successors = adj[u];
+            for (int successor : successors) {
+                inDegree[successor]--;
+                if (inDegree[successor] == 0) {
+                    queue.offer(successor);
+                }
+            }
+        }
+
+        // 如果拓扑排序的结果包含所有课程，则返回结果，否则返回空数组
+        return index == numCourses ? order : new int[0];
+    }
+}
+
+
+```
+
+
+
+## 回溯算法
+
+![alt text](image-175.png)
+
+
+计算机擅长做的事情是「计算」，即「做重复的事情」。能用编程的方法解决的问题通常 结构相同，问题规模不同。因此，我们解决一个问题的时候，通常需要将问题一步一步进行拆解，把一个大问题拆解为结构相同的若干个小问题。
+
+友情提示：我们介绍「状态」和「状态空间」这两个概念是为了方便后面的问题描述，其实大家在完成了一定练习以后对这两个概念就会有形象的理解。如果一开始不理解这些概念完全可以跳过。
+
+「状态」和「状态空间」
+为了区分解决问题的不同阶段、不同规模，我们可以通过语言描述进行交流。在算法的世界里，是通过变量进行描述的，不同的变量的值就代表了解决一个实际问题中所处的不同的阶段，这些变量就叫做「状态变量」。所有的状态变量构成的集合称为「状态空间」。
+
+友情提示：「空间」这个词经常代表的含义是「所有」。在《线性代数》里，线性空间（向量空间）就是规定了「加法」和「数乘」，且对这两种运算封闭的 所有 元素的集合。
+
+不同状态之间的联系形成图（树）结构
+我们可以把某种规模的问题描述想象成一个结点。由于规模相近的问题之间存在联系，我们把有联系的结点之间使用一条边连接，因此形成的状态空间就是一张图。
+
+树结构有唯一的起始结点（根结点），且不存在环，树是特殊的图。这一章节绝大多数的问题都从一个基本的问题出发，拆分成多个子问题，并且继续拆分的子问题没有相同的部分，因此这一章节遇到的绝大多数问题的状态空间是一棵树。
+
+我们要了解这个问题的状态空间，就需要通过 遍历 的方式。正是因为通过遍历，我们能够访问到状态空间的所有结点，因此可以获得一个问题的 所有 解。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 广度优先搜索
+
+![alt text](image-176.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # 递归和分治
