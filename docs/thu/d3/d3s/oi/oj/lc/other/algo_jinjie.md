@@ -305,3 +305,165 @@ int getdp(int pos, int lim, const vector<int>& digits, const set<int>& num_set, 
 
 本章我们介绍「线性 DP」中比较重要，同时在前两期没有详细介绍的两块内容，一个是最长上升子序列，一个是「棋盘 DP」。
 
+在动态规划精讲第一期中，我们有介绍过最长上升子序列问题并用动态规划的方法进行解决。实际上最长上升子序列还有其它解法，以及力扣上有很多最长上升子序列的变种问题以及包装之后的问题。我们在这一小节进行介绍。
+
+首先我们介绍最长上升子序列基于二分的解法，这是 LIS 问题的最好的解法，除此之外还有用线段树优化DP的方式的解法，这部分在动态规划精讲第四期关于DP的优化方法中介绍。
+
+然后我们介绍最长上升子序列的变形问题，一个是最长上升子序列个数，一个是最长上升子串。
+
+然后我们介绍一些力扣上的一些多维属性的最长上升子序列问题。
+
+最后我门介绍需要自定义 LIS 中的小于的一些问题，这些问题只要能正确定义小于，就可以转换成最长上升子序列问题。
+
+
+
+在动态规划精讲第一期中，我们有介绍过在矩阵上进行线性推导的动态规划问题，但是没有系统地介绍，本小节将这个知识点补充一下。
+
+「棋盘 DP」是一种在矩阵上进行状态推导的动态规划问题。i, j 分别是棋盘(矩阵)的横纵坐标，但并不一定要共同作为阶段。阶段划分有两种情况都比较常见：
+
+仅 i 作为阶段，具有位置等含义。同时 j 是附加状态。
+i, j 共同作为阶段，具有位置等含义。没有附加维度。
+这两种阶段划分方式的思路有区别，第一种是一行一行地考虑，第二种是一个位置一个位置地考虑。
+
+## 树形动态规划
+![Alt text](image-74.png)
+
+![Alt text](image-75.png)
+![Alt text](image-76.png)
+![Alt text](image-77.png)
+注意到在节点 u 时，状态转移过程只需要 dp[v][0]，而不需要 dp[v][1]，因此 dfs 仅返回 dp[v][0] 即可。
+
+代码中 max1 表示 dp[u][0], max2 表示 dp[u][1]。
+
+```cpp
+class Solution {
+public:
+    int treeDiameter(vector<vector<int>>& edges) {
+        int n = edges.size();
+        vector<vector<int> > g(n + 1);
+        for(const auto &e: edges)
+        {
+            g[e[0]].push_back(e[1]);
+            g[e[1]].push_back(e[0]);
+        }
+        int ans = 0;
+        dfs(0, -1, g, ans);
+        return ans;
+    }
+
+private:
+    int dfs(int u, int fa, const vector<vector<int> >& g, int& ans)
+    {
+        int max1 = 0, max2 = 0;
+        for(int v: g[u])
+        {
+            if(v != fa)
+            {
+                int t = dfs(v, u, g, ans) + 1;
+                if(max1 < t)
+                {
+                    max2 = max1;
+                    max1 = t;
+                }
+                else if(max2 < t)
+                    max2 = t;
+            }
+        }
+        ans = max(ans, (max1 + max2));
+        return max1;
+    }
+};
+
+```
+
+![Alt text](image-78.png)
+![Alt text](image-79.png)
+![Alt text](image-80.png)
+```cpp
+class Solution {
+public:
+    vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
+        vector<vector<int> > g(n); // 邻接表
+        for(vector<int> &edge: edges)
+        {
+            g[edge[0]].push_back(edge[1]);
+            g[edge[1]].push_back(edge[0]);
+        }
+        vector<int> dpdown(n, 0), dpup(n, 0);
+        // 第一次DFS记录每个结点在作为子树根结点的最大高度。
+        dfs_1(0, -1, dpdown, g);
+        // 第二次DFS补全每个结点作为总根结点的最大高度，差距就在于需要统计上从父结点传递过来的子树分支。
+        dfs_2(0, -1, dpdown, dpup, g);
+
+        int min_ans = n;
+        vector<int> ans;
+        for(int i = 0; i < n; ++i)
+        {
+            if(min_ans > dpdown[i])
+            {
+                min_ans = dpdown[i];
+                ans.clear();
+                ans.push_back(i);
+            }
+            else if(min_ans == dpdown[i])
+                ans.push_back(i);
+        }
+        return ans;
+    }
+
+private:
+    void dfs_1(int u, int fa, vector<int>& dpdown, vector<vector<int> >& g)
+    {
+        dpdown[u] = 0;
+        for(auto &v: g[u])
+        {
+            if(v == fa) continue;
+            dfs_1(v, u, dpdown, g);
+            dpdown[u] = max(dpdown[u], dpdown[v] + 1);
+        }
+    }
+
+    void dfs_2(int u, int fa, vector<int>& dpdown, vector<int>& dpup, vector<vector<int> >& g)
+    {
+        dpdown[u] = max(dpdown[u], dpup[u]);
+        int max_1 = 0, max_2 = 0; // 这里需要最大高度和次大高度
+        for(auto &v: g[u])
+        {
+            if(v == fa) continue;
+            if(max_1 < dpdown[v] + 1)
+            {
+                max_2 = max_1;
+                max_1 = dpdown[v] + 1;
+            }
+            else if(max_2 < dpdown[v] + 1)
+                max_2 = dpdown[v] + 1;
+        }
+        for(auto &v: g[u])
+        {
+            if(v == fa) continue;
+            if (max_1 == dpdown[v] + 1) {
+                // u 在 fa 的最长链上
+                dpup[v] = max(dpup[u], max_2) + 1;
+                dfs_2(v, u, dpdown, dpup, g);
+            }
+            else {
+                dpup[v] = max(dpup[u], max_1) + 1;
+                dfs_2(v, u, dpdown, dpup, g);
+            }
+        }
+    }
+};
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
