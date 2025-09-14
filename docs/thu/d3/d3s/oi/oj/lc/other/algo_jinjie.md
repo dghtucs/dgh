@@ -1579,27 +1579,176 @@ public class Solution {
 这一节我们向大家介绍几个关于「滑动窗口」的计数问题，写对计数问题的标准是：不重不漏。
 
 
+![Alt text](image-123.png)
+
+```java
+public class Solution {
+
+    public int lengthOfLongestSubstringTwoDistinct(String s) {
+        int len = s.length();
+        if (len < 3) {
+            return len;
+        }
+
+        char[] charArray = s.toCharArray();
+        int[] freq = new int[128];
+        // 滑动窗口里不同字符的个数
+        int count = 0;
+
+        int res = 2;
+        int left = 0;
+        int right = 0;
+        while (right < len) {
+            freq[charArray[right]]++;
+            if (freq[charArray[right]] == 1) {
+                count++;
+            }
+            right++;
+
+            while (count == 3) {
+                freq[charArray[left]]--;
+                if (freq[charArray[left]] == 0) {
+                    count--;
+                }
+                left++;
+            }
+            // 退出循环以后有 count = 2，因此在这里选出最大值
+            res = Math.max(res, right - left);
+        }
+        return res;
+    }
+}
 
 
+```
+
+![Alt text](image-124.png)
+
+![Alt text](image-125.png)
+
+```java
+public class Solution {
+
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+        int len = s.length();
+        if (len <= k) {
+            return len;
+        }
+
+        char[] charArray = s.toCharArray();
+        int[] freq = new int[128];
+        int count = 0;
+
+        int left = 0;
+        int right = 0;
+        int res = k;
+        while (right < len) {
+            freq[charArray[right]]++;
+            if (freq[charArray[right]] == 1) {
+                count++;
+            }
+            right++;
+
+            while (count == k + 1) {
+                freq[charArray[left]]--;
+                if (freq[charArray[left]] == 0) {
+                    count--;
+                }
+                left++;
+            }
+
+            res = Math.max(res, right - left);
+        }
+        return res;
+    }
+}
 
 
+```
+
+![Alt text](image-126.png)
+
+![Alt text](image-127.png)
+```java
+public class Solution {
+
+    public int numSubarrayBoundedMax(int[] nums, int left, int right) {
+        return lessEqualsThan(nums, right) - lessEqualsThan(nums, left - 1);
+    }
+
+    private int lessEqualsThan(int[] nums, int k) {
+        int len = nums.length;
+        int res = 0;
+        // 循环不变量：nums[left..right] 里的所有元素都小于等于 k
+        for (int left = 0, right = 0; right < len; right++) {
+            if (nums[right] > k) {
+                left = right + 1;
+            }
+            res += right - left;
+        }
+        return res;
+    }
+}
 
 
+```
+![Alt text](image-128.png)
+
+![Alt text](image-129.png)
+
+![Alt text](image-130.png)
+```java
+
+public class Solution {
+
+    public int subarraysWithKDistinct(int[] A, int K) {
+        return atMostKDistinct(A, K) - atMostKDistinct(A, K - 1);
+    }
+
+    /**
+     * @param A
+     * @param K
+     * @return 最多包含 K 个不同整数的子区间的个数
+     */
+    private int atMostKDistinct(int[] A, int K) {
+        int len = A.length;
+        int[] freq = new int[len + 1];
+
+        int left = 0;
+        int right = 0;
+        // [left, right) 里不同整数的个数
+        int count = 0;
+        int res = 0;
+        // [left, right) 包含不同整数的个数小于等于 K
+        while (right < len) {
+            if (freq[A[right]] == 0) {
+                count++;
+            }
+            freq[A[right]]++;
+            right++;
+
+            while (count > K) {
+                freq[A[left]]--;
+                if (freq[A[left]] == 0) {
+                    count--;
+                }
+                left++;
+            }
+            // [left, right) 区间的长度就是对结果的贡献
+            res += right - left;
+        }
+        return res;
+    }
+}
 
 
+```
+
+![Alt text](image-131.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
+## 滑动窗口 4：使用数据结构维护窗口性质
+有一类问题只是名字上叫「滑动窗口」，但解决这一类问题需要用到常见的数据结构。这一节给出的问题可以当做例题进行学习，一些比较复杂的问题是基于这些问题衍生出来的。
 
 
 
