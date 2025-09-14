@@ -1384,6 +1384,207 @@ public class Solution {
 同向交替移动的两个变量
 有一类数组上的问题，问我们固定长度的滑动窗口的性质，这一类问题在思维层面上相对简单。我们通过两道简单的例题向大家展示这一类问题的写法。
 
+![alt text](image-113.png)
+```java
+public class Solution {
+
+    public double findMaxAverage(int[] nums, int k) {
+        int len = nums.length;
+        // 由于题目限制了 k <= len，因此不用做特判
+        int windowSum = 0;
+        // 第 1 步：先求出第 1 个窗口的和
+      	for (int i = 0; i < k; i++) {
+            windowSum += nums[i];
+        }
+
+      	// 第 2 步：通过遍历求出除了第 1 个窗口的和
+        int res = windowSum;
+        // 循环不变量定义：[left..right) 是长度为 k 的窗口
+        for (int right = k; right < len; right++) {
+            // 加上一个数再减去一个数
+            windowSum = windowSum + nums[right] - nums[right - k];
+            res = Math.max(res, windowSum);
+        }
+        return (double) res / k;
+    }
+}
+
+
+```
+![alt text](Snipaste_2025-09-14_14-40-57.png)
+
+![alt text](Snipaste_2025-09-14_14-43-41.png)
+![alt text](image-114.png)
+```java
+public class Solution {
+
+    public int maxSatisfied(int[] customers, int[] grumpy, int X) {
+        int len = grumpy.length;
+        // 前缀和 preSum[i] 表示 [0..i) 里因为老板生气而感到不开心的顾客数
+        int[] preSum = new int[len + 1];
+
+        // 统计 1. 所有本来就不生气的顾客数量；2. 前缀和数组
+        int originCount = 0;
+        for (int i = 0; i < len; i++) {
+            if (grumpy[i] == 0) {
+                // 不生气
+                originCount += customers[i];
+                preSum[i + 1] = preSum[i];
+            } else {
+                // 生气时候前缀和
+                preSum[i + 1] = preSum[i] + customers[i];
+            }
+        }
+
+        int maxAngryCount = 0;
+        // 固定长度的滑动窗口的左边界：[i..i + X)
+        for (int left = 0; left < len - X + 1; left++) {
+            maxAngryCount = Math.max(maxAngryCount, preSum[left + X] - preSum[left]);
+        }
+        // 所有本来就不生气的顾客
+        return originCount + maxAngryCount;
+    }
+}
+
+
+```
+
+![alt text](image-115.png)
+
+## 滑动窗口 2：不定长度的滑动窗口
+有一类数组上的问题，需要使用两个指针变量（我们称为左指针和右指针），同向、交替向右移动完成任务。这样的过程像极了一个窗口在平面上滑动的过程，因此我们将解决这一类问题的算法称为「滑动窗口」问题。
+
+掌握好这一类「滑动窗口」的问题，需要先从「暴力解法」开始分析，「滑动窗口」利用了问题本身的特点，在两个指针同向、交替向右移动的过程中，少考虑了很多「暴力解法」需要考察了情况，将时间复杂度降到了线性级别 O(N)（这里𝑁是数组的长度），如下图所示。
+
+
+
+![alt text](Snipaste_2025-09-14_14-45-34.png)
+
+![alt text](image-116.png)
+![alt text](image-117.png)
+
+```java
+public class Solution {
+
+    public String minWindow(String s, String t) {
+        int[] window = new int[128];
+        int[] pattern = new int[128];
+
+        final int A = 'A';
+
+        for (Character c : t.toCharArray()) {
+            pattern[c - A]++;
+        }
+        int distance = 0;
+
+        for (int i = 0; i < 128; i++) {
+            if (pattern[i] > 0) {
+                distance++;
+            }
+        }
+
+        int sLen = s.length();
+        int start = 0;
+        int left = 0;
+        int right = 0;
+        int match = 0;
+        int minLen = sLen + 1;
+
+        while (right < sLen) {
+            Character curChar = s.charAt(right);
+            if (pattern[curChar - A] > 0) {
+                window[curChar - A]++;
+
+                if (window[curChar - A] == pattern[curChar - A]) {
+                    match++;
+                }
+            }
+
+            right++;
+
+            while (match == distance) {
+                if (right - left < minLen) {
+                    start = left;
+                    minLen = right - left;
+                }
+
+                // 考虑左边界向右边走
+                Character leftChar = s.charAt(left);
+                if (pattern[leftChar - A] > 0) {
+                    window[leftChar - A]--;
+
+                    if (window[leftChar - A] < pattern[leftChar - A]) {
+                        match--;
+                    }
+                }
+                left++;
+            }
+        }
+        return minLen == sLen + 1 ? "" : s.substring(start, start + minLen);
+    }
+}
+
+
+```
+![alt text](image-118.png)
+![alt text](image-119.png)
+![alt text](Snipaste_2025-09-14_14-47-38.png)
+
+![alt text](Snipaste_2025-09-14_14-47-45.png)
+```java
+public class Solution {
+
+    public int characterReplacement(String s, int k) {
+        int len = s.length();
+        if (len < 2) {
+            return len;
+        }
+
+        char[] charArray = s.toCharArray();
+        int left = 0;
+        int right = 0;
+
+        int res = 0;
+        int maxCount = 0;
+        int[] freq = new int[26];
+        // [left, right) 内最多替换 k 个字符可以得到只有一种字符的子串
+        while (right < len){
+            freq[charArray[right] - 'A']++;
+            // 在这里维护 maxCount，因为每一次右边界读入一个字符，字符频数增加，才会使得 maxCount 增加
+            maxCount = Math.max(maxCount, freq[charArray[right] - 'A']);
+            right++;
+
+            if (right - left > maxCount + k){
+              	// 说明此时 k 不够用
+                // 把其它不是最多出现的字符替换以后，都不能填满这个滑动的窗口，这个时候须要考虑左边界向右移动
+                // 移出滑动窗口的时候，频数数组须要相应地做减法
+                freq[charArray[left] - 'A']--;
+                left++;
+            }
+            res = Math.max(res, right - left);
+        }
+        return res;
+    }
+}
+
+
+```
+
+![alt text](image-120.png)
+![alt text](image-121.png)
+
+![alt text](image-122.png)
+
+## 滑动窗口 3：计数问题选讲
+这一节我们向大家介绍几个关于「滑动窗口」的计数问题，写对计数问题的标准是：不重不漏。
+
+
+
+
+
+
+
+
 
 
 
