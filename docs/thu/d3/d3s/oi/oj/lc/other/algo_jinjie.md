@@ -1751,6 +1751,396 @@ public class Solution {
 有一类问题只是名字上叫「滑动窗口」，但解决这一类问题需要用到常见的数据结构。这一节给出的问题可以当做例题进行学习，一些比较复杂的问题是基于这些问题衍生出来的。
 
 
+![Alt text](image-132.png)
+![Alt text](image-133.png)
+![Alt text](image-134.png)
+
+```cpp
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        int n = nums.size();
+        priority_queue<pair<int, int>> q;
+        for (int i = 0; i < k; ++i) {
+            q.emplace(nums[i], i);
+        }
+        vector<int> ans = {q.top().first};
+        for (int i = k; i < n; ++i) {
+            q.emplace(nums[i], i);
+            while (q.top().second <= i - k) {
+                q.pop();
+            }
+            ans.push_back(q.top().first);
+        }
+        return ans;
+    }
+};
+
+
+```
+![Alt text](image-135.png)
+```cpp
+
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        int n = nums.size();
+        deque<int> q;
+        for (int i = 0; i < k; ++i) {
+            while (!q.empty() && nums[i] >= nums[q.back()]) {
+                q.pop_back();
+            }
+            q.push_back(i);
+        }
+
+        vector<int> ans = {nums[q.front()]};
+        for (int i = k; i < n; ++i) {
+            while (!q.empty() && nums[i] >= nums[q.back()]) {
+                q.pop_back();
+            }
+            q.push_back(i);
+            while (q.front() <= i - k) {
+                q.pop_front();
+            }
+            ans.push_back(nums[q.front()]);
+        }
+        return ans;
+    }
+};
+
+
+```
+![Alt text](image-136.png)
+
+![Alt text](image-137.png)
+![Alt text](image-138.png)
+![Alt text](image-139.png)
+
+![Alt text](image-140.png)
+```cpp
+class DualHeap {
+private:
+    // 大根堆，维护较小的一半元素
+    priority_queue<int> small;
+    // 小根堆，维护较大的一半元素
+    priority_queue<int, vector<int>, greater<int>> large;
+    // 哈希表，记录「延迟删除」的元素，key 为元素，value 为需要删除的次数
+    unordered_map<int, int> delayed;
+
+    int k;
+    // small 和 large 当前包含的元素个数，需要扣除被「延迟删除」的元素
+    int smallSize, largeSize;
+
+public:
+    DualHeap(int _k): k(_k), smallSize(0), largeSize(0) {}
+
+private:
+    // 不断地弹出 heap 的堆顶元素，并且更新哈希表
+    template<typename T>
+    void prune(T& heap) {
+        while (!heap.empty()) {
+            int num = heap.top();
+            if (delayed.count(num)) {
+                --delayed[num];
+                if (!delayed[num]) {
+                    delayed.erase(num);
+                }
+                heap.pop();
+            }
+            else {
+                break;
+            }
+        }
+    }
+
+    // 调整 small 和 large 中的元素个数，使得二者的元素个数满足要求
+    void makeBalance() {
+        if (smallSize > largeSize + 1) {
+            // small 比 large 元素多 2 个
+            large.push(small.top());
+            small.pop();
+            --smallSize;
+            ++largeSize;
+            // small 堆顶元素被移除，需要进行 prune
+            prune(small);
+        }
+        else if (smallSize < largeSize) {
+            // large 比 small 元素多 1 个
+            small.push(large.top());
+            large.pop();
+            ++smallSize;
+            --largeSize;
+            // large 堆顶元素被移除，需要进行 prune
+            prune(large);
+        }
+    }
+
+public:
+    void insert(int num) {
+        if (small.empty() || num <= small.top()) {
+            small.push(num);
+            ++smallSize;
+        }
+        else {
+            large.push(num);
+            ++largeSize;
+        }
+        makeBalance();
+    }
+
+    void erase(int num) {
+        ++delayed[num];
+        if (num <= small.top()) {
+            --smallSize;
+            if (num == small.top()) {
+                prune(small);
+            }
+        }
+        else {
+            --largeSize;
+            if (num == large.top()) {
+                prune(large);
+            }
+        }
+        makeBalance();
+    }
+
+    double getMedian() {
+        return k & 1 ? small.top() : ((double)small.top() + large.top()) / 2;
+    }
+};
+
+class Solution {
+public:
+    vector<double> medianSlidingWindow(vector<int>& nums, int k) {
+        DualHeap dh(k);
+        for (int i = 0; i < k; ++i) {
+            dh.insert(nums[i]);
+        }
+        vector<double> ans = {dh.getMedian()};
+        for (int i = k; i < nums.size(); ++i) {
+            dh.insert(nums[i]);
+            dh.erase(nums[i - k]);
+            ans.push_back(dh.getMedian());
+        }
+        return ans;
+    }
+};
+
+
+```
+![Alt text](image-141.png)
+由于 
+small
+small 是大根堆，
+large
+large 是小根堆，因此根本就不存在与 
+num
+num 值相同的元素，也就不可能会被延迟删除了。
+
+
+##  链表中的双指针问题
+解决链表中的一些问题有些时候需要一些脑洞，并没有那么容易想到。好在这些问题只需要掌握这些常见的技巧就可以了。其中最典型的技巧就是「快慢指针」，也称为「同步指针」。事实上，解决它们都是在链表中使用了两个变量，因此也称为「双指针」技巧。
+
+![Alt text](image-142.png)
+
+![Alt text](image-143.png)
+![Alt text](image-144.png)
+```cpp
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        unordered_set<ListNode*> seen;
+        while (head != nullptr) {
+            if (seen.count(head)) {
+                return true;
+            }
+            seen.insert(head);
+            head = head->next;
+        }
+        return false;
+    }
+};
+
+
+```
+![Alt text](image-145.png)
+![Alt text](image-146.png)
+![Alt text](image-147.png)
+```cpp
+class Solution {
+public:
+    bool hasCycle(ListNode* head) {
+        if (head == nullptr || head->next == nullptr) {
+            return false;
+        }
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while (slow != fast) {
+            if (fast == nullptr || fast->next == nullptr) {
+                return false;
+            }
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return true;
+    }
+};
+
+
+```
+![Alt text](image-148.png)
+
+![Alt text](image-149.png)
+![Alt text](image-150.png)
+
+![Alt text](image-151.png)
+![Alt text](image-152.png)
+
+```cpp
+class Solution {
+public:
+    int getLength(ListNode* head) {
+        int length = 0;
+        while (head) {
+            ++length;
+            head = head->next;
+        }
+        return length;
+    }
+
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0, head);
+        int length = getLength(head);
+        ListNode* cur = dummy;
+        for (int i = 1; i < length - n + 1; ++i) {
+            cur = cur->next;
+        }
+        cur->next = cur->next->next;
+        ListNode* ans = dummy->next;
+        delete dummy;
+        return ans;
+    }
+};
+
+
+```
+![Alt text](image-153.png)
+
+```cpp
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0, head);
+        stack<ListNode*> stk;
+        ListNode* cur = dummy;
+        while (cur) {
+            stk.push(cur);
+            cur = cur->next;
+        }
+        for (int i = 0; i < n; ++i) {
+            stk.pop();
+        }
+        ListNode* prev = stk.top();
+        prev->next = prev->next->next;
+        ListNode* ans = dummy->next;
+        delete dummy;
+        return ans;
+    }
+};
+
+
+```
+
+![Alt text](image-154.png)
+![Alt text](image-155.png)
+```cpp
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* first = head;
+        ListNode* second = dummy;
+        for (int i = 0; i < n; ++i) {
+            first = first->next;
+        }
+        while (first) {
+            first = first->next;
+            second = second->next;
+        }
+        second->next = second->next->next;
+        ListNode* ans = dummy->next;
+        delete dummy;
+        return ans;
+    }
+};
+
+
+```
+![Alt text](image-156.png)
+
+![Alt text](image-157.png)
+
+![Alt text](image-158.png)
+```cpp
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        int n = 0;
+        ListNode* cur = head;
+        while (cur != nullptr) {
+            ++n;
+            cur = cur->next;
+        }
+        int k = 0;
+        cur = head;
+        while (k < n / 2) {
+            ++k;
+            cur = cur->next;
+        }
+        return cur;
+    }
+};
+
+
+```
+![Alt text](image-159.png)
+```cpp
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while (fast != NULL && fast->next != NULL) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
+};
+
+
+```
+
+![Alt text](image-160.png)
+
+
+## 双指针：相向交替移动的两个变量
+相向交替移动的两个变量
+「双指针」是指通过两个变量交替相向移动完成任务的算法，具体来说，可以使用两个变量 i 和 j ，初始的时候，i 和 j 分别指向数组的第一个元素和最后一个元素，然后指针 i 不断向右移动， 指针 j 不断向左移动，直到它们相遇。这样设计的算法少考虑了很多暴力解法需要考虑的情况，如下图所示
+
+![Alt text](image-161.png)
+
+# 贪心算法
+
+贪心算法是对完成一件事情的方法的描述，贪心算法每一次都做出当前看起来最好的选择，而不用考虑其它可能的选择。
+
+贪心算法的学习可以与动态规划算法进行比较，看看它到底比动态规划算法少考虑了哪些子问题，为什么可以少考虑那些子问题，而每次只专注于求解一个子问题，通过逐步递推得到原问题的答案。
+
+
+
+
+
 
 
 
