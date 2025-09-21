@@ -33,11 +33,12 @@
 
 // solution_2.cpp —— 行前缀和：每次查询 O(a)
 #include <cstdio>
-
+#include <ctime>
 static int matrix[2005][2005];
 static long long rowsum[2005][2005];  // rowsum[i][j] = 第 i 行前 j 个元素之和
 
 int main() {
+    clock_t start = clock();
     int n, m;
     if (scanf("%d%d", &n, &m) != 2) return 0;
 
@@ -62,5 +63,8 @@ int main() {
         }
         printf("%lld\n", sum);
     }
+    clock_t end = clock();
+    double time_taken = double(end - start) / CLOCKS_PER_SEC;
+    printf("solution_2 time: %f seconds\n", time_taken);
     return 0;
 }

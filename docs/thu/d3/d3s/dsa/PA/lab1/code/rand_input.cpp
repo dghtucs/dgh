@@ -12,8 +12,10 @@ int main(){
     // a between 1 and n-x+1,
     // b between 1 and m-y+1
     srand(time(0));
-    int n = rand()%91 + 10;
-    int m = rand()%91 + 10;
+    // int n = rand()%91 + 10;
+    // int m = rand()%91 + 10;
+    int n = 2000;
+    int m = 2000;
     printf("%d %d\n",n,m);
     //TODO: generate matrix, q, and queries.
     for(int i=1;i<=n;++i){
@@ -21,7 +23,8 @@ int main(){
             printf("%d ",rand()%1001);
         }printf("\n");
     }
-    int q = rand()%11 + 10;
+    // int q = rand()%11 + 10;
+    int q = 500;
     printf("%d\n",q);
     for(int i=1;i<=q;++i){
         int x = rand()%n + 1,y = rand()%m + 1;

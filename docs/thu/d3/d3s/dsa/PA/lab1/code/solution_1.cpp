@@ -28,10 +28,12 @@
 
 // solution_1.cpp —— 朴素做法：O(a*b) 每次查询
 #include <cstdio>
+#include <ctime>
 
 static int matrix[2005][2005];  // 1-based，多开一圈避免越界
 
 int main() {
+    clock_t start = clock();
     int n, m;
     if (scanf("%d%d", &n, &m) != 2) return 0;
 
@@ -50,5 +52,8 @@ int main() {
                 sum += matrix[x + i][y + j];
         printf("%lld\n", sum);
     }
+    clock_t end = clock();
+    double time_taken = double(end - start) / CLOCKS_PER_SEC;
+    printf("solution_1 time: %f seconds\n", time_taken);
     return 0;
 }

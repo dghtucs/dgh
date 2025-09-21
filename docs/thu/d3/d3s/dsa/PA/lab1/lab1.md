@@ -293,12 +293,28 @@ list 30,50：显示第 30–50 行。
 ## 4
 
 ### 4A
+solution_2.cpp 比 solution_1.cpp 少了一层循环，使用了一维前缀和的方法，solution_3.cpp 使用了二维前缀和的方法，进一步减少了查询时间复杂度，其算法思路为：
 
+1. 预处理阶段：构建一个二维前缀和数组 ps，其中 ps[i][j] 表示原始矩阵中 (1,1) 到 (i,j) 的元素和。
+2. 查询阶段：对于每个查询 (x,y,a,b)，通过前缀和数组快速计算子矩阵 (x,y) 到 (x+a-1,y+b-1) 的和，时间复杂度为 O(1)
 
 ### 4B
+我使用<ctime>测量了不同测例下三种解法的运行时间，通过分析得出两个代表性实例
+n=m=2000, q=1e5
+solution_1 time: 43.041824 seconds
+solution_2 time: 0.929999 seconds
+solution_3 time: 0.186934 seconds
 
+n=m=2000, q=500
+solution_1 time: 0.358786 seconds
+solution_2 time: 0.185471 seconds
+solution_3 time: 0.161679 seconds
 
 ### 4C
+
+可以发现在q较大时，solution_3的优势更明显，而q较小时，solution_2和solution_3的差距不大。同样在n和m较小时，三种解法的差距也不大，但随着n和m的增大，solution_3的优势会更加明显
+
+
 
 
 
