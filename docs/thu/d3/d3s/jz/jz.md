@@ -1,6 +1,11 @@
 computer structure
 ji zu
 
+[lab](./lab/lab.md)
+
+
+
+
 [上课](./class/class01.md)
 [第二课](./class/class02.md)
 [第三课](./class/class03.md)
