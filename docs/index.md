@@ -4,7 +4,7 @@
 
 [编译](thu/d3/d3s/cp/cp.md)
 
-[数据库](thu/d3/d3s/db/db.md)
+[数论](thu/d3/d3s/db/db.md)
 
 [数据结构](thu/d3/d3s/dsa/dsa.md)
 
