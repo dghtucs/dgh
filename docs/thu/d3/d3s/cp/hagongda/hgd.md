@@ -84,8 +84,10 @@
 
 ## NFA到DFA
 
+![alt text](image-42.png)
+![alt text](image-43.png)
 
-
+## 识别单词的DFA
 
 
 
