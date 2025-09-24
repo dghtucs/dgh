@@ -2,6 +2,7 @@
 
 [上课](./class/class01.md)
 
+[哈工大](./hagongda/hgd.md)
 
 # 基础
 
