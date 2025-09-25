@@ -3,7 +3,7 @@ ji zu
 
 [lab](./lab/lab.md)
 
-
+[王道](./wangdao/wangdao.md)
 
 
 [上课](./class/class01.md)
