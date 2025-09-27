@@ -4,6 +4,8 @@
 
 [科协](https://docs.net9.org/)
 
+[C++苦修](./cpp/cpp.md)
+
 
 
 [第一课](./class/class01.md)
