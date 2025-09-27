@@ -113,24 +113,28 @@ MQ中存储器：乘法器和除法器的中间结果寄存器，存储低位
 ![alt text](image-43.png)
 ![alt text](image-44.png)
 
+![Alt text](image-45.png)
+![Alt text](image-46.png)
+![Alt text](image-47.png)
+![Alt text](image-48.png)
+![Alt text](image-49.png)
+![Alt text](image-50.png)
+![Alt text](image-51.png)
+![Alt text](image-52.png)
+
+![Alt text](image-53.png)
+
+![Alt text](image-54.png)
+
+![Alt text](image-55.png)
+
+## 多路选择器
+
+![Alt text](image-56.png)
+![Alt text](image-57.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 三态门
 
 
 
