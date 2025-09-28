@@ -1,50 +1,66 @@
 #include <iostream>
+#include <cstring>
 #include <string>
-#include <vector>
-#include <algorithm>
+#include <cstdlib>
+#include <cmath>
+
 
 using namespace std;
+int k;
+int longestCommonSubsequence(const char* str1,const char* str2, int m, int n) {
+    
+    int dp[2][n + 1];
+    memset(dp, 0, sizeof(dp));
+    
 
-int main() {
-    int n, m, k;
-    cin >> n >> m >> k;
-    string A, B;
-    cin >> A >> B;
-    
-    // 优化空间：使用一维数组，大小为较小的字符串长度+1，减少内存占用
-    if (n < m) {
-        swap(n, m);
-        swap(A, B);
-    }
-    vector<int> dp(m + 1, 0);
-    
-    // 初始化边界条件（对应原代码中i=0的情况）
-    for (int j = 0; j <= m; j++) {
-        dp[j] = j;
-    }
-    
-    // 填充dp数组（滚动更新）
-    for (int i = 1; i <= n; i++) {
-        int prev = dp[0]; // 保存上一行前一列的值（即dp[i-1][j-1]）
-        dp[0] = i; // 当前行第0列的值（删除A的前i个字符）
-        for (int j = 1; j <= m; j++) {
-            int temp = dp[j]; // 暂存当前行更新前的dp[j]，作为下一轮的prev
-            if (A[i-1] == B[j-1]) {
-                dp[j] = prev; // 字符匹配，等价于dp[i-1][j-1]
-            } else {
-                // 取删除（dp[i-1][j]即当前dp[j]）或插入（dp[i][j-1]即更新后的dp[j-1]）的最小值+1
-                dp[j] = min(dp[j], dp[j-1]) + 1;
+    for (int i = 1; i <= m; ++i) {
+        for (int j = 1; j <= n; ++j) {
+            if(j-i > k)
+            break;
+            if(i - j > k)
+                j = i-k;
+            else{
+                if (str1[i - 1] == str2[j - 1]) {
+                dp[i % 2][j] = dp[(i - 1) % 2][j - 1] + 1; 
+                } else {
+                dp[i % 2][j] = max(dp[(i - 1) % 2][j], dp[i % 2][j - 1]);
             }
-            prev = temp; // 更新prev为下一轮的dp[i-1][j-1]
+            }
         }
     }
+   
+    return dp[m % 2][n];
+}
+
+
+int main() {
+    // freopen("in.txt","r",stdin);
+    // freopen("out.txt","w",stdout);
     
-    // 判断是否超过时间阈值
-    if (dp[m] > k) {
-        cout << -1 << endl;
-    } else {
-        cout << dp[m] << endl;
-    }
-    
+    int n,m;
+    // cin >> m >> n >> k;
+    scanf("%d %d %d",&m,&n,&k);
+    const char* str1 = new char[m];
+    const char *str2 =new char[n];
+    // cout << "Enter the first string: ";
+    // cin >> str1;
+    scanf("%s",str1);
+    // cout << "Enter the second string: ";
+    // cin >> str2;
+    scanf("%s",str2);
+
+    int lcs = longestCommonSubsequence(str1, str2,m,n);
+    int dis1 = strlen(str1) - lcs;
+    int dis2 = strlen(str2) - lcs;
+    // cout << lcs.size() << endl;
+    // cout << dis1 << endl;
+    // cout << dis2 << endl;
+    int res = abs(dis1) + abs(dis2) ;
+    if(res <= k)
+        printf("%d\n",res);
+    else
+        printf("%d\n",-1);
+
     return 0;
 }
+
