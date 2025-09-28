@@ -113,9 +113,70 @@ MQ中存储器：乘法器和除法器的中间结果寄存器，存储低位
 ![alt text](image-43.png)
 ![alt text](image-44.png)
 
+![Alt text](image-45.png)
+![Alt text](image-46.png)
+![Alt text](image-47.png)
+![Alt text](image-48.png)
+![Alt text](image-49.png)
+![Alt text](image-50.png)
+![Alt text](image-51.png)
+![Alt text](image-52.png)
+
+![Alt text](image-53.png)
+
+![Alt text](image-54.png)
+
+![Alt text](image-55.png)
+
+## 多路选择器
+
+![Alt text](image-56.png)
+![Alt text](image-57.png)
 
 
+## 三态门
+![Alt text](image-58.png)
 
+## 加法器
+
+![Alt text](image-59.png)
+![Alt text](image-60.png)
+
+![Alt text](image-61.png)
+![Alt text](image-62.png)
+串行并位的并行加法器
+![Alt text](image-64.png)
+
+![Alt text](image-65.png)
+
+![Alt text](image-66.png)
+![Alt text](image-67.png)
+![Alt text](image-68.png)
+![Alt text](image-69.png)
+
+
+## ALU
+![Alt text](image-70.png)
+
+![Alt text](image-71.png)
+
+![Alt text](image-72.png)
+![Alt text](image-73.png)
+![Alt text](image-74.png)
+![Alt text](image-75.png)
+
+## 定点数运算
+
+![Alt text](image-76.png)
+![Alt text](image-77.png)
+
+![Alt text](image-78.png)
+
+![Alt text](image-79.png)
+
+![Alt text](image-80.png)
+
+![Alt text](image-81.png)
 
 
 
