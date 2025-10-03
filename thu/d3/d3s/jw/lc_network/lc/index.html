@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../../../img/favicon.ico">
+        <title>计算机网络 - 勿怯 勿惰 勿贪 勿我</title>
+        <link href="../../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../../..">勿怯 勿惰 勿贪 勿我</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../../.." class="nav-link">个人首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../../../about/" class="nav-link">工具链接网址</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">清华</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../thu/" class="dropdown-item">清华</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../d1/d1/" class="dropdown-item">大一</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../d2/d2/" class="dropdown-item">大二</a>
+</li>
+                                    
+<li>
+    <a href="../../../../d3/" class="dropdown-item">大三</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../d4/d4/" class="dropdown-item">大四</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">数学</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../math/math/" class="dropdown-item">数学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../math/caculus/" class="dropdown-item">微积分</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../math/linear/" class="dropdown-item">线性代数</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../math/probability/" class="dropdown-item">概率论</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">计算机</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../cs/cs/" class="dropdown-item">计算机</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">编程语言</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c/c/" class="dropdown-item">C</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C++语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/cpp/cpp/" class="dropdown-item">C++</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">数据结构</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../cs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/dsa/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">操作系统</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../cs/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/os/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机组成原理</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/jz/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机网络</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/jw/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">金融量化</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../finance/finance/" class="dropdown-item">金融</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../finance/crypto/crypto/" class="dropdown-item">币</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../finance/stock/stock/" class="dropdown-item">股票</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../finance/quant/quant/" class="dropdown-item">量化</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">艺体</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../art/art/" class="dropdown-item">文学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../art/English/english/" class="dropdown-item">英语</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">读书</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../books/cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/lan/" class="dropdown-item">编程语言</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../../../../../../books/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/gr/" class="dropdown-item">个人成长</a>
+</li>
+            
+<li>
+    <a href="../../../../../../books/navy/zashu/" class="dropdown-item">杂书</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../../../art/music/" class="dropdown-item">音乐</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">生活记录</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../me/dgh/" class="dropdown-item">我是谁</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2024</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../me/2024/2024/" class="dropdown-item">2024年</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">8月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%886%E6%97%A5/" class="dropdown-item">2024年8月6日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%887%E6%97%A5/" class="dropdown-item">2024年8月7日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%888%E6%97%A5/" class="dropdown-item">2024年8月8日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%889%E6%97%A5/" class="dropdown-item">2024年8月9日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8810%E6%97%A5/" class="dropdown-item">2024年8月10日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8811%E6%97%A5/" class="dropdown-item">2024年8月11日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8812%E6%97%A5/" class="dropdown-item">2024年8月12日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8813%E6%97%A5/" class="dropdown-item">2024年8月13日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8814%E6%97%A5/" class="dropdown-item">2024年8月14日</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">11月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../me/2024/11/2024%E5%B9%B411%E6%9C%8828%E6%97%A5/" class="dropdown-item">2024年11月28日</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2025</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../me/2025/2025%E5%B9%B4/" class="dropdown-item">2025年</a>
+</li>
+            
+<li>
+    <a href="../../../../../../me/2025/1%E6%9C%88/2025%E5%B9%B41%E6%9C%88/" class="dropdown-item">2025年1月</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">计算机网络</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">第一部分：计算机网络体系结构</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">第二部分：应用层</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">计算机网络</h1>
+<h2 id="_2">第一部分：计算机网络体系结构</h2>
+<p><img alt="alt text" src="../image.png" /></p>
+<h3 id="11-osi">1.1 OSI 七层模型</h3>
+<p>OSI(Open System Interconnection Reference Model) 模型是国际标准化组织 ISO（International Organization for Standardization) 提出的一个试图使各种计算机在世界范围内互连为网络的标准框架。
+OSI 将计算机网络体系结构划分为七层，每一层实现各自的功能和协议，并完成与相邻层的接口通信。OSI 的服务定义详细说明了各层所提供的服务。</p>
+<p>应用层：通过应用程序间的交互来完成特定的网络应用
+表示层：解释交换数据的含义。该层提供的服务主要包括数据压缩，数据加密以及数据描述。
+会话层：负责建立、管理和终止表示层实体之间的通信会话。该层提供了数据交换的定界和同步功能，包括了建立检查点和恢复方案的方法。
+传输层：负责因特网中两台主机的进程提供通信服务。
+网络层：选择合适的网间路由和交换节点，确保数据按时成功传送。
+数据链路层(链路层)：数据链路层将网络层交下来的 IP 数据报组装成帧，在两个相邻节点间的链路上传送帧。
+物理层：实现计算机节点之间比特流的透明传送，尽可能屏蔽掉具体传输介质和物理设备的差异。该层的主要任务是确定与传输媒体的接口的一些特性（机械特性、电气特性、功能特性，过程特性）</p>
+<h3 id="12-tcpip">1.2 TCP/IP 五层参考模型</h3>
+<p>五层体系的协议结构是综合了 OSI 和 TCP/IP 优点的一种协议，包括应用层、传输层、网络层、数据链路层和物理层。其中应用层对应 OSI 的上三层，下四层和 OSI 相同。五层协议的体系结构只是为介绍网络原理而设计的，实际应用还是 TCP/IP 四层体系结构。</p>
+<p>应用层 ：为特定应用程序提供数据传输服务。
+传输层 ：为进程提供通用数据传输服务。
+网络层 ：为主机提供数据传输服务。而传输层协议是为主机中的进程提供数据传输服务。
+数据链路层 ：网络层针对的还是主机之间的数据传输服务，而主机之间可以有很多链路，链路层协议就是为同一链路的主机提供数据传输服务。
+物理层 ：负责比特流在传输介质上的传播。</p>
+<h3 id="13">1.3 对比两种网络模型</h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>OSI 七层模型</th>
+<th>TCP/IP 五层模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>层数</td>
+<td>7 层</td>
+<td>5 层</td>
+</tr>
+<tr>
+<td>应用层</td>
+<td>包含应用层、表示层、会话层</td>
+<td>仅包含应用层</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>仅提供端到端的通信</td>
+<td>提供端到端的通信</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>提供逻辑地址和路由选择</td>
+<td>提供逻辑地址和路由选择</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+<td>提供物理地址和链路控制</td>
+<td>提供物理地址和链路控制</td>
+</tr>
+<tr>
+<td>物理层</td>
+<td>定义物理媒介和信号</td>
+<td>定义物理媒介和信号</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="alt text" src="../image-1.png" /></p>
+<h3 id="14">1.4 数据如何在各层直接传输</h3>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<p>假设一个主机上的一个应用向另一个主机的一个应用发送数据。</p>
+<p>在发送主机端，一个应用层报文被传送到传输层。在最简单的情况下，传输层收取到报文并附上附加信息，该首部将被接收端的传输层使用。
+应用层报文和传输层首部信息一道构成了传输层报文段。附加的信息可能包括：允许接收端传输层向上向适当的应用程序交付报文的信息以及差错检测位信息。该信息让接收端能够判断报文中的比特是否在途中已被改变。
+传输层则向网络层传递该报文段，网络层增加了如源和目的端系统地址等网络层首部信息，生成了网络层数据报文。
+该数据报文接下来被传递给链路层，在数据链路层数据包添加发送端 MAC 地址和接收端 MAC 地址后被封装成数据帧。
+在物理层数据帧被封装成比特流，之后通过传输介质传送到对端。而在接收主机端，整个过程正好反过来。</p>
+<h2 id="_3">第二部分：应用层</h2>
+<p>网络应用是计算机网络存在的理由，而网络应用都是处于应用层的，所以应用层是计算机网络中最重要的部分之一。</p>
+<p>本章高频面试题
+uri 和 url 的区别 ？
+dns 是啥工作原理，主要解析过程是啥？
+用户输入网址到显示对应页面的全过程是啥？
+http 头部包含哪些信息？
+http 方法了解哪些？
+http 状态码了解哪些？
+get 和 post 的区别？
+https 和 https 的区别？
+https 的加密方式？
+http 是不保存状态的协议,如何保存用户状态？
+http 不同版本的区别？</p>
+<h3 id="21">2.1 万维网和域名系统</h3>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<p><img alt="alt text" src="../image-5.png" />
+<img alt="alt text" src="../image-6.png" /></p>
+<p><img alt="alt text" src="../image-7.png" />
+<img alt="alt text" src="../image-8.png" />
+<img alt="alt text" src="../image-9.png" />
+2.1.5 网页解析全过程</p>
+<p><img alt="alt text" src="../image-10.png" />
+<img alt="alt text" src="../image-11.png" /></p>
+<h3 id="22-http">2.2 http</h3>
+<p><img alt="alt text" src="../image-12.png" /></p>
+<pre><code class="language-bash">// 第一部分：简略信息
+GET https://leetcode.cn/problemset/all/ HTTP/1.1.  
+// 第二部分：请求首部或者响应首部
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+Cache-Control: max-age=0
+Host: leetcode.cn
+If-Modified-Since: Thu, 17 Oct 2019 07:18:26 GMT
+If-None-Match: &quot;3147526947+gzip&quot;
+Proxy-Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 xxx
+// --------- 空行 --------------
+// 第三部分，内容主体
+param1=1&amp;param2=2
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-13.png" />
+<img alt="alt text" src="../image-14.png" /></p>
+<p><img alt="alt text" src="../image-15.png" /></p>
+<p><img alt="alt text" src="../image-16.png" /></p>
+<p><img alt="alt text" src="../Snipaste_2025-09-17_10-39-46.png" />
+http请求首部目录：https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers</p>
+<p>与状态码一样，对于 http 首部，只要记住几个常用的就可以
+<img alt="alt text" src="../image-17.png" /></p>
+<p><img alt="alt text" src="../image-18.png" />
+<img alt="alt text" src="../image-19.png" /></p>
+<p><img alt="alt text" src="../image-20.png" /></p>
+<p><img alt="alt text" src="../image-21.png" /></p>
+<p><img alt="alt text" src="../image-22.png" /></p>
+<p><img alt="alt text" src="../image-23.png" /></p>
+<p><img alt="alt text" src="../image-24.png" />
+<img alt="alt text" src="../image-25.png" /></p>
+<p><img alt="alt text" src="../image-26.png" /></p>
+<p><img alt="alt text" src="../image-27.png" /></p>
+<h3 id="23-socket">2.3 网络编程 socket</h3>
+<p><img alt="alt text" src="../image-28.png" /></p>
+<p><img alt="alt text" src="../image-29.png" /></p>
+<p><img alt="alt text" src="../image-30.png" />
+<img alt="alt text" src="../image-31.png" /></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../../js/base.js"></script>
+        <script src="../../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
