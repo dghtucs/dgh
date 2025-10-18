@@ -5,6 +5,8 @@ ji zu
 
 [王道](./wangdao/wangdao.md)
 
+[问题](./problem/p.md)
+
 
 [上课](./class/class01.md)
 [第二课](./class/class02.md)
