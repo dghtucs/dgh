@@ -2,14 +2,14 @@
 #include <cstring>  
 #include <string>
 #include <cstdlib> 
-#include <cmath>   // 数学函数
+#include <cmath>
 using namespace std;
-int k; // 用于存储允许的最大编辑距离
-// 函数：计算两个字符串的最长公共子序列（LCS）
+int k; // 允许的最大编辑距离
+// 计算两个字符串的最长公共子序列（LCS）
 int longestCommonSubsequence(const char* str1, const char* str2, int m, int n) {
-    // 创建二维数组 dp，用于存储计算结果
+    // 二维数组 dp，用于存储计算结果
     int dp[2][n + 1];
-    memset(dp, 0, sizeof(dp)); // 初始化 dp 数组为 0
+    memset(dp, 0, sizeof(dp)); // 初始化 dp 为 0
     // 遍历每个字符
     for (int i = 1; i <= m; ++i) {
         for (int j = 1; j <= n; ++j) {
