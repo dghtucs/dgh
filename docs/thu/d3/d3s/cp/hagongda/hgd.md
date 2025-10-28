@@ -89,13 +89,50 @@
 
 ## 识别单词的DFA
 
+![Alt text](image-45.png)
+![Alt text](image-46.png)
+
+
+# 自顶向下分析
+
+![Alt text](image-47.png)
+最左推导
+
+
+最右规约
+![Alt text](image-49.png)
+
+自底向上使用最左规约，因此称为规范规约
+![Alt text](image-50.png)
+
+
+![Alt text](image-51.png)
+
+# 文法转换
+
+![Alt text](image-52.png)
+
+左递归
+![Alt text](image-53.png)
+
+消除左递归
+![Alt text](image-54.png)
+
+![Alt text](image-55.png)
+
+间接左递归
+![Alt text](image-56.png)
+
+![Alt text](image-57.png)
+
+
+提取左公因子
+![Alt text](image-58.png)
 
 
 
-
-
-
-
+# LL(1)文法
+![Alt text](image-60.png)
 
 
 
