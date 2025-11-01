@@ -132,10 +132,64 @@
 
 
 # LL(1)文法
+s文法
 ![Alt text](image-60.png)
 
+FOLLOW集合
+![Alt text](image-61.png)
+
+q文法
+![Alt text](image-62.png)
 
 
+FIRST集合
+![Alt text](image-63.png)
+
+
+![Alt text](image-64.png)
+
+LL(1)文法
+![Alt text](image-65.png)
+
+
+# FOLLOW集合FIRST集合计算
+
+first
+![Alt text](image-66.png)
+
+![Alt text](image-67.png)
+
+![Alt text](image-68.png)
+
+follow
+![Alt text](image-69.png)
+
+
+这个分析过程要反复学习
+https://www.bilibili.com/video/BV1dL4y1H7T8?t=588.9&p=22
+
+要持续更新
+![Alt text](image-70.png)
+
+![Alt text](image-71.png)
+
+
+select集合
+![Alt text](image-72.png)
+不相交就是LL1文法
+
+进行预测分析
+![Alt text](image-73.png)
+
+# 递归预测
+![Alt text](image-74.png)
+
+![Alt text](image-75.png)
+
+# 非递归预测
+
+
+$$ r_i = \alpha_i + \beta_i \cdot F + \epsilon_i $$
 
 
 
