@@ -89,16 +89,107 @@
 
 ## 识别单词的DFA
 
+![Alt text](image-45.png)
+![Alt text](image-46.png)
+
+
+# 自顶向下分析
+
+![Alt text](image-47.png)
+最左推导
+
+
+最右规约
+![Alt text](image-49.png)
+
+自底向上使用最左规约，因此称为规范规约
+![Alt text](image-50.png)
+
+
+![Alt text](image-51.png)
+
+# 文法转换
+
+![Alt text](image-52.png)
+
+左递归
+![Alt text](image-53.png)
+
+消除左递归
+![Alt text](image-54.png)
+
+![Alt text](image-55.png)
+
+间接左递归
+![Alt text](image-56.png)
+
+![Alt text](image-57.png)
+
+
+提取左公因子
+![Alt text](image-58.png)
 
 
 
+# LL(1)文法
+s文法
+![Alt text](image-60.png)
+
+FOLLOW集合
+![Alt text](image-61.png)
+
+q文法
+![Alt text](image-62.png)
 
 
+FIRST集合
+![Alt text](image-63.png)
 
 
+![Alt text](image-64.png)
+
+LL(1)文法
+![Alt text](image-65.png)
 
 
+# FOLLOW集合FIRST集合计算
 
+first
+![Alt text](image-66.png)
+
+![Alt text](image-67.png)
+
+![Alt text](image-68.png)
+
+follow
+![Alt text](image-69.png)
+
+
+这个分析过程要反复学习
+https://www.bilibili.com/video/BV1dL4y1H7T8?t=588.9&p=22
+
+要持续更新
+![Alt text](image-70.png)
+
+![Alt text](image-71.png)
+
+
+select集合
+![Alt text](image-72.png)
+不相交就是LL1文法
+
+进行预测分析
+![Alt text](image-73.png)
+
+# 递归预测
+![Alt text](image-74.png)
+
+![Alt text](image-75.png)
+
+# 非递归预测
+
+
+$$ r_i = \alpha_i + \beta_i \cdot F + \epsilon_i $$
 
 
 
