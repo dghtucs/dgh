@@ -209,3 +209,6 @@ $$ r_i = \alpha_i + \beta_i \cdot F + \epsilon_i $$
 
 
 
+
+
+
