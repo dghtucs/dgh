@@ -31,6 +31,33 @@
 ![alt text](image-20.png)
 
 
+伊普斯龙闭包
+
+![alt text](image-21.png)
+
+
+扩展的转移函数
+![alt text](image-22.png)
+
+
+举例说明怎么写扩展的转移函数
+![alt text](image-23.png)
+
+![alt text](image-24.png)
+![alt text](image-25.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
