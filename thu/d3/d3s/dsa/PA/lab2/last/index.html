@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../../../../img/favicon.ico">
+        <title>01.cpp - 勿怯 勿惰 勿贪 勿我</title>
+        <link href="../../../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../../../..">勿怯 勿惰 勿贪 勿我</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../../../.." class="nav-link">个人首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../../../../about/" class="nav-link">工具链接网址</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">清华</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../thu/" class="dropdown-item">清华</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d1/d1/" class="dropdown-item">大一</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d2/d2/" class="dropdown-item">大二</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../d3/" class="dropdown-item">大三</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d4/d4/" class="dropdown-item">大四</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">数学</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../math/math/" class="dropdown-item">数学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/caculus/" class="dropdown-item">微积分</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/linear/" class="dropdown-item">线性代数</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/probability/" class="dropdown-item">概率论</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">计算机</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../cs/cs/" class="dropdown-item">计算机</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">编程语言</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c/c/" class="dropdown-item">C</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C++语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/cpp/cpp/" class="dropdown-item">C++</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">数据结构</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/dsa/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">操作系统</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/os/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机组成原理</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/jz/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机网络</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/jw/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">金融量化</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../finance/finance/" class="dropdown-item">金融</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/crypto/crypto/" class="dropdown-item">币</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/stock/stock/" class="dropdown-item">股票</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/quant/quant/" class="dropdown-item">量化</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">艺体</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../art/art/" class="dropdown-item">文学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../art/English/english/" class="dropdown-item">英语</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">读书</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../books/cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/lan/" class="dropdown-item">编程语言</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../../../../../../../books/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/gr/" class="dropdown-item">个人成长</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../books/navy/zashu/" class="dropdown-item">杂书</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../../../../art/music/" class="dropdown-item">音乐</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">生活记录</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../me/dgh/" class="dropdown-item">我是谁</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2024</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/2024/" class="dropdown-item">2024年</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">8月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%886%E6%97%A5/" class="dropdown-item">2024年8月6日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%887%E6%97%A5/" class="dropdown-item">2024年8月7日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%888%E6%97%A5/" class="dropdown-item">2024年8月8日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%889%E6%97%A5/" class="dropdown-item">2024年8月9日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8810%E6%97%A5/" class="dropdown-item">2024年8月10日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8811%E6%97%A5/" class="dropdown-item">2024年8月11日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8812%E6%97%A5/" class="dropdown-item">2024年8月12日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8813%E6%97%A5/" class="dropdown-item">2024年8月13日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8814%E6%97%A5/" class="dropdown-item">2024年8月14日</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">11月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/11/2024%E5%B9%B411%E6%9C%8828%E6%97%A5/" class="dropdown-item">2024年11月28日</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2025</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2025/2025%E5%B9%B4/" class="dropdown-item">2025年</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2025/1%E6%9C%88/2025%E5%B9%B41%E6%9C%88/" class="dropdown-item">2025年1月</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#01cpp" class="nav-link">01.cpp</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">错误类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">错误原因</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">构造思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#02cpp" class="nav-link">02.cpp</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">错误类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">错误原因</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_6" class="nav-link">构造思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#03cpp" class="nav-link">03.cpp</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_7" class="nav-link">错误类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_8" class="nav-link">错误原因</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_9" class="nav-link">构造思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#04cpp" class="nav-link">04.cpp</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_10" class="nav-link">错误类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_11" class="nav-link">错误原因</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_12" class="nav-link">构造思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#05cpp" class="nav-link">05.cpp</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_13" class="nav-link">错误类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_14" class="nav-link">错误原因</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_15" class="nav-link">构造思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#06cpp" class="nav-link">06.cpp</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_16" class="nav-link">错误类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_17" class="nav-link">错误原因</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_18" class="nav-link">构造思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#07cpp" class="nav-link">07.cpp</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_19" class="nav-link">错误类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_20" class="nav-link">错误原因</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_21" class="nav-link">构造思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#08cpp" class="nav-link">08.cpp</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_22" class="nav-link">错误类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_23" class="nav-link">错误原因</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_24" class="nav-link">构造思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#09cpp" class="nav-link">09.cpp</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_25" class="nav-link">错误类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_26" class="nav-link">错误原因</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_27" class="nav-link">构造思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#10cpp" class="nav-link">10.cpp</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_28" class="nav-link">错误类型</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_29" class="nav-link">错误原因</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_30" class="nav-link">构造思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="01cpp">01.cpp</h1>
+<h2 id="_1">错误类型</h2>
+<p>Runtime Error
+会导致运行时崩溃</p>
+<h2 id="_2">错误原因</h2>
+<p>在代码的 play 函数中，当 rank 值为 0 时，如果 a 为空，a.at(rank) 会导致越界访问并产生 std::out_of_range 错误。此外，如果 rank 值在 a 的末尾边界处时，play 函数可能会对超出字符串范围的位置进行访问。对于输入为 0 A 和 1 B，如果 a 已经被删除为空串，插入字符后再次调用 play 会导致此问题</p>
+<h2 id="_3">构造思路</h2>
+<p>输入的 rank 值和字符串 a 的长度导致越界访问，尤其是在 rank 值接近或超出字符串的边界时会触发此问题。这里的输入 0 A 和 1 B 将触发越界，因为在 a 的初始状态为空，直接对索引 rank=0 进行访问将导致错误</p>
+<h1 id="02cpp">02.cpp</h1>
+<h2 id="_4">错误类型</h2>
+<p>Runtime Error</p>
+<h2 id="_5">错误原因</h2>
+<p>当输入为 2 行，且字符串 a 初始为空时，play 函数会因 a.at(rank) 越界访问而引发 std::out_of_range 异常。这是因为当 a 为空时，调用 a.at(rank) 会导致访问空字符串的第一个位置，这在 C++ 中是非法操作</p>
+<h2 id="_6">构造思路</h2>
+<p>输入 2 和 0 A 会触发越界访问，因为 a 在 getline(cin, a); 读取后为空。随后的 rank=0 会试图访问 a.at(0)，从而导致运行时错误</p>
+<h1 id="03cpp">03.cpp</h1>
+<h2 id="_7">错误类型</h2>
+<p>Wrong Answer</p>
+<h2 id="_8">错误原因</h2>
+<p>play 函数的递归处理逻辑在链式消除时无法正确处理插入后的连锁消除效果。当输入为 ABBBA 且在索引 2 插入 B 后变为 ABBBBA 时，play 函数将尝试删除连续的 B 字符，但递归逻辑无法持续正确地检查字符串中新的相邻字符组合，因此未能按预期删除所有可以消除的字符，导致结果错误</p>
+<h2 id="_9">构造思路</h2>
+<p>输入初始字符串为 ABBBA，接下来执行插入操作 2 B，会形成连续的 BBBB 字符串，符合 play 函数的消除条件（连续三个或更多字符）。测例构造利用了这种特殊位置插入来确保链式消除条件。然而，play 函数递归无法正确跟踪这种动态变化，导致错误答案输出</p>
+<h1 id="04cpp">04.cpp</h1>
+<h2 id="_10">错误类型</h2>
+<p>Runtime Error</p>
+<h2 id="_11">错误原因</h2>
+<p>在 play 函数的第一个 while 循环中，left 被设置为 rank，然后检查 a.at(left) 是否与 color 相同。当 left 为 0 时，执行 --left 会将 left 变为 -1。之后的 a.at(left) 访问会越界，导致 std::out_of_range 错误。此问题出现在代码未正确处理边界情况下的索引越界</p>
+<h2 id="_12">构造思路</h2>
+<p>初始字符串为 AAAB，输入 0 意味着在 a 的开头插入字符。此操作会导致 play 函数在边界位置（索引为 0）进行访问，并引发负索引访问，进而导致越界错误</p>
+<h1 id="05cpp">05.cpp</h1>
+<h2 id="_13">错误类型</h2>
+<p>Wrong Answer</p>
+<h2 id="_14">错误原因</h2>
+<p>play 函数会递归地检查并消除相邻的相同字符，但是它没有完全处理多次递归链式消除的情况。在输入 AABBBAA 时，如果在位置 4 插入字符 B，字符串变为 AABBBBBAA。play 函数将消除 BBBBB，但此后不会继续检查并处理剩下的相邻字符，导致未能完全消除符合条件的字符组合。这样会产生错误的最终输出</p>
+<h2 id="_15">构造思路</h2>
+<p>输入初始字符串为 AABBBAA，插入操作在索引 4 插入 B，产生一个长串 BBBBB 可消除字符。构造此测例的目的是检查程序是否能够正确执行链式消除，触发代码无法递归检查剩余相邻字符的逻辑漏洞</p>
+<h1 id="06cpp">06.cpp</h1>
+<h2 id="_16">错误类型</h2>
+<p>Runtime Error</p>
+<h2 id="_17">错误原因</h2>
+<p>play 函数的消除逻辑在处理边界时存在问题。当在 rank = 0 位置插入 A 时，代码会调用 get 函数来访问块的内容，并对消除条件进行检查。但是，在处理 Rank l 和 Rank r 时，由于 l 和 r 可能超出有效块的范围（特别是边界位置 l.second &lt; 0 或 r.second &gt;= plen[r.first]），导致 get 函数对无效块进行访问，从而引发越界访问或段错误（segmentation fault）</p>
+<h2 id="_18">构造思路</h2>
+<p>输入 AA 和插入操作 0 A，触发边界位置的插入和随后的消除逻辑。由于 rank = 0 位于字符串的开头，当在边界处插入字符 A 后，代码会进入消除逻辑，此时访问 Rank l 会出现负索引访问的风险，而 Rank r 也可能超出块的有效范围，导致越界访问错误</p>
+<h1 id="07cpp">07.cpp</h1>
+<h2 id="_19">错误类型</h2>
+<p>Runtime Error</p>
+<h2 id="_20">错误原因</h2>
+<p>在处理输入 2 和 0 A 时，play 函数会尝试在索引 0 处插入字符 A。由于字符串 a 初始为空，a2p() 之后 plen[0] 也是 0，导致 Rank pos = find(rank); 中返回的 pos 实际指向一个无效的块位置。在 play 函数执行 char *cur = &amp;get(pos); 时，代码试图访问未初始化的块内容或超出有效块范围的指针地址，从而引发 Runtime Error</p>
+<h2 id="_21">构造思路</h2>
+<p>通过输入一个初始长度为 0 的字符串 a，并在最开始位置插入字符 A，测试代码是否正确处理空字符串的插入操作。由于插入操作会触发访问未初始化的块或越界块范围，测试在处理空字符串的边界情况时的鲁棒性</p>
+<h1 id="08cpp">08.cpp</h1>
+<h2 id="_22">错误类型</h2>
+<p>Runtime Error</p>
+<h2 id="_23">错误原因</h2>
+<p>play 函数中存在边界条件问题。当字符串 a 初始为空或者接近边界时，play 函数在处理 Rank l 和 Rank r 的边界扩展时会出现越界访问。具体而言，在 while 循环中，l.second &lt; 0 或 r.second &gt;= plen[r.first] 可能会导致对无效块或空块进行访问。对于输入 AA 和 0 A，rank=0 会导致 Rank pos 在 find 函数中定位到首块位置，之后访问的操作可能会导致越界，从而触发 segmentation fault 或 std::out_of_range 错误。</p>
+<h2 id="_24">构造思路</h2>
+<p>输入 AA 和插入操作 0 A，会触发对空块的访问或导致越界，因为 play 函数未在边界位置正确检查块范围。这种情况下，消除操作在递归过程中会尝试访问无效的数组位置，触发运行时错误</p>
+<h1 id="09cpp">09.cpp</h1>
+<h2 id="_25">错误类型</h2>
+<p>Runtime Error</p>
+<h2 id="_26">错误原因</h2>
+<p>在play函数中，消除逻辑会在边界情况下导致越界访问。当输入初始字符串为AAA，并在位置0插入字符A时，字符串变为AAAA。代码会检测到连续的4个A需要消除，但在进行递归时，由于dis的更新和l.first或r.first块的调整逻辑不完善，程序会尝试访问空块或无效内存位置，导致段错误或越界访问，触发Runtime Error</p>
+<h2 id="_27">构造思路</h2>
+<p>输入 AAA 和插入操作 0 A，构造一个连续四个相同字符的字符串，触发消除条件，测试代码在连续字符边界情况的处理。由于该情况会产生递归调用并尝试访问越界块，检测是否正确处理了分块消除逻辑</p>
+<h1 id="10cpp">10.cpp</h1>
+<h2 id="_28">错误类型</h2>
+<p>Wrong Answer</p>
+<h2 id="_29">错误原因</h2>
+<p>当输入字符串 AA 时，在索引 0 位置插入 A，得到字符串 AAA。play 函数应检测到连续三个相同的字符 A 并消除它们。然而，dis 和 eliminated 的更新逻辑没有正确触发连续字符的消除条件，因为 dis &gt; 3 被误解为消除阈值（应为 dis &gt;= 3），导致程序未能正确执行消除逻辑。此外，在 plen 数组的清零逻辑中，for (int i = l.first; i &lt; r.first; i++) 会使中间块全部清零，即使没有完全消除，导致程序错误地修改块结构，最终产生错误的输出</p>
+<h2 id="_30">构造思路</h2>
+<p>输入字符串 AA 和插入操作 0 A，形成三个连续的相同字符 AAA，期望代码能够正确检测到连续字符并执行消除操作。构造此测例的目的是验证程序是否能够正确处理最小的连续消除条件</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../../../js/base.js"></script>
+        <script src="../../../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
