@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../../../../img/favicon.ico">
+        <title>BBST 性能对比实验报告 - 勿怯 勿惰 勿贪 勿我</title>
+        <link href="../../../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../../../..">勿怯 勿惰 勿贪 勿我</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../../../.." class="nav-link">个人首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../../../../about/" class="nav-link">工具链接网址</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">清华</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../thu/" class="dropdown-item">清华</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d1/d1/" class="dropdown-item">大一</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d2/d2/" class="dropdown-item">大二</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../d3/" class="dropdown-item">大三</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d4/d4/" class="dropdown-item">大四</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">数学</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../math/math/" class="dropdown-item">数学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/caculus/" class="dropdown-item">微积分</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/linear/" class="dropdown-item">线性代数</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/probability/" class="dropdown-item">概率论</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">计算机</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../cs/cs/" class="dropdown-item">计算机</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">编程语言</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c/c/" class="dropdown-item">C</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C++语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/cpp/cpp/" class="dropdown-item">C++</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">数据结构</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/dsa/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">操作系统</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/os/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机组成原理</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/jz/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机网络</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/jw/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">金融量化</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../finance/finance/" class="dropdown-item">金融</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/crypto/crypto/" class="dropdown-item">币</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/stock/stock/" class="dropdown-item">股票</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/quant/quant/" class="dropdown-item">量化</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">艺体</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../art/art/" class="dropdown-item">文学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../art/English/english/" class="dropdown-item">英语</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">读书</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../books/cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/lan/" class="dropdown-item">编程语言</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../../../../../../../books/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/gr/" class="dropdown-item">个人成长</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../books/navy/zashu/" class="dropdown-item">杂书</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../../../../art/music/" class="dropdown-item">音乐</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">生活记录</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../me/dgh/" class="dropdown-item">我是谁</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2024</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/2024/" class="dropdown-item">2024年</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">8月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%886%E6%97%A5/" class="dropdown-item">2024年8月6日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%887%E6%97%A5/" class="dropdown-item">2024年8月7日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%888%E6%97%A5/" class="dropdown-item">2024年8月8日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%889%E6%97%A5/" class="dropdown-item">2024年8月9日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8810%E6%97%A5/" class="dropdown-item">2024年8月10日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8811%E6%97%A5/" class="dropdown-item">2024年8月11日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8812%E6%97%A5/" class="dropdown-item">2024年8月12日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8813%E6%97%A5/" class="dropdown-item">2024年8月13日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8814%E6%97%A5/" class="dropdown-item">2024年8月14日</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">11月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/11/2024%E5%B9%B411%E6%9C%8828%E6%97%A5/" class="dropdown-item">2024年11月28日</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2025</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2025/2025%E5%B9%B4/" class="dropdown-item">2025年</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2025/1%E6%9C%88/2025%E5%B9%B41%E6%9C%88/" class="dropdown-item">2025年1月</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#bbst" class="nav-link">BBST 性能对比实验报告</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 数据结构的实现过程及复杂度分析</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 设计测例的思路</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 测例如何生成</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 不同数据结构在不同测例下的性能描述及原因分析</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="bbst">BBST 性能对比实验报告</h1>
+<hr />
+<h2 id="1">1. 数据结构的实现过程及复杂度分析</h2>
+<p>本实验中我选取了 AVL树 和 Splay树 两种经典的自平衡二叉搜索树进行实现。</p>
+<h3 id="11-avl">1.1 AVL 树</h3>
+<p>实现过程：
+    采用了经典的递归方式实现。在每个节点 <code>Node</code> 结构体中维护 <code>height</code> 属性。
+    1.  插入与删除：执行标准的 BST 插入/删除操作。
+    2.  高度更新与平衡：在递归回溯过程中，更新路径上节点的高度。若发现某个节点的平衡因子（左右子树高度差）绝对值 $|BF| &gt; 1$，则根据失衡类型进行相应的单旋（LL/RR）或双旋（LR/RL）。
+    3.  查找操作：针对题目要求的“查找 $\le x$ 的最大值”，在 BST 搜索过程中记录遇到的所有 $\le x$ 的节点中的最大者，不改变树结构。</p>
+<p>复杂度分析：
+    AVL 树通过旋转严格维持树的高度在 $O(\log n)$ 级别。
+       时间复杂度：插入、删除、查找的最坏情况均为 $O(\log n)$。
+       空间复杂度：$O(n)$ 用于存储节点。</p>
+<h3 id="12-splay">1.2 Splay 树</h3>
+<p>实现过程：
+    为了优化性能并防止递归造成的栈溢出，采用了 Top-Down（自顶向下）迭代式 实现。
+    1.  核心 Splay 操作：摒弃了传统的从底向上旋转。在从根向下搜索目标 key 的过程中，使用 <code>LeftTreeMax</code> 和 <code>RightTreeMin</code> 两个临时树桩，将遇到的节点根据大小关系拆分挂接到这两棵临时树上（Three-way Join）。当搜索结束时，再将左、中、右三部分重新组装。
+    2.  插入/删除/查找：所有操作均以 Splay 操作为基础。操作完成后，目标节点（或最接近的节点）会被移动到树根。</p>
+<p>复杂度分析：</p>
+<p>时间复杂度：单次操作最坏为 $O(n)$，但均摊时间复杂度为 $O(\log n)$。
+    空间复杂度：$O(n)$，且相比 AVL 树节省了 <code>height</code> 字段的空间。</p>
+<hr />
+<h2 id="2">2. 设计测例的思路</h2>
+<p>为了全面评估不同数据结构在不同应用场景下的表现，我设计了三种具有代表性的数据分布模式：</p>
+<ol>
+<li>基准性能测试：使用完全随机的数据，模拟通用的、无特定规律的负载，检验树在一般情况下的平衡能力。</li>
+<li>最坏情况/时序数据测试：使用严格单调递增的数据。这对普通 BST 来说会让他们退化为链，来测试 Splay 树处理“长链”和 AVL 树应对频繁旋转的能力。</li>
+<li>缓存/热点数据测试：利用局部性原理（Locality of Reference），模拟真实世界中“少量数据被频繁访问”的场景，检验 Splay 树的动态调整优势。</li>
+</ol>
+<hr />
+<h2 id="3">3. 测例如何生成</h2>
+<p>我编写了 <code>generator.py</code> 脚本，生成规模 $N=500,000$ 的指令序列文件。</p>
+<ol>
+<li>
+<p>Random (随机数据)：
+       利用 <code>random.choice</code> 随机选择 <code>A</code> (插入), <code>B</code> (删除), <code>C</code> (查找) 操作。
+       操作数 $x$ 在 $[0, 8500000]$ 范围内均匀随机选取。</p>
+</li>
+<li>
+<p>Sequential (顺序数据)：
+       先生成 250,000 条插入指令：<code>A 0</code>, <code>A 2</code>, <code>A 4</code> ... （单调递增）。
+       后生成 250,000 条查找指令：<code>C 1</code>, <code>C 3</code>, <code>C 5</code> ... （单调递增）。</p>
+</li>
+<li>
+<p>Locality (局部性数据)：
+       维护一个“热点集合”。
+       生成指令时，设定 80% 的概率 从热点集合中选取操作数（模拟频繁访问），20% 的概率 随机生成新数（模拟冷数据）。模拟了时间局部性。</p>
+</li>
+</ol>
+<hr />
+<h2 id="4">4. 不同数据结构在不同测例下的性能描述及原因分析</h2>
+<p>下表总结了两种数据结构在三种测例下的运行时间</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">测例类型</th>
+<th style="text-align: left;">AVL 树耗时 (s)</th>
+<th style="text-align: left;">Splay 树耗时 (s)</th>
+<th style="text-align: left;">性能对比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Random</td>
+<td style="text-align: left;">0.503</td>
+<td style="text-align: left;">0.564</td>
+<td style="text-align: left;">AVL 略优</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sequential</td>
+<td style="text-align: left;">0.416</td>
+<td style="text-align: left;">0.353</td>
+<td style="text-align: left;">Splay 优</td>
+</tr>
+<tr>
+<td style="text-align: left;">Locality</td>
+<td style="text-align: left;">0.523</td>
+<td style="text-align: left;">0.386</td>
+<td style="text-align: left;">Splay 显著优</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_1">原因详细分析：</h3>
+<ol>
+<li>
+<p>Random (随机数据)：
+       现象：AVL 树比 Splay 树稍快（约快 10%）。
+       分析：在完全随机的数据流下，AVL 树凭借严格的高度控制（树高约为 $1.44 \log n$），保证了查找路径最短。而 Splay 树虽然也维持了 $O(\log n)$ 的均摊性能，但每次操作都会强制触发树的重构（Splay 操作），导致常数项开销略大于仅仅读取数据的 AVL 查找。</p>
+</li>
+<li>
+<p>Sequential (顺序数据)：
+       现象：Splay 树反超 AVL 树。
+       分析：顺序插入会导致树倾向于向一边倾斜。AVL 树为了维持严格高度平衡，必须频繁执行旋转操作。相比之下，Top-Down Splay 在处理单调序列时表现出了惊人的效率——顺序插入形成的链状结构在访问时会被极其高效地折叠，且后续的顺序访问通常发生在树的浅层，均摊代价极低（接近 $O(1)$）。</p>
+</li>
+<li>
+<p>Locality (局部性数据)：
+       现象：Splay 树大幅领先，耗时减少约 26%。
+       分析：这是 Splay 树设计的核心优势领域。Splay 的 "Move-to-Root" 策略将最近访问的热点节点一直维持在根节点附近。对于热点数据的后续重复访问，Splay 树几乎瞬间完成。反观 AVL 树，它对数据的访问频率无感知，访问热点节点仍需走完 $O(\log n)$ 的路径，造成了性能浪费。</p>
+</li>
+</ol>
+<p>总结：如果应用场景对单次最坏响应时间有严格要求且数据无规律，AVL树更佳；如果应用场景存在明显的时间局部性（如缓存、文本编辑），Splay树则能显著提升性能。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../../../js/base.js"></script>
+        <script src="../../../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

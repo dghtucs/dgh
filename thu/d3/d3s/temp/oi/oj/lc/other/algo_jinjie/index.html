@@ -1,0 +1,2434 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../../../../../../img/favicon.ico">
+        <title>动态规划：线性 &amp; 区间动态 - 勿怯 勿惰 勿贪 勿我</title>
+        <link href="../../../../../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../../../../../..">勿怯 勿惰 勿贪 勿我</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../../../../../.." class="nav-link">个人首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../../../../../../about/" class="nav-link">工具链接网址</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">清华</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../../thu/" class="dropdown-item">清华</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../../d1/d1/" class="dropdown-item">大一</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../../d2/d2/" class="dropdown-item">大二</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../d3/" class="dropdown-item">大三</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../../d4/d4/" class="dropdown-item">大四</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">数学</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../../../math/math/" class="dropdown-item">数学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../../../math/caculus/" class="dropdown-item">微积分</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../../../math/linear/" class="dropdown-item">线性代数</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../../../math/probability/" class="dropdown-item">概率论</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">计算机</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../../../cs/cs/" class="dropdown-item">计算机</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">编程语言</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c/c/" class="dropdown-item">C</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C++语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/cpp/cpp/" class="dropdown-item">C++</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">数据结构</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../cs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/dsa/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">操作系统</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../cs/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/os/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机组成原理</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/jz/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机网络</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/jw/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">金融量化</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../../../finance/finance/" class="dropdown-item">金融</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../../../finance/crypto/crypto/" class="dropdown-item">币</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../../../finance/stock/stock/" class="dropdown-item">股票</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../../../finance/quant/quant/" class="dropdown-item">量化</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">艺体</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../../../art/art/" class="dropdown-item">文学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../../../art/English/english/" class="dropdown-item">英语</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">读书</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../books/cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/lan/" class="dropdown-item">编程语言</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../../../../../../../../../books/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/gr/" class="dropdown-item">个人成长</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../../../books/navy/zashu/" class="dropdown-item">杂书</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../../../../../../art/music/" class="dropdown-item">音乐</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">生活记录</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../../../me/dgh/" class="dropdown-item">我是谁</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2024</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../me/2024/2024/" class="dropdown-item">2024年</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">8月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%886%E6%97%A5/" class="dropdown-item">2024年8月6日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%887%E6%97%A5/" class="dropdown-item">2024年8月7日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%888%E6%97%A5/" class="dropdown-item">2024年8月8日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%889%E6%97%A5/" class="dropdown-item">2024年8月9日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8810%E6%97%A5/" class="dropdown-item">2024年8月10日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8811%E6%97%A5/" class="dropdown-item">2024年8月11日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8812%E6%97%A5/" class="dropdown-item">2024年8月12日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8813%E6%97%A5/" class="dropdown-item">2024年8月13日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8814%E6%97%A5/" class="dropdown-item">2024年8月14日</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">11月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../me/2024/11/2024%E5%B9%B411%E6%9C%8828%E6%97%A5/" class="dropdown-item">2024年11月28日</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2025</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../../../me/2025/2025%E5%B9%B4/" class="dropdown-item">2025年</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../../../me/2025/1%E6%9C%88/2025%E5%B9%B41%E6%9C%88/" class="dropdown-item">2025年1月</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">动态规划：线性 &amp; 区间动态</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">简介</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">线性动态规划</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_7" class="nav-link">前缀和</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_12" class="nav-link">区间动态规划</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_13" class="nav-link">动态规划：状压、计数 &amp; 数位动态</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_14" class="nav-link">背包动态规划</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_15" class="nav-link">状态压缩动态规划</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_16" class="nav-link">计数问题</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_17" class="nav-link">矩阵快速幂</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#dp" class="nav-link">数位 DP</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_18" class="nav-link">动态规划：树形、图上、概率 &amp; 博弈动态</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-2" class="nav-link">1 2期回顾</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_19" class="nav-link">树形动态规划</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_20" class="nav-link">图上动态规划</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_21" class="nav-link">概率动态规划</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_22" class="nav-link">博弈动态规划</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_23" class="nav-link">滑动窗口和双指针</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_24" class="nav-link">循环不变量</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_25" class="nav-link">使用循环不变量写对代码</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">滑动窗口 1：同向交替移动的两个变量</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">滑动窗口 2：不定长度的滑动窗口</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">滑动窗口 3：计数问题选讲</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">滑动窗口 4：使用数据结构维护窗口性质</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_26" class="nav-link">链表中的双指针问题</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_27" class="nav-link">双指针：相向交替移动的两个变量</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_28" class="nav-link">贪心算法</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">动态规划：线性 &amp; 区间动态</h1>
+<p>理解动态规划的基本思想
+了解动态规划算法的优缺点和问题分类
+掌握运用动态规划解决问题的思路
+能够运用动态规划解决线性、前缀和、区间这三类问题</p>
+<h2 id="_2">简介</h2>
+<p><img alt="Alt text" src="../image.png" /></p>
+<p><img alt="Alt text" src="../image-1.png" /></p>
+<p><img alt="Alt text" src="../image-2.png" /></p>
+<p><img alt="Alt text" src="../image-3.png" /></p>
+<p><img alt="Alt text" src="../image-4.png" /></p>
+<p><img alt="Alt text" src="../image-5.png" /></p>
+<p><img alt="Alt text" src="../image-6.png" /></p>
+<h2 id="_3">线性动态规划</h2>
+<p><img alt="Alt text" src="../image-7.png" /></p>
+<p><img alt="Alt text" src="../image-8.png" /></p>
+<h3 id="_4">单串</h3>
+<p><img alt="Alt text" src="../image-9.png" /></p>
+<p><img alt="Alt text" src="../image-10.png" /></p>
+<p><img alt="Alt text" src="../image-11.png" />
+<img alt="Alt text" src="../image-12.png" /></p>
+<p><img alt="Alt text" src="../image-13.png" />
+<img alt="Alt text" src="../image-14.png" />
+<img alt="Alt text" src="../image-15.png" /></p>
+<h3 id="dpik">带维度单串 dp[i][k]</h3>
+<p><img alt="Alt text" src="../image-16.png" />
+<img alt="Alt text" src="../image-17.png" />
+<img alt="Alt text" src="../image-18.png" /></p>
+<h3 id="_5">双串</h3>
+<p><img alt="Alt text" src="../image-19.png" />
+<img alt="Alt text" src="../image-20.png" />
+<img alt="Alt text" src="../image-21.png" />
+<img alt="Alt text" src="../image-22.png" />
+<img alt="Alt text" src="../image-23.png" /></p>
+<h3 id="_6">矩阵</h3>
+<p><img alt="Alt text" src="../image-24.png" />
+<img alt="Alt text" src="../image-25.png" />
+矩阵相关练习题
+矩阵 dp[i][j]
+矩阵 dp[i][j][k]</p>
+<p>线性动态规划是动态规划中最基础的一类，它的状态一般物理意义很明确，易于分析。在初学动态规划时，通过线性动态规划的大量练习，可以不断加深动态规划的概念理解，例如动态规划中最重要的三个概念：最优子结构，重复子问题，无后效性。下面对动态规划的三个基本概念做个简要回顾，在线性动态规划的题目练习中可以不断地加深理解，之后再学习其它的动态规划类型就会容易很多。</p>
+<p>最优子结构：如果问题的最优解所包含的子问题的解也是最优的，就称该问题具有最优子结构。
+无后效性：即某阶段状态一旦确定，就不受这个状态以后决策的影响。也就是说，某状态以后的过程不会影响以前的状态，只与当前状态有关。
+重复子问题：即子问题之间是不独立的，一个子问题在下一阶段决策中可能被多次使用到。（该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势）
+线性动态规划是动态规划中变化最多的一类。</p>
+<p>首先线性动态规划针对的问题是最常见的数组，字符串，矩阵等，这三种数据结构本身就是线性的，因此出现这些类型的输入的时候，如果要用到动态规划，首先考虑线性动态规划就很合理了，因此很多问题不论最后正解是不是线性动态规划，都会首先想一下线性动态规划是否可行。</p>
+<p>其次由于大部分问题的数据都是以这三种形式给出的，因此题目的变化会非常多，很多常见的输入形式以及问题都非常经典，都存在经典的状态设计。因此不考虑一些比较 Trick 的解法，仅仅是经典问题的经典状态设计，就比其它种类的动态规划问题多很多了。</p>
+<p>例如单个数组或字符串上设计一维状态，两个数组或字符串上设计两维状态，以及矩阵上设计两维状态等等，同时以上三种情况的状态设计都有可能再加上额外的指标的状态，就是前面例题中的 k，这里面变化就很多了，比如有的题目在 k 这一维上要使用二分，贪心的策略，有的题目需要 DP 状态与数据结构配合来解决问题。</p>
+<p>除此之外还有一类问题没有显式的数组，字符串，但是在求解的时候依然满足前面提到的动态规划三条基本概念，可以用动态规划求解，这种问题通常也是线性动态规划。如此多的变化仅仅本小节例举的题目是远远不够的，下一小节是线性动态规划的练习题，涉及到对线性动态规划的更多的变化。</p>
+<h2 id="_7">前缀和</h2>
+<p>前缀和是一种查询数组中任意区间的元素的和的数据结构，这里数组给定之后就不变了。针对这个不变的数组，前缀和用于多次查询区间 [i, j] 上元素的和。</p>
+<p>对于动态规划而言，前缀和的意义主要有两点：</p>
+<p>一维和二维前缀和的推导，分别用到了单串和矩阵中最经典的状态设计以及状态转移；
+在一些更复杂的动态规划问题中，状态转移的时候需要依赖区间和，因为状态转移是非常频繁的操作，因此必须高效地求区间和才能使得状态转移的时间复杂度可接受，此时就必须用到前缀和了。
+除此之外，一些问题需要前缀和与其它数据结构配合来解决，也有两类：</p>
+<p>先预处理出前缀和数组，这一步是动态规划，然后在前缀和数组上用其它数据结构解决；
+还是按照动态规划的方式求前缀和，也需要额外的数据结构维护前缀和，但不是预处理好前缀和数组之后再用数据结构计算，而是每求出一个前缀和，就更新一次数据结构并维护答案。
+前缀和的推导和计算隐含着动态规划的基本思想，同时它的状态设计是线性动态规划中比较简单的那一类。与线性动态规划一样，前缀和也有一维和二维两种场景。
+虽然前缀和本身很简单，但需要用到它解决的问题非常多，与其它数据结构配合的变化也很多，因此需要从线性动态规划中剥离出来单独学习。</p>
+<h3 id="_8">求区间和</h3>
+<p><img alt="Alt text" src="../image-26.png" /></p>
+<p><img alt="Alt text" src="../image-27.png" /></p>
+<p><img alt="Alt text" src="../image-28.png" /></p>
+<p><img alt="Alt text" src="../image-29.png" /></p>
+<h3 id="_9">数据结构维护前缀和</h3>
+<p><img alt="Alt text" src="../image-30.png" /></p>
+<p><img alt="Alt text" src="../image-31.png" /></p>
+<h3 id="_10">运算推广</h3>
+<p><img alt="Alt text" src="../image-32.png" /></p>
+<h3 id="_11">差分</h3>
+<p><img alt="Alt text" src="../image-33.png" /></p>
+<h2 id="_12">区间动态规划</h2>
+<p>在输入为长度为 n 的数组时，子问题用区间 [i..j] 表示。
+状态的定义和转移都与区间有关，称为区间动态规划</p>
+<p><img alt="Alt text" src="../image-34.png" /></p>
+<p><img alt="Alt text" src="../image-35.png" /></p>
+<p><img alt="Alt text" src="../image-36.png" /></p>
+<p><img alt="Alt text" src="../image-37.png" /></p>
+<p><img alt="Alt text" src="../image-38.png" /></p>
+<p><img alt="Alt text" src="../image-39.png" /></p>
+<p><img alt="Alt text" src="../image-40.png" /></p>
+<h1 id="_13">动态规划：状压、计数 &amp; 数位动态</h1>
+<h2 id="_14">背包动态规划</h2>
+<p><img alt="Alt text" src="../image-41.png" /></p>
+<p><img alt="Alt text" src="../image-42.png" />
+<img alt="Alt text" src="../image-43.png" />
+<img alt="Alt text" src="../image-44.png" />
+<img alt="Alt text" src="../image-45.png" />
+<img alt="Alt text" src="../image-46.png" />
+<img alt="Alt text" src="../image-47.png" /></p>
+<h2 id="_15">状态压缩动态规划</h2>
+<p>状态压缩动态规划是一类非常典型的动态规划，通常使用在 NP 问题的小规模求解中，虽然是指数级别的复杂度，但速度比搜索快。</p>
+<p><img alt="Alt text" src="../image-48.png" />
+<img alt="Alt text" src="../image-49.png" />
+<img alt="Alt text" src="../image-50.png" />
+<img alt="Alt text" src="../image-51.png" /></p>
+<h2 id="_16">计数问题</h2>
+<p>动态规划中的计数型问题就是利用动态规划的算法思想去计算出解决这个问题有多少种方法。
+比如，从起点走到终点，可以有多少条路径，注意，是多少条，而不是具体路线的描述。
+当然也有具体每一条路线的问法，这是 dfs 的问题了。</p>
+<p><img alt="Alt text" src="../image-52.png" />
+<img alt="Alt text" src="../image-53.png" />
+<img alt="Alt text" src="../image-54.png" />
+计数问题相关练习题
+路径问题
+卡特兰数
+铺砖问题
+斐波那契
+隐晦的递推关系</p>
+<h2 id="_17">矩阵快速幂</h2>
+<p>是一种基础算法，本身与动态规划没有关系，但它可以用于优化线性递推关系的计算，并且其思路比较固定，因此在计数问题章节之后，在本章将矩阵快速幂做基础介绍。</p>
+<p><img alt="Alt text" src="../image-55.png" /></p>
+<p><img alt="Alt text" src="../image-56.png" />
+<img alt="Alt text" src="../image-57.png" /></p>
+<pre><code class="language-c">using ll = long long;
+const int M = 2;
+
+struct Ma
+{
+    int a[M][M];
+    Ma()
+    {
+        memset(a, 0, sizeof(a));
+    }
+
+    void init() // 复位为单位阵
+    {
+        a[0][0] = a[1][1] = 1;
+        a[0][1] = a[1][1] = 0;
+    }
+
+    Ma operator*(const Ma&amp; B) const
+    {
+        Ma ans;
+        for(int i = 0; i &lt; M; ++i)
+            for(int j = 0; j &lt; M; ++j)
+                for(int k = 0; k &lt; M; ++k)
+                    ans.a[i][j] += a[i][k] * B.a[k][j];
+        return ans;
+    }
+
+    Ma operator^(int n) const
+    {
+        Ma ans;
+        ans.init();
+        Ma A = *this; // 拷贝一个出来用于自乘
+        while(n)
+        {
+            if(n &amp; 1)
+                ans = ans * A;
+            A = A * A;
+            n &gt;&gt;= 1;
+        }
+        return ans;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-58.png" />
+在上一章中的 16 道练习题中，部分题目的递推关系是线性的，进而可以用矩阵快速幂来做，尝试判断哪些题目可以用矩阵快速幂做，并用矩阵快速幂解决这些问题，加深对本节的理解。</p>
+<h2 id="dp">数位 DP</h2>
+<p>在基础的动态规划问题当中算是比较难的一类，因为数位 DP 的状态的物理意义不太好理解。其它的动态规划，比如区间 DP 状态的物理意义就是区间，状态压缩 DP 中状态的物理意义就是集合，这都比较好理解。</p>
+<p>但是数位 DP 比其它 DP 好的一面是数位 DP 的思维相对比较固定。 一个是解决的问题模式比较固定，一个是状态设计也比较固定，因此可以通过一些常见问题把数位 DP 的套路了解个大概。</p>
+<p>力扣上有几道数位 DP 的题目，通过这些题目我们可以大致了解数位 DP 的思考过程和做法。</p>
+<p><img alt="Alt text" src="../image-59.png" />
+<img alt="Alt text" src="../image-60.png" />
+<img alt="Alt text" src="../image-61.png" /></p>
+<pre><code class="language-cpp">int getdp(int pos, int lim, const vector&lt;int&gt;&amp; digits, const set&lt;int&gt;&amp; num_set, vector&lt;vector&lt;int&gt;&gt;&amp; dp)
+{
+    if(pos == -1) return 1;
+    if(dp[pos][lim] != -1)
+        return dp[pos][lim];
+    dp[pos][lim] = 0;
+    int up = lim ? digits[pos] : 9; // 当前要枚举到的上界
+    for(int i: num_set) // 枚举当前位所有可能数字
+    {
+        if(i &gt; up)
+            break;
+        dp[pos][lim] += getdp(pos - 1, lim &amp;&amp; i == up, digits, num_set, dp); // 本位被限制且选顶到上界的数字,下一位才被限制
+    }
+    return dp[pos][lim];
+}
+
+
+</code></pre>
+<p>前导零的分析
+增加 zero 状态, 表示高位是否是前导零。</p>
+<p>如果高位选了前导零，则当前位无限制，且还可以选前导零。
+如果高位没有选前导零且未顶到上界，则当前位在可选数字集合的范围内无限制。
+如果高位顶到了上界，则当前位的选择被限制。
+力扣上数位 DP 的题目不多，下一节提供了 9 道练习题，可以巩固数位 DP 的思维方式。</p>
+<h1 id="_18">动态规划：树形、图上、概率 &amp; 博弈动态</h1>
+<h2 id="1-2">1 2期回顾</h2>
+<p><img alt="Alt text" src="../image-62.png" /></p>
+<p><img alt="Alt text" src="../image-63.png" /></p>
+<p><img alt="Alt text" src="../image-64.png" /></p>
+<p>「单串 DP」
+对于「单串线性 DP」问题，i 是单串 s 上的位置。作为阶段具有时间或者位置等含义。有时只有单串上的位置不足以表示状态，需要同时附加一个维度 k，一般 k 有长度、个数、次数、颜色等含义。另，所附加的维度有时候可以是多个，如 k1, k2, ...</p>
+<p><img alt="Alt text" src="../image-65.png" /></p>
+<p><img alt="Alt text" src="../image-66.png" /></p>
+<p><img alt="Alt text" src="../image-67.png" />
+<img alt="Alt text" src="../image-68.png" />
+<img alt="Alt text" src="../image-69.png" />
+<img alt="Alt text" src="../image-70.png" /></p>
+<p><img alt="Alt text" src="../image-71.png" />
+<img alt="Alt text" src="../image-72.png" />
+<img alt="Alt text" src="../image-73.png" /></p>
+<p>本章我们介绍「线性 DP」中比较重要，同时在前两期没有详细介绍的两块内容，一个是最长上升子序列，一个是「棋盘 DP」。</p>
+<p>在动态规划精讲第一期中，我们有介绍过最长上升子序列问题并用动态规划的方法进行解决。实际上最长上升子序列还有其它解法，以及力扣上有很多最长上升子序列的变种问题以及包装之后的问题。我们在这一小节进行介绍。</p>
+<p>首先我们介绍最长上升子序列基于二分的解法，这是 LIS 问题的最好的解法，除此之外还有用线段树优化DP的方式的解法，这部分在动态规划精讲第四期关于DP的优化方法中介绍。</p>
+<p>然后我们介绍最长上升子序列的变形问题，一个是最长上升子序列个数，一个是最长上升子串。</p>
+<p>然后我们介绍一些力扣上的一些多维属性的最长上升子序列问题。</p>
+<p>最后我门介绍需要自定义 LIS 中的小于的一些问题，这些问题只要能正确定义小于，就可以转换成最长上升子序列问题。</p>
+<p>在动态规划精讲第一期中，我们有介绍过在矩阵上进行线性推导的动态规划问题，但是没有系统地介绍，本小节将这个知识点补充一下。</p>
+<p>「棋盘 DP」是一种在矩阵上进行状态推导的动态规划问题。i, j 分别是棋盘(矩阵)的横纵坐标，但并不一定要共同作为阶段。阶段划分有两种情况都比较常见：</p>
+<p>仅 i 作为阶段，具有位置等含义。同时 j 是附加状态。
+i, j 共同作为阶段，具有位置等含义。没有附加维度。
+这两种阶段划分方式的思路有区别，第一种是一行一行地考虑，第二种是一个位置一个位置地考虑。</p>
+<h2 id="_19">树形动态规划</h2>
+<p><img alt="Alt text" src="../image-74.png" /></p>
+<p><img alt="Alt text" src="../image-75.png" />
+<img alt="Alt text" src="../image-76.png" />
+<img alt="Alt text" src="../image-77.png" />
+注意到在节点 u 时，状态转移过程只需要 dp[v][0]，而不需要 dp[v][1]，因此 dfs 仅返回 dp[v][0] 即可。</p>
+<p>代码中 max1 表示 dp[u][0], max2 表示 dp[u][1]。</p>
+<pre><code class="language-cpp">class Solution {
+public:
+    int treeDiameter(vector&lt;vector&lt;int&gt;&gt;&amp; edges) {
+        int n = edges.size();
+        vector&lt;vector&lt;int&gt; &gt; g(n + 1);
+        for(const auto &amp;e: edges)
+        {
+            g[e[0]].push_back(e[1]);
+            g[e[1]].push_back(e[0]);
+        }
+        int ans = 0;
+        dfs(0, -1, g, ans);
+        return ans;
+    }
+
+private:
+    int dfs(int u, int fa, const vector&lt;vector&lt;int&gt; &gt;&amp; g, int&amp; ans)
+    {
+        int max1 = 0, max2 = 0;
+        for(int v: g[u])
+        {
+            if(v != fa)
+            {
+                int t = dfs(v, u, g, ans) + 1;
+                if(max1 &lt; t)
+                {
+                    max2 = max1;
+                    max1 = t;
+                }
+                else if(max2 &lt; t)
+                    max2 = t;
+            }
+        }
+        ans = max(ans, (max1 + max2));
+        return max1;
+    }
+};
+
+</code></pre>
+<p><img alt="Alt text" src="../image-78.png" />
+<img alt="Alt text" src="../image-79.png" />
+<img alt="Alt text" src="../image-80.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; findMinHeightTrees(int n, vector&lt;vector&lt;int&gt;&gt;&amp; edges) {
+        vector&lt;vector&lt;int&gt; &gt; g(n); // 邻接表
+        for(vector&lt;int&gt; &amp;edge: edges)
+        {
+            g[edge[0]].push_back(edge[1]);
+            g[edge[1]].push_back(edge[0]);
+        }
+        vector&lt;int&gt; dpdown(n, 0), dpup(n, 0);
+        // 第一次DFS记录每个结点在作为子树根结点的最大高度。
+        dfs_1(0, -1, dpdown, g);
+        // 第二次DFS补全每个结点作为总根结点的最大高度，差距就在于需要统计上从父结点传递过来的子树分支。
+        dfs_2(0, -1, dpdown, dpup, g);
+
+        int min_ans = n;
+        vector&lt;int&gt; ans;
+        for(int i = 0; i &lt; n; ++i)
+        {
+            if(min_ans &gt; dpdown[i])
+            {
+                min_ans = dpdown[i];
+                ans.clear();
+                ans.push_back(i);
+            }
+            else if(min_ans == dpdown[i])
+                ans.push_back(i);
+        }
+        return ans;
+    }
+
+private:
+    void dfs_1(int u, int fa, vector&lt;int&gt;&amp; dpdown, vector&lt;vector&lt;int&gt; &gt;&amp; g)
+    {
+        dpdown[u] = 0;
+        for(auto &amp;v: g[u])
+        {
+            if(v == fa) continue;
+            dfs_1(v, u, dpdown, g);
+            dpdown[u] = max(dpdown[u], dpdown[v] + 1);
+        }
+    }
+
+    void dfs_2(int u, int fa, vector&lt;int&gt;&amp; dpdown, vector&lt;int&gt;&amp; dpup, vector&lt;vector&lt;int&gt; &gt;&amp; g)
+    {
+        dpdown[u] = max(dpdown[u], dpup[u]);
+        int max_1 = 0, max_2 = 0; // 这里需要最大高度和次大高度
+        for(auto &amp;v: g[u])
+        {
+            if(v == fa) continue;
+            if(max_1 &lt; dpdown[v] + 1)
+            {
+                max_2 = max_1;
+                max_1 = dpdown[v] + 1;
+            }
+            else if(max_2 &lt; dpdown[v] + 1)
+                max_2 = dpdown[v] + 1;
+        }
+        for(auto &amp;v: g[u])
+        {
+            if(v == fa) continue;
+            if (max_1 == dpdown[v] + 1) {
+                // u 在 fa 的最长链上
+                dpup[v] = max(dpup[u], max_2) + 1;
+                dfs_2(v, u, dpdown, dpup, g);
+            }
+            else {
+                dpup[v] = max(dpup[u], max_1) + 1;
+                dfs_2(v, u, dpdown, dpup, g);
+            }
+        }
+    }
+};
+
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-81.png" />
+834. 树中距离之和
+1569. 将子数组重新排序得到同一个二叉查找树的方案数
+124. 二叉树中的最大路径和
+543. 二叉树的直径
+333. 最大 BST 子树
+337. 打家劫舍 III
+1373. 二叉搜索子树的最大键值和
+1372. 二叉树中的最长交错路径
+968. 监控二叉树
+1273. 删除树节点
+1519. 子树中标签相同的节点数
+1617. 统计子树中城市之间最大距离</p>
+<h2 id="_20">图上动态规划</h2>
+<p>「图上 DP」就是在图结构上的动态规划问题。一般图节点本身不作为阶段，而是作为阶段持有的状态。对于有向图，如果是无环的，那么就可以将节点本身作为阶段，此时一般用拓扑序进行推导。</p>
+<p><img alt="alt text" src="../image-82.png" /></p>
+<p><img alt="alt text" src="../image-83.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; mostSimilar(int n, vector&lt;vector&lt;int&gt;&gt;&amp; roads, vector&lt;string&gt;&amp; names, vector&lt;string&gt;&amp; targetPath) {
+        vector&lt;vector&lt;int&gt;&gt; g(n);
+        for(vector&lt;int&gt; &amp;e: roads)
+        {
+            g[e[0]].push_back(e[1]);
+            g[e[1]].push_back(e[0]);
+        }
+        int m = targetPath.size();
+        vector&lt;vector&lt;int&gt;&gt; ed(n, vector&lt;int&gt;(m, -1));
+        for(int v = 0; v &lt; n; ++v)
+        {
+            for(int i = 0; i &lt; m; ++i)
+                ed[v][i] = names[v] != targetPath[i];
+        }
+        vector&lt;vector&lt;int&gt;&gt; dp(n, vector&lt;int&gt;(m + 1, INT_MAX / 2));
+        for(int v = 0; v &lt; n; ++v)
+            dp[v][0] = ed[v][0];
+        for(int i = 1; i &lt; m; ++i)
+            for(int v = 0; v &lt; n; ++v)
+            {
+                for(int u: g[v])
+                    dp[v][i] = min(dp[v][i], ed[v][i] + dp[u][i - 1]);
+            }
+        int end = -1;
+        int min_ed = INT_MAX / 2;
+        for(int v = 0; v &lt; n; ++v)
+        {
+            if(dp[v][m - 1] &lt; min_ed)
+            {
+                end = v;
+                min_ed = dp[v][m - 1];
+            }
+        }
+        vector&lt;int&gt; result(m);
+        result[m - 1] = end;
+        int next = end;
+        for(int i = m - 2; i &gt;= 0; --i)
+        {
+            int u = -1;
+            for(int v: g[next])
+                if(dp[v][i] == dp[next][i + 1] - ed[next][i + 1])
+                {
+                    u = v;
+                    break;
+                }
+            result[i] = u;
+            next = u;
+        }
+        return result;
+    }
+};
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-84.png" /></p>
+<p><img alt="alt text" src="../image-85.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    int maxVacationDays(vector&lt;vector&lt;int&gt;&gt;&amp; flights, vector&lt;vector&lt;int&gt;&gt;&amp; days) {
+        int N = days.size();
+        int K = days[0].size();
+        // days : N * K
+        vector&lt;vector&lt;int&gt;&gt; dp(N, vector&lt;int&gt;(K, 0));
+        vector&lt;vector&lt;int&gt;&gt; &amp;adj = flights;
+        for(int i = 0; i &lt; N; ++i)
+            dp[i][K - 1] = days[i][K - 1];
+        for(int k = K - 2; k &gt;= 0; --k)
+            for(int i = 0; i &lt; N; ++i)
+            {
+                dp[i][k] = dp[i][k + 1]; // 不坐航班
+                for(int j = 0; j &lt; N; ++j)
+                {
+                    if(adj[i][j] == 1)
+                        dp[i][k] =  max(dp[i][k], dp[j][k + 1]);
+                }
+                dp[i][k] += days[i][k];
+            }
+        int ans = dp[0][0];
+        for(int start = 1; start &lt; N; ++start)
+        {
+            if(adj[0][start] == 1)
+                ans = max(ans, dp[start][0]);
+        }
+        return ans;
+    }
+};
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-86.png" /></p>
+<p><img alt="alt text" src="../image-87.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    int maxJumps(vector&lt;int&gt;&amp; arr, int d) {
+        if(arr.empty()) return 0;
+        int n = arr.size();
+        dp = vector&lt;int&gt;(n, -1);
+        int ans = 1;
+        for(int i = 0; i &lt; n; ++i)
+            if(dp[i] == -1)
+                ans = max(ans, solve(arr, d, i));
+        return ans;
+    }
+
+private:
+    // dp[i] := 以 i 开头的最长路径
+    vector&lt;int&gt; dp;
+
+    int solve(const vector&lt;int&gt;&amp; arr, const int d, int pos)
+    {
+        if(dp[pos] != -1)
+            return dp[pos];
+        dp[pos] = 0;
+        int n = arr.size();
+        for(int k = 1; k &lt;= d; ++k)
+        {
+            int nxt = pos + k;
+            if(nxt &gt;= n || arr[pos] &lt;= arr[nxt])
+                break;
+            dp[pos] = max(dp[pos], 1 + solve(arr, d, nxt));
+        }
+        for(int k = 1; k &lt;= d; ++k)
+        {
+            int nxt = pos - k;
+            if(nxt &lt; 0 || arr[pos] &lt;= arr[nxt])
+                break;
+            dp[pos] = max(dp[pos], 1 + solve(arr, d, nxt));
+        }
+        dp[pos] = max(1, dp[pos]);
+        return dp[pos];
+    }
+};
+
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-88.png" /></p>
+<h2 id="_21">概率动态规划</h2>
+<p>「概率 DP」、「期望 DP」 是一种应用动态规划解决求概率、期望问题的一类方法。
+本章分为「概率 DP」 和 「期望 DP」 两部分。首先给出其理论基础以及对应的 DP 转移方程的形式；然后通过拆解两道例题帮助各位加深理解；最后列出同类型题目清单，帮助大家巩固学习。</p>
+<p><img alt="alt text" src="../image-89.png" />
+<img alt="alt text" src="../image-90.png" /></p>
+<p><img alt="alt text" src="../image-91.png" /></p>
+<pre><code>状态定义
+dp[i][j] := 第 j 轮 i 获胜
+
+答案
+max(dp[n - 1][i])
+
+初始化
+dp[i][0] = p[i][k], if check(i, 0, k)
+
+状态转移
+dp[i][j] = sum(dp[i][j - 1] * dp[k]dp[j - 1] * p[i][k])
+
+
+</code></pre>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+bool check(int i, int j, int k)
+{
+    // 判断 i, k 是否可能在第 j 轮成为对手
+    i &gt;&gt;= j;
+    k &gt;&gt;= j;
+    return i ^ k == 1;
+}
+
+int main()
+{
+    int n;
+    cin &gt;&gt; n;
+    int N = pow(2, n);
+    vector&lt;vector&lt;double&gt;&gt; P(N, vector&lt;double&gt;(N, -1.0));
+    for(int i = 0; i &lt; N; ++i)
+        for(int j = 0; j &lt; N; ++j)
+            cin &gt;&gt; P[i][j];
+    vector&lt;vector&lt;double&gt;&gt; dp(N, vector&lt;double&gt;(n, -1.0));
+    for(int i = 0; i &lt; N; ++i)
+    {
+        if(i &amp; 1)
+            dp[i][0] = P[i][i - 1];
+        else
+            dp[i][0] = P[i][i + 1];
+    }
+    for(int j = 1; j &lt; n; ++j)
+    {
+        for(int i = 0; i &lt; N; ++i)
+            for(int k = 0; k &lt; N; ++k)
+                if(check(i, j, k))
+                    dp[i][j] += dp[i][j - 1] * dp[k][j - 1] * P[i][k];
+    }
+    double max_p = -1.0;
+    int ans = -1;
+    for(int i = 0; i &lt; n; ++i)
+        if(dp[i][n - 1] &gt; max_p)
+        {
+            max_p = dp[i][n - 1];
+            ans = i;
+        }
+    cout &lt;&lt; ans + 1 &lt;&lt; endl;
+}
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-92.png" />
+<img alt="alt text" src="../image-93.png" /></p>
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+
+using namespace std;
+
+int main()
+{
+    int M, T, N;
+    cin &gt;&gt; M &gt;&gt; T &gt;&gt; N;
+    vector&lt;vector&lt;double&gt;&gt; P(T, vector&lt;double&gt;(M, -1.0));
+    for(int i = 0; i &lt; T; ++i)
+        for(int j = 0; j &lt; M; ++j)
+            cin &gt;&gt; P[i][j];
+    vector&lt;vector&lt;double&gt;&gt; dp(M, vector&lt;double&gt;(M + 1, -1.0));
+    double pa = 1.0;
+    double pb_a = 1.0;
+    for(int t = 0; t &lt; T; ++t)
+    {
+        dp.assign(N, vector&lt;double&gt;(M + 1, -1.0));
+        dp[0][0] = (1 - P[t][0]);
+        dp[0][1] = P[t][0];
+        for(int i = 1; i &lt; M; ++i)
+        {
+            dp[i][0] = (1 - P[t][0]) * dp[i - 1][0];
+            for(int j = 1; j &lt;= i; ++j)
+                dp[i][j] = P[t][i] * dp[i - 1][j - 1] + (1 - P[t][i]) * dp[i - 1][j];
+        }
+        pa *= 1 - dp[M - 1][0];
+        double tmp = 0.0;
+        for(int j = 1; j &lt; N; ++j)
+            tmp += dp[M - 1][j];
+        pb_a *= tmp / (1 - dp[M - 1][0]);
+    }
+    pb_a = 1 - pb_a;
+    double ans = pa * pb_a;
+    cout &lt;&lt; std::fixed &lt;&lt; std::setprecision(4);
+    cout &lt;&lt; ans &lt;&lt; endl;
+}
+
+
+</code></pre>
+<p>本节为大家汇总了力扣上 8 道「概率 DP」的题目，大家可以集中练习。</p>
+<ol>
+<li>分汤</li>
+<li>新21点</li>
+<li>抛掷硬币</li>
+<li>“马”在棋盘上的概率</li>
+<li>两个盒子中球的颜色数相同的概率
+剑指 Offer 60. n个骰子的点数</li>
+<li>飞机座位分配概率</li>
+<li>T 秒后青蛙的位置</li>
+</ol>
+<p><img alt="alt text" src="../image-94.png" /></p>
+<p><img alt="alt text" src="../image-95.png" /></p>
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+
+using namespace std;
+
+double solve(int i, const int n, const int m, vector&lt;double&gt;&amp; dp)
+{
+    if(dp[i] &gt; -0.5)
+        return dp[i];
+    if(i == m)
+        return dp[i] = 0.0;
+
+    return dp[i] = (n + (n - i) * solve(i + 1, n, m, dp)) / (n - i);
+}
+
+int main()
+{
+    ifstream fin(&quot;data.txt&quot;);
+    vector&lt;double&gt; dp;
+    int n, m;
+    while((fin &gt;&gt; n) &amp;&amp; (fin &gt;&gt; m))
+    {
+        cout &lt;&lt; &quot;n: &quot; &lt;&lt; n &lt;&lt; &quot;, m: &quot; &lt;&lt; m &lt;&lt; endl;
+        dp.assign(m + 1, -1.0);
+        double ans = solve(0, n, m, dp);
+        cout &lt;&lt; ans &lt;&lt; endl;
+    }
+}
+
+
+</code></pre>
+<p>模拟代码</p>
+<pre><code class="language-cpp">import numpy as np
+from multiprocessing import Pool
+
+class Simulater:
+    def __init__(self, n, m):
+        self.n = n
+        self.m = m
+
+    def test(self, T):
+        np.random.seed()
+        N = 0
+        for _ in range(T):
+            i = 0
+            j = 0
+            visited = [False] * self.n
+            while j &lt; self.m:
+                i += 1
+                x = np.random.randint(0, self.n)
+                if not visited[x]:
+                    visited[x] = True
+                    j += 1
+            N += i
+        return N / T
+
+with open(&quot;data.txt&quot;) as f:
+    for line in f.readlines():
+        line = line.strip().split(&quot; &quot;)
+        n = int(line[0])
+        m = int(line[1])
+        s = Simulater(n, m)
+        T = int(5e5)
+        pool = Pool(8)
+        ts = pool.map(s.test, [T] * 8)
+        print(sum(ts) / 8)
+
+</code></pre>
+<p><img alt="alt text" src="../image-96.png" />
+<img alt="alt text" src="../image-97.png" /></p>
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+
+using namespace std;
+
+double solve(int i, int j, const int n, const int m, vector&lt;vector&lt;double&gt;&gt;&amp; dp)
+{
+    if(dp[i][j] &gt; -0.5)
+        return dp[i][j];
+    if(i == m)
+        return dp[i][j] = 0.0;
+
+    double ans = 0.0;
+    ans += j / (double)n * solve(i + 1, j, n, m, dp);
+    ans += (n - j) / (double)n * (1 + solve(i + 1, j + 1, n, m, dp));
+    return dp[i][j] = ans;
+}
+
+int main()
+{
+    ifstream fin(&quot;data.txt&quot;);
+    vector&lt;vector&lt;double&gt;&gt; dp;
+    int n, m;
+    while((fin &gt;&gt; n) &amp;&amp; (fin &gt;&gt; m))
+    {
+        cout &lt;&lt; &quot;n: &quot; &lt;&lt; n &lt;&lt; &quot;, m: &quot; &lt;&lt; m &lt;&lt; endl;
+        dp.assign(m + 1, vector&lt;double&gt;(m + 1, -1.0));
+        double ans = solve(0, 0, n, m, dp);
+        cout &lt;&lt; ans &lt;&lt; endl;
+    }
+}
+
+
+</code></pre>
+<p>思路2</p>
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+
+using namespace std;
+
+double solve(int i, const int n, const int m, vector&lt;double&gt;&amp; dp)
+{
+    if(dp[i] &gt; -0.5)
+        return dp[i];
+    if(i == 0)
+        return dp[i] = 0.0;
+    return dp[i] = 1 + (n - 1) / (double)n * solve(i - 1, n, m, dp);
+}
+
+int main()
+{
+    ifstream fin(&quot;data.txt&quot;);
+    vector&lt;double&gt; dp;
+    int n, m;
+    while((fin &gt;&gt; n) &amp;&amp; (fin &gt;&gt; m))
+    {
+        cout &lt;&lt; &quot;n: &quot; &lt;&lt; n &lt;&lt; &quot;, m: &quot; &lt;&lt; m &lt;&lt; endl;
+        dp.assign(m + 1, -1.0);
+        double ans = solve(m, n, m, dp);
+        cout &lt;&lt; ans &lt;&lt; endl;
+    }
+}
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-98.png" /></p>
+<h2 id="_22">博弈动态规划</h2>
+<p>博弈动态规划
+「博弈 DP」，一种应用动态规划解决博弈问题的算法。本章首先给出理论基础（minimax）以及对应的 DP 转移方程形式；然后通过详细拆解 Leetcode 上 4 道题来学习这类问题的解决思路。「博弈 DP」在 Leetocde 上有不少题目，章节末尾将集中列出来，大家可以进行针对性练习。</p>
+<p><img alt="alt text" src="../image-99.png" />
+<img alt="alt text" src="../image-100.png" />
+<img alt="alt text" src="../Snipaste_2025-09-14_14-27-11.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    bool stoneGame(vector&lt;int&gt;&amp; piles) {
+        int n = piles.size();
+        vector&lt;vector&lt;int&gt;&gt; dp(n, vector&lt;int&gt;(n));
+        int all = 0;
+        for(int i = 0; i &lt; n; ++i)
+        {
+            all += piles[i];
+            dp[i][i] = piles[i];
+        }
+        for(int i = 0; i &lt; n - 1; ++i)
+            dp[i][i + 1] = max(piles[i], piles[i + 1]);
+        for(int l = 3; l &lt;= n; ++l)
+        {
+            // l 为区间长度
+            for(int i = 0; i + l &lt;= n; ++i)
+            {
+                int j = i + l - 1;
+                dp[i][j] = max(piles[i] + min(dp[i + 2][j], dp[i + 1][j - 1])
+                              ,piles[j] + min(dp[i + 1][j - 1], dp[i][j - 2])
+                              );
+            }
+        }
+        return dp[0][n - 1] * 2 &gt; all;
+    }
+};
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-101.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    bool nimGame(vector&lt;int&gt;&amp; piles) {
+        int n = piles.size();
+        vector&lt;int&gt; dp(1 &lt;&lt; (n * 3), -1);
+        dp[0] = 0;
+        int t = 0;
+        for(int i = 0; i &lt; n; ++i)
+            t += (piles[i] &lt;&lt; (3 * i));
+        return solve(t, n, dp) == 1;
+    }
+
+private:
+    int solve(int s, const int n, vector&lt;int&gt;&amp; dp)
+    {
+        if(dp[s] != -1)
+            return dp[s];
+        for(int i = 0; i &lt; n; ++i)
+        {
+            int m = ((s &gt;&gt; (i * 3)) &amp; 7);
+            for(int j = 0; j &lt; m; ++j)
+            {
+                int t = s &amp; (~(7 &lt;&lt; (i * 3)));
+                t += j &lt;&lt; (i * 3);
+                if(solve(t, n, dp) == 0)
+                    return dp[s] = 1;
+            }
+        }
+        return dp[s] = 0;
+    }
+};
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-102.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    int getMoneyAmount(int n) {
+        vector&lt;vector&lt;int&gt; &gt; dp(n + 1, vector&lt;int&gt;(n + 1, INT_MAX));
+        for(int i = 1; i &lt;= n; ++i)
+            dp[i][i] = 0;
+        for(int j = 2; j &lt;= n; ++j)
+            for(int i = j - 1; i &gt;= 1; --i)
+            {
+                dp[i][j] = min(dp[i + 1][j] + i, dp[i][j - 1] + j);
+                for(int k = i + 1; k &lt;= j - 1; ++k)
+                    dp[i][j] = min(dp[i][j], max(dp[k + 1][j], dp[i][k - 1]) + k);
+            }
+        return dp[1][n];
+    }
+};
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-103.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    bool canWin(string s) {
+        int n = s.size();
+        if(n &lt; 2) return false;
+        unordered_map&lt;string, bool&gt; dp;
+        return solve(s, dp);
+    }
+
+private:
+    bool solve(string&amp; s, unordered_map&lt;string, bool&gt;&amp; dp)
+    {
+        int n = s.size();
+        if(dp.find(s) != dp.end()) // 该状态已经算过
+            return dp[s];
+        for(int i = 0; i &lt; n - 1; ++i) // 枚举所有次态
+        {
+            if(s[i] == '+' &amp;&amp; s[i + 1] == '+')
+            {
+                s[i] = '-';
+                s[i + 1] = '-';
+                bool f = solve(s, dp);
+                s[i] = '+';
+                s[i + 1] = '+';
+                if(!f)
+                    return dp[s] = true;
+            }
+        }
+        return dp[s] = false;
+    }
+};
+
+
+</code></pre>
+<p>本小节为大家汇总了力扣上 12 道关于「博弈 DP」的题目，大家可以集中练习。</p>
+<p>翻转游戏
+293. 翻转游戏
+Nim 游戏
+292. Nim 游戏
+石子游戏
+1140. 石子游戏 II
+1406. 石子游戏 III
+1510. 石子游戏 IV
+井字游戏
+348. 判定井字棋胜负
+794. 有效的井字游戏
+1275. 找出井字棋的获胜者
+其它
+486. 预测赢家
+464. 我能赢吗
+1025. 除数博弈
+913. 猫和老鼠</p>
+<h1 id="_23">滑动窗口和双指针</h1>
+<p>滑动窗口和双指针是解决字符串、数组等问题的常用技巧。通过维护一个窗口或两个指针，可以有效地遍历数据结构，达到优化时间复杂度的目的。</p>
+<p>滑动窗口通常用于处理连续子数组或子字符串的问题。通过动态调整窗口的左右边界，可以在 O(n) 的时间复杂度内找到满足条件的子数组或子字符串。
+双指针则常用于排序数组或链表的问题。通过两个指针同时遍历数据结构，可以有效地解决查找、合并等问题。</p>
+<h2 id="_24">循环不变量</h2>
+<p>循环前、中、后保持不变
+「循环不变量」不是很高深的概念，在「算法」和「数据结构」的世界里，到处都有它的身影。</p>
+<p>「循环不变量」是指我们在编写代码的过程中，要一直循序不变的性质，这样的性质是根据要解决的问题，由我们自己定义的。「循环不变量」是我们写对一个问题的基础，保证了在「初始化」「循环遍历」「结束」这三个阶段相同的性质，使得一个问题能够被正确解决。</p>
+<p><img alt="alt text" src="../image-104.png" />
+<img alt="alt text" src="../image-105.png" />
+<img alt="alt text" src="../Snipaste_2025-09-14_14-33-19.png" /></p>
+<p><img alt="alt text" src="../Snipaste_2025-09-14_14-33-34.png" />
+<img alt="alt text" src="../image-106.png" />
+<img alt="alt text" src="../Snipaste_2025-09-14_14-33-50.png" /></p>
+<h2 id="_25">使用循环不变量写对代码</h2>
+<p>这一节我们讲解两个非常基础且常考的问题，向大家展示：我们在写代码的时候一定要明确自己对变量以及区间的定义是什么，并且在编写代码的过程中保持定义不变。</p>
+<p><img alt="alt text" src="../image-107.png" />
+<img alt="alt text" src="../image-108.png" /></p>
+<pre><code class="language-java">import java.util.Arrays;
+
+
+public class Solution {
+
+    public void sortColors(int[] nums) {
+        int len = nums.length;
+        if (len &lt; 2) {
+            return;
+        }
+
+        int zero = 0;
+        int two = len;
+        int i = 0;
+        while (i &lt; two) {
+            if (nums[i] == 0) {
+                swap(nums, i, zero);
+                zero++;
+                i++;
+            } else if (nums[i] == 1) {
+                i++;
+            } else {
+                two--;
+                swap(nums, i, two);
+            }
+        }
+    }
+
+    private void swap(int[] nums, int index1, int index2) {
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-109.png" /></p>
+<pre><code class="language-java">public class Solution {
+
+    public void sortColors(int[] nums) {
+        int len = nums.length;
+        if (len &lt; 2) {
+            return;
+        }
+        int zero = -1;
+        int two = len - 1;
+        int i = 0;
+        while (i &lt;= two) {
+            if (nums[i] == 0) {
+                zero++;
+                swap(nums, i, zero);
+                i++;
+            } else if (nums[i] == 1) {
+                i++;
+            } else {
+                swap(nums, i, two);
+                two--;
+            }
+        }
+    }
+
+    private void swap(int[] nums, int index1, int index2) {
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+
+
+</code></pre>
+<p><img alt="alt text" src="../Snipaste_2025-09-14_14-37-18.png" /></p>
+<p><img alt="alt text" src="../image-110.png" /></p>
+<pre><code class="language-java">import java.util.Arrays;
+import java.util.Random;
+
+public class Solution {
+
+    private static Random random = new Random(System.currentTimeMillis());
+
+    public int findKthLargest(int[] nums, int k) {
+        int len = nums.length;
+                // 第 k 大元素的下标是 len - k
+        int target = len - k;
+
+        int left = 0;
+        int right = len - 1;
+        while (true) {
+            int pIndex = partition(nums, left, right);
+
+            if (pIndex == target) {
+                return nums[pIndex];
+            } else if (pIndex &lt; target) {
+                // 下一轮搜索区间 [pIndex + 1..right]
+                left = pIndex + 1;
+            } else {
+                // pIndex &gt; target
+                // 下一轮搜索区间 [left..pIndex - 1]
+                right = pIndex - 1;
+            }
+        }
+
+    }
+
+    private int partition(int[] nums, int left, int right) {
+        // 注意：必须随机化
+        int randomIndex = left + random.nextInt(right - left + 1);
+        swap(nums, left, randomIndex);
+
+        int pivot = nums[left];
+        // [left + 1 .. le] &lt;= pivot
+        // (le..i] &gt; pivot
+        // 注意：一定要设置成 left ，否则交换会出错
+        int le = left;
+        for (int i = left + 1; i &lt;= right; i++) {
+            // 这里写 &lt; 或者 &lt;= 都可以
+            if (nums[i] &lt;= pivot) {
+                le++;
+                swap(nums, le, i);
+            }
+        }
+
+        swap(nums, left, le);
+        return le;
+    }
+
+    private void swap(int[] nums, int index1, int index2) {
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-111.png" /></p>
+<pre><code class="language-java">import java.util.Random;
+
+public class Solution {
+
+    private static Random random = new Random(System.currentTimeMillis());
+
+    public int findKthLargest(int[] nums, int k) {
+        int len = nums.length;
+        int left = 0;
+        int right = len - 1;
+
+        // 第 k 大元素的下标是 len - k
+        int target = len - k;
+
+        while (true) {
+            int index = partition(nums, left, right);
+            if (index == target) {
+                return nums[index];
+            } else if (index &lt; target) {
+                left = index + 1;
+            } else {
+                right = index - 1;
+            }
+        }
+    }
+
+    public int partition(int[] nums, int left, int right) {
+        // 在区间随机选择一个元素作为标定点
+        int randomIndex = left + random.nextInt(right - left + 1 );
+        swap(nums, left, randomIndex);
+
+
+        int pivot = nums[left];
+
+        // 将等于 pivot 的元素分散到两边
+        // [left..le) &lt;= pivot
+        // (ge..right] &gt;= pivot
+
+        int le = left + 1;
+        int ge = right;
+
+        while (true) {
+            // 遇到 nums[le] &gt;= pivot 的时候停下来
+            // 遇到与 pivot 相等的元素，是通过交换被等概率分到两边的
+            while (le &lt;= ge &amp;&amp; nums[le] &lt; pivot) {
+                le++;
+            }
+            while (le &lt;= ge &amp;&amp; nums[ge] &gt; pivot) {
+                ge--;
+            }
+
+            if (le &gt; ge) {
+                break;
+            }
+            swap(nums, le, ge);
+            le++;
+            ge--;
+        }
+
+        // 这里还要交换，注意是 ge
+        swap(nums, left, ge);
+        return ge;
+    }
+
+    private void swap(int[] nums, int index1, int index2) {
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-112.png" /></p>
+<pre><code class="language-java">import java.util.Random;
+
+public class Solution {
+
+    private static Random RANDOM = new Random(System.currentTimeMillis());
+
+    public int findKthLargest(int[] nums, int k) {
+        int len = nums.length;
+        int target = len - k;
+
+        int left = 0;
+        int right = len - 1;
+        while (true) {
+            int[] pIndex = partition(nums, left, right);
+
+            int index1 = pIndex[0];
+            int index2 = pIndex[1];
+
+            if (target &lt; index1) {
+                // 下一轮搜索区间 [left..index1 - 1]
+                right = index1 - 1;
+            } else if (target == index1) {
+                return nums[index1];
+            } else if (target &lt; index2) {
+                left = index1 + 1;
+                right = index2 - 1;
+            } else if (target == index2) {
+                return nums[index2];
+            } else {
+                // pIndex &gt; target
+                // 下一轮搜索区间 [index2 + 1..right]
+                left = index2 + 1;
+            }
+        }
+    }
+
+    private int[] partition(int[] nums, int left, int right) {
+        int randomIndex = left + RANDOM.nextInt(right - left + 1);
+        swap(nums, randomIndex, left);
+
+        // 循环不变量：
+        // all in [left + 1..lt] &lt; pivot
+        // all in [lt + 1..i) = pivot
+        // all in [gt..right] &gt; pivot
+        int pivot = nums[left];
+        int lt = left;
+        int gt = right + 1;
+
+        int i = left + 1;
+        while (i &lt; gt) {
+            if (nums[i] &lt; pivot) {
+                lt++;
+                swap(nums, i, lt);
+                i++;
+            } else if (nums[i] == pivot) {
+                i++;
+            } else {
+                gt--;
+                swap(nums, i, gt);
+            }
+        }
+        swap(nums, left, lt);
+        // 这里要特别小心
+        return new int[]{lt, gt - 1};
+    }
+
+    private void swap(int[] nums, int index1, int index2) {
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+
+
+</code></pre>
+<h2 id="1">滑动窗口 1：同向交替移动的两个变量</h2>
+<p>同向交替移动的两个变量
+有一类数组上的问题，问我们固定长度的滑动窗口的性质，这一类问题在思维层面上相对简单。我们通过两道简单的例题向大家展示这一类问题的写法。</p>
+<p><img alt="alt text" src="../image-113.png" /></p>
+<pre><code class="language-java">public class Solution {
+
+    public double findMaxAverage(int[] nums, int k) {
+        int len = nums.length;
+        // 由于题目限制了 k &lt;= len，因此不用做特判
+        int windowSum = 0;
+        // 第 1 步：先求出第 1 个窗口的和
+        for (int i = 0; i &lt; k; i++) {
+            windowSum += nums[i];
+        }
+
+        // 第 2 步：通过遍历求出除了第 1 个窗口的和
+        int res = windowSum;
+        // 循环不变量定义：[left..right) 是长度为 k 的窗口
+        for (int right = k; right &lt; len; right++) {
+            // 加上一个数再减去一个数
+            windowSum = windowSum + nums[right] - nums[right - k];
+            res = Math.max(res, windowSum);
+        }
+        return (double) res / k;
+    }
+}
+
+
+</code></pre>
+<p><img alt="alt text" src="../Snipaste_2025-09-14_14-40-57.png" /></p>
+<p><img alt="alt text" src="../Snipaste_2025-09-14_14-43-41.png" />
+<img alt="alt text" src="../image-114.png" /></p>
+<pre><code class="language-java">public class Solution {
+
+    public int maxSatisfied(int[] customers, int[] grumpy, int X) {
+        int len = grumpy.length;
+        // 前缀和 preSum[i] 表示 [0..i) 里因为老板生气而感到不开心的顾客数
+        int[] preSum = new int[len + 1];
+
+        // 统计 1. 所有本来就不生气的顾客数量；2. 前缀和数组
+        int originCount = 0;
+        for (int i = 0; i &lt; len; i++) {
+            if (grumpy[i] == 0) {
+                // 不生气
+                originCount += customers[i];
+                preSum[i + 1] = preSum[i];
+            } else {
+                // 生气时候前缀和
+                preSum[i + 1] = preSum[i] + customers[i];
+            }
+        }
+
+        int maxAngryCount = 0;
+        // 固定长度的滑动窗口的左边界：[i..i + X)
+        for (int left = 0; left &lt; len - X + 1; left++) {
+            maxAngryCount = Math.max(maxAngryCount, preSum[left + X] - preSum[left]);
+        }
+        // 所有本来就不生气的顾客
+        return originCount + maxAngryCount;
+    }
+}
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-115.png" /></p>
+<h2 id="2">滑动窗口 2：不定长度的滑动窗口</h2>
+<p>有一类数组上的问题，需要使用两个指针变量（我们称为左指针和右指针），同向、交替向右移动完成任务。这样的过程像极了一个窗口在平面上滑动的过程，因此我们将解决这一类问题的算法称为「滑动窗口」问题。</p>
+<p>掌握好这一类「滑动窗口」的问题，需要先从「暴力解法」开始分析，「滑动窗口」利用了问题本身的特点，在两个指针同向、交替向右移动的过程中，少考虑了很多「暴力解法」需要考察了情况，将时间复杂度降到了线性级别 O(N)（这里𝑁是数组的长度），如下图所示。</p>
+<p><img alt="alt text" src="../Snipaste_2025-09-14_14-45-34.png" /></p>
+<p><img alt="alt text" src="../image-116.png" />
+<img alt="alt text" src="../image-117.png" /></p>
+<pre><code class="language-java">public class Solution {
+
+    public String minWindow(String s, String t) {
+        int[] window = new int[128];
+        int[] pattern = new int[128];
+
+        final int A = 'A';
+
+        for (Character c : t.toCharArray()) {
+            pattern[c - A]++;
+        }
+        int distance = 0;
+
+        for (int i = 0; i &lt; 128; i++) {
+            if (pattern[i] &gt; 0) {
+                distance++;
+            }
+        }
+
+        int sLen = s.length();
+        int start = 0;
+        int left = 0;
+        int right = 0;
+        int match = 0;
+        int minLen = sLen + 1;
+
+        while (right &lt; sLen) {
+            Character curChar = s.charAt(right);
+            if (pattern[curChar - A] &gt; 0) {
+                window[curChar - A]++;
+
+                if (window[curChar - A] == pattern[curChar - A]) {
+                    match++;
+                }
+            }
+
+            right++;
+
+            while (match == distance) {
+                if (right - left &lt; minLen) {
+                    start = left;
+                    minLen = right - left;
+                }
+
+                // 考虑左边界向右边走
+                Character leftChar = s.charAt(left);
+                if (pattern[leftChar - A] &gt; 0) {
+                    window[leftChar - A]--;
+
+                    if (window[leftChar - A] &lt; pattern[leftChar - A]) {
+                        match--;
+                    }
+                }
+                left++;
+            }
+        }
+        return minLen == sLen + 1 ? &quot;&quot; : s.substring(start, start + minLen);
+    }
+}
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-118.png" />
+<img alt="alt text" src="../image-119.png" />
+<img alt="alt text" src="../Snipaste_2025-09-14_14-47-38.png" /></p>
+<p><img alt="alt text" src="../Snipaste_2025-09-14_14-47-45.png" /></p>
+<pre><code class="language-java">public class Solution {
+
+    public int characterReplacement(String s, int k) {
+        int len = s.length();
+        if (len &lt; 2) {
+            return len;
+        }
+
+        char[] charArray = s.toCharArray();
+        int left = 0;
+        int right = 0;
+
+        int res = 0;
+        int maxCount = 0;
+        int[] freq = new int[26];
+        // [left, right) 内最多替换 k 个字符可以得到只有一种字符的子串
+        while (right &lt; len){
+            freq[charArray[right] - 'A']++;
+            // 在这里维护 maxCount，因为每一次右边界读入一个字符，字符频数增加，才会使得 maxCount 增加
+            maxCount = Math.max(maxCount, freq[charArray[right] - 'A']);
+            right++;
+
+            if (right - left &gt; maxCount + k){
+                // 说明此时 k 不够用
+                // 把其它不是最多出现的字符替换以后，都不能填满这个滑动的窗口，这个时候须要考虑左边界向右移动
+                // 移出滑动窗口的时候，频数数组须要相应地做减法
+                freq[charArray[left] - 'A']--;
+                left++;
+            }
+            res = Math.max(res, right - left);
+        }
+        return res;
+    }
+}
+
+
+</code></pre>
+<p><img alt="alt text" src="../image-120.png" />
+<img alt="alt text" src="../image-121.png" /></p>
+<p><img alt="alt text" src="../image-122.png" /></p>
+<h2 id="3">滑动窗口 3：计数问题选讲</h2>
+<p>这一节我们向大家介绍几个关于「滑动窗口」的计数问题，写对计数问题的标准是：不重不漏。</p>
+<p><img alt="Alt text" src="../image-123.png" /></p>
+<pre><code class="language-java">public class Solution {
+
+    public int lengthOfLongestSubstringTwoDistinct(String s) {
+        int len = s.length();
+        if (len &lt; 3) {
+            return len;
+        }
+
+        char[] charArray = s.toCharArray();
+        int[] freq = new int[128];
+        // 滑动窗口里不同字符的个数
+        int count = 0;
+
+        int res = 2;
+        int left = 0;
+        int right = 0;
+        while (right &lt; len) {
+            freq[charArray[right]]++;
+            if (freq[charArray[right]] == 1) {
+                count++;
+            }
+            right++;
+
+            while (count == 3) {
+                freq[charArray[left]]--;
+                if (freq[charArray[left]] == 0) {
+                    count--;
+                }
+                left++;
+            }
+            // 退出循环以后有 count = 2，因此在这里选出最大值
+            res = Math.max(res, right - left);
+        }
+        return res;
+    }
+}
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-124.png" /></p>
+<p><img alt="Alt text" src="../image-125.png" /></p>
+<pre><code class="language-java">public class Solution {
+
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+        int len = s.length();
+        if (len &lt;= k) {
+            return len;
+        }
+
+        char[] charArray = s.toCharArray();
+        int[] freq = new int[128];
+        int count = 0;
+
+        int left = 0;
+        int right = 0;
+        int res = k;
+        while (right &lt; len) {
+            freq[charArray[right]]++;
+            if (freq[charArray[right]] == 1) {
+                count++;
+            }
+            right++;
+
+            while (count == k + 1) {
+                freq[charArray[left]]--;
+                if (freq[charArray[left]] == 0) {
+                    count--;
+                }
+                left++;
+            }
+
+            res = Math.max(res, right - left);
+        }
+        return res;
+    }
+}
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-126.png" /></p>
+<p><img alt="Alt text" src="../image-127.png" /></p>
+<pre><code class="language-java">public class Solution {
+
+    public int numSubarrayBoundedMax(int[] nums, int left, int right) {
+        return lessEqualsThan(nums, right) - lessEqualsThan(nums, left - 1);
+    }
+
+    private int lessEqualsThan(int[] nums, int k) {
+        int len = nums.length;
+        int res = 0;
+        // 循环不变量：nums[left..right] 里的所有元素都小于等于 k
+        for (int left = 0, right = 0; right &lt; len; right++) {
+            if (nums[right] &gt; k) {
+                left = right + 1;
+            }
+            res += right - left;
+        }
+        return res;
+    }
+}
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-128.png" /></p>
+<p><img alt="Alt text" src="../image-129.png" /></p>
+<p><img alt="Alt text" src="../image-130.png" /></p>
+<pre><code class="language-java">
+public class Solution {
+
+    public int subarraysWithKDistinct(int[] A, int K) {
+        return atMostKDistinct(A, K) - atMostKDistinct(A, K - 1);
+    }
+
+    /**
+     * @param A
+     * @param K
+     * @return 最多包含 K 个不同整数的子区间的个数
+     */
+    private int atMostKDistinct(int[] A, int K) {
+        int len = A.length;
+        int[] freq = new int[len + 1];
+
+        int left = 0;
+        int right = 0;
+        // [left, right) 里不同整数的个数
+        int count = 0;
+        int res = 0;
+        // [left, right) 包含不同整数的个数小于等于 K
+        while (right &lt; len) {
+            if (freq[A[right]] == 0) {
+                count++;
+            }
+            freq[A[right]]++;
+            right++;
+
+            while (count &gt; K) {
+                freq[A[left]]--;
+                if (freq[A[left]] == 0) {
+                    count--;
+                }
+                left++;
+            }
+            // [left, right) 区间的长度就是对结果的贡献
+            res += right - left;
+        }
+        return res;
+    }
+}
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-131.png" /></p>
+<h2 id="4">滑动窗口 4：使用数据结构维护窗口性质</h2>
+<p>有一类问题只是名字上叫「滑动窗口」，但解决这一类问题需要用到常见的数据结构。这一节给出的问题可以当做例题进行学习，一些比较复杂的问题是基于这些问题衍生出来的。</p>
+<p><img alt="Alt text" src="../image-132.png" />
+<img alt="Alt text" src="../image-133.png" />
+<img alt="Alt text" src="../image-134.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) {
+        int n = nums.size();
+        priority_queue&lt;pair&lt;int, int&gt;&gt; q;
+        for (int i = 0; i &lt; k; ++i) {
+            q.emplace(nums[i], i);
+        }
+        vector&lt;int&gt; ans = {q.top().first};
+        for (int i = k; i &lt; n; ++i) {
+            q.emplace(nums[i], i);
+            while (q.top().second &lt;= i - k) {
+                q.pop();
+            }
+            ans.push_back(q.top().first);
+        }
+        return ans;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-135.png" /></p>
+<pre><code class="language-cpp">
+class Solution {
+public:
+    vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) {
+        int n = nums.size();
+        deque&lt;int&gt; q;
+        for (int i = 0; i &lt; k; ++i) {
+            while (!q.empty() &amp;&amp; nums[i] &gt;= nums[q.back()]) {
+                q.pop_back();
+            }
+            q.push_back(i);
+        }
+
+        vector&lt;int&gt; ans = {nums[q.front()]};
+        for (int i = k; i &lt; n; ++i) {
+            while (!q.empty() &amp;&amp; nums[i] &gt;= nums[q.back()]) {
+                q.pop_back();
+            }
+            q.push_back(i);
+            while (q.front() &lt;= i - k) {
+                q.pop_front();
+            }
+            ans.push_back(nums[q.front()]);
+        }
+        return ans;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-136.png" /></p>
+<p><img alt="Alt text" src="../image-137.png" />
+<img alt="Alt text" src="../image-138.png" />
+<img alt="Alt text" src="../image-139.png" /></p>
+<p><img alt="Alt text" src="../image-140.png" /></p>
+<pre><code class="language-cpp">class DualHeap {
+private:
+    // 大根堆，维护较小的一半元素
+    priority_queue&lt;int&gt; small;
+    // 小根堆，维护较大的一半元素
+    priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; large;
+    // 哈希表，记录「延迟删除」的元素，key 为元素，value 为需要删除的次数
+    unordered_map&lt;int, int&gt; delayed;
+
+    int k;
+    // small 和 large 当前包含的元素个数，需要扣除被「延迟删除」的元素
+    int smallSize, largeSize;
+
+public:
+    DualHeap(int _k): k(_k), smallSize(0), largeSize(0) {}
+
+private:
+    // 不断地弹出 heap 的堆顶元素，并且更新哈希表
+    template&lt;typename T&gt;
+    void prune(T&amp; heap) {
+        while (!heap.empty()) {
+            int num = heap.top();
+            if (delayed.count(num)) {
+                --delayed[num];
+                if (!delayed[num]) {
+                    delayed.erase(num);
+                }
+                heap.pop();
+            }
+            else {
+                break;
+            }
+        }
+    }
+
+    // 调整 small 和 large 中的元素个数，使得二者的元素个数满足要求
+    void makeBalance() {
+        if (smallSize &gt; largeSize + 1) {
+            // small 比 large 元素多 2 个
+            large.push(small.top());
+            small.pop();
+            --smallSize;
+            ++largeSize;
+            // small 堆顶元素被移除，需要进行 prune
+            prune(small);
+        }
+        else if (smallSize &lt; largeSize) {
+            // large 比 small 元素多 1 个
+            small.push(large.top());
+            large.pop();
+            ++smallSize;
+            --largeSize;
+            // large 堆顶元素被移除，需要进行 prune
+            prune(large);
+        }
+    }
+
+public:
+    void insert(int num) {
+        if (small.empty() || num &lt;= small.top()) {
+            small.push(num);
+            ++smallSize;
+        }
+        else {
+            large.push(num);
+            ++largeSize;
+        }
+        makeBalance();
+    }
+
+    void erase(int num) {
+        ++delayed[num];
+        if (num &lt;= small.top()) {
+            --smallSize;
+            if (num == small.top()) {
+                prune(small);
+            }
+        }
+        else {
+            --largeSize;
+            if (num == large.top()) {
+                prune(large);
+            }
+        }
+        makeBalance();
+    }
+
+    double getMedian() {
+        return k &amp; 1 ? small.top() : ((double)small.top() + large.top()) / 2;
+    }
+};
+
+class Solution {
+public:
+    vector&lt;double&gt; medianSlidingWindow(vector&lt;int&gt;&amp; nums, int k) {
+        DualHeap dh(k);
+        for (int i = 0; i &lt; k; ++i) {
+            dh.insert(nums[i]);
+        }
+        vector&lt;double&gt; ans = {dh.getMedian()};
+        for (int i = k; i &lt; nums.size(); ++i) {
+            dh.insert(nums[i]);
+            dh.erase(nums[i - k]);
+            ans.push_back(dh.getMedian());
+        }
+        return ans;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-141.png" />
+由于 
+small
+small 是大根堆，
+large
+large 是小根堆，因此根本就不存在与 
+num
+num 值相同的元素，也就不可能会被延迟删除了。</p>
+<h2 id="_26">链表中的双指针问题</h2>
+<p>解决链表中的一些问题有些时候需要一些脑洞，并没有那么容易想到。好在这些问题只需要掌握这些常见的技巧就可以了。其中最典型的技巧就是「快慢指针」，也称为「同步指针」。事实上，解决它们都是在链表中使用了两个变量，因此也称为「双指针」技巧。</p>
+<p><img alt="Alt text" src="../image-142.png" /></p>
+<p><img alt="Alt text" src="../image-143.png" />
+<img alt="Alt text" src="../image-144.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        unordered_set&lt;ListNode*&gt; seen;
+        while (head != nullptr) {
+            if (seen.count(head)) {
+                return true;
+            }
+            seen.insert(head);
+            head = head-&gt;next;
+        }
+        return false;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-145.png" />
+<img alt="Alt text" src="../image-146.png" />
+<img alt="Alt text" src="../image-147.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    bool hasCycle(ListNode* head) {
+        if (head == nullptr || head-&gt;next == nullptr) {
+            return false;
+        }
+        ListNode* slow = head;
+        ListNode* fast = head-&gt;next;
+        while (slow != fast) {
+            if (fast == nullptr || fast-&gt;next == nullptr) {
+                return false;
+            }
+            slow = slow-&gt;next;
+            fast = fast-&gt;next-&gt;next;
+        }
+        return true;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-148.png" /></p>
+<p><img alt="Alt text" src="../image-149.png" />
+<img alt="Alt text" src="../image-150.png" /></p>
+<p><img alt="Alt text" src="../image-151.png" />
+<img alt="Alt text" src="../image-152.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    int getLength(ListNode* head) {
+        int length = 0;
+        while (head) {
+            ++length;
+            head = head-&gt;next;
+        }
+        return length;
+    }
+
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0, head);
+        int length = getLength(head);
+        ListNode* cur = dummy;
+        for (int i = 1; i &lt; length - n + 1; ++i) {
+            cur = cur-&gt;next;
+        }
+        cur-&gt;next = cur-&gt;next-&gt;next;
+        ListNode* ans = dummy-&gt;next;
+        delete dummy;
+        return ans;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-153.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0, head);
+        stack&lt;ListNode*&gt; stk;
+        ListNode* cur = dummy;
+        while (cur) {
+            stk.push(cur);
+            cur = cur-&gt;next;
+        }
+        for (int i = 0; i &lt; n; ++i) {
+            stk.pop();
+        }
+        ListNode* prev = stk.top();
+        prev-&gt;next = prev-&gt;next-&gt;next;
+        ListNode* ans = dummy-&gt;next;
+        delete dummy;
+        return ans;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-154.png" />
+<img alt="Alt text" src="../image-155.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* first = head;
+        ListNode* second = dummy;
+        for (int i = 0; i &lt; n; ++i) {
+            first = first-&gt;next;
+        }
+        while (first) {
+            first = first-&gt;next;
+            second = second-&gt;next;
+        }
+        second-&gt;next = second-&gt;next-&gt;next;
+        ListNode* ans = dummy-&gt;next;
+        delete dummy;
+        return ans;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-156.png" /></p>
+<p><img alt="Alt text" src="../image-157.png" /></p>
+<p><img alt="Alt text" src="../image-158.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        int n = 0;
+        ListNode* cur = head;
+        while (cur != nullptr) {
+            ++n;
+            cur = cur-&gt;next;
+        }
+        int k = 0;
+        cur = head;
+        while (k &lt; n / 2) {
+            ++k;
+            cur = cur-&gt;next;
+        }
+        return cur;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-159.png" /></p>
+<pre><code class="language-cpp">class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while (fast != NULL &amp;&amp; fast-&gt;next != NULL) {
+            slow = slow-&gt;next;
+            fast = fast-&gt;next-&gt;next;
+        }
+        return slow;
+    }
+};
+
+
+</code></pre>
+<p><img alt="Alt text" src="../image-160.png" /></p>
+<h2 id="_27">双指针：相向交替移动的两个变量</h2>
+<p>相向交替移动的两个变量
+「双指针」是指通过两个变量交替相向移动完成任务的算法，具体来说，可以使用两个变量 i 和 j ，初始的时候，i 和 j 分别指向数组的第一个元素和最后一个元素，然后指针 i 不断向右移动， 指针 j 不断向左移动，直到它们相遇。这样设计的算法少考虑了很多暴力解法需要考虑的情况，如下图所示</p>
+<p><img alt="Alt text" src="../image-161.png" /></p>
+<h1 id="_28">贪心算法</h1>
+<p>贪心算法是对完成一件事情的方法的描述，贪心算法每一次都做出当前看起来最好的选择，而不用考虑其它可能的选择。</p>
+<p>贪心算法的学习可以与动态规划算法进行比较，看看它到底比动态规划算法少考虑了哪些子问题，为什么可以少考虑那些子问题，而每次只专注于求解一个子问题，通过逐步递推得到原问题的答案。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../../../../../js/base.js"></script>
+        <script src="../../../../../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
