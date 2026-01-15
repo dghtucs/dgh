@@ -1,273 +1,214 @@
+
+
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 
-// ========== 并查集部分 ==========
+#ifdef DEBUG
+#define DBG(...) std::fprintf(stderr, __VA_ARGS__)
+#else
+#define DBG(...) ((void)0)
+#endif
 
-static const int MAXN = 1000000;
+static const int IN_BUF_SIZE = 1 << 20;
+static unsigned char IN_BUF[IN_BUF_SIZE];
+static int IN_LEN = 0, IN_POS = 0;
 
-// 并查集数组
-int fa[MAXN+5];    // 父节点
-int rankv[MAXN+5]; // rank(用于按秩合并)
+static inline int nextChar() {
+    if (IN_POS >= IN_LEN) {
+        IN_LEN = (int)std::fread(IN_BUF, 1, IN_BUF_SIZE, stdin);
+        IN_POS = 0;
+        if (IN_LEN <= 0) return -1;
+    }
+    return IN_BUF[IN_POS++];
+}
 
-// 并查集初始化
-void uf_init(int n) {
-    for(int i = 1; i <= n; i++){
+static inline int readInt() {
+    int c = nextChar();
+    while (c <= ' ' && c != -1) c = nextChar();
+    int x = 0;
+    while (c > ' ') {
+        x = x * 10 + (c - '0');
+        c = nextChar();
+    }
+    return x;
+}
+
+static inline void iswap(int &a, int &b) { int t = a; a = b; b = t; }
+
+int n, m, K, q;
+
+// 堆节点
+int *hL, *hR, *hDist;
+int *hKey; // 点权（0..1e9）
+
+// 左式堆合并：返回新根
+static int heapMerge(int x, int y) {
+    if (x == 0) return y;
+    if (y == 0) return x;
+    if (hKey[x] > hKey[y]) iswap(x, y); // 小根堆：根更小
+    hR[x] = heapMerge(hR[x], y);
+    if (hDist[hL[x]] < hDist[hR[x]]) iswap(hL[x], hR[x]);
+    hDist[x] = hDist[hR[x]] + 1;
+    return x;
+}
+
+// 弹出堆顶
+static inline int heapPop(int x) {
+    return heapMerge(hL[x], hR[x]);
+}
+
+int *fa;
+int *compSz;     // 连通块真实点数
+int *heapRoot;   // 该块的堆根
+int *heapSz;     // 堆中节点数
+
+static inline int findSet(int x) {
+    while (fa[x] != x) {
+        fa[x] = fa[fa[x]];
+        x = fa[x];
+    }
+    return x;
+}
+
+// 合并两个点所在连通块
+static inline void unite(int u, int v) {
+    int ru = findSet(u);
+    int rv = findSet(v);
+    if (ru == rv) return;
+
+    // 按真实块大小合并
+    if (compSz[ru] < compSz[rv]) iswap(ru, rv);
+
+    // rv 挂到 ru
+    fa[rv] = ru;
+    compSz[ru] += compSz[rv];
+
+    // 合并 top-k 堆
+    heapRoot[ru] = heapMerge(heapRoot[ru], heapRoot[rv]);
+    heapSz[ru] += heapSz[rv];
+
+    // 保持堆大小不超过 K
+    while (heapSz[ru] > K) {
+        heapRoot[ru] = heapPop(heapRoot[ru]);
+        heapSz[ru]--;
+    }
+}
+
+static const int OUT_BUF_SIZE = 1 << 22; 
+static char *OUT_BUF;
+static int OUT_POS = 0;
+
+static inline void outInt(int x) {
+    if (OUT_POS > OUT_BUF_SIZE - 32) {
+        std::fwrite(OUT_BUF, 1, OUT_POS, stdout);
+        OUT_POS = 0;
+    }
+    if (x == 0) {
+        OUT_BUF[OUT_POS++] = '0';
+        OUT_BUF[OUT_POS++] = '\n';
+        return;
+    }
+    if (x < 0) {
+        OUT_BUF[OUT_POS++] = '-';
+        x = -x;
+    }
+    char s[16];
+    int p = 0;
+    while (x > 0) {
+        s[p++] = (char)('0' + (x % 10));
+        x /= 10;
+    }
+    while (p--) OUT_BUF[OUT_POS++] = s[p];
+    OUT_BUF[OUT_POS++] = '\n';
+}
+
+int main() {
+    n = readInt();
+    m = readInt();
+    K = readInt();
+    q = readInt();
+
+    fa = (int*)std::malloc(sizeof(int) * (n + 1));
+    compSz = (int*)std::malloc(sizeof(int) * (n + 1));
+    heapRoot = (int*)std::malloc(sizeof(int) * (n + 1));
+    heapSz = (int*)std::malloc(sizeof(int) * (n + 1));
+
+    hL = (int*)std::malloc(sizeof(int) * (n + 1));
+    hR = (int*)std::malloc(sizeof(int) * (n + 1));
+    hDist = (int*)std::malloc(sizeof(int) * (n + 1));
+    hKey = (int*)std::malloc(sizeof(int) * (n + 1));
+
+    OUT_BUF = (char*)std::malloc(OUT_BUF_SIZE);
+
+    if (!fa || !compSz || !heapRoot || !heapSz || !hL || !hR || !hDist || !hKey || !OUT_BUF) {
+
+        return 0;
+    }
+
+    // 初始化空节点
+    hL[0] = hR[0] = 0;
+    hDist[0] = 0;
+    hKey[0] = 0;
+
+    // 读点权 & 初始化每个点为一个堆
+    for (int i = 1; i <= n; i++) {
+        int w = readInt();
+        hKey[i] = w;
+        hL[i] = hR[i] = 0;
+        hDist[i] = 1;
+
         fa[i] = i;
-        rankv[i] = 0;
-    }
-}
-
-// 并查集找根
-int uf_find(int x){
-    if(fa[x] == x) return x;
-    fa[x] = uf_find(fa[x]);
-    return fa[x];
-}
-
-// 并查集合并
-int uf_union(int x, int y) {
-    // 返回新的根
-    x = uf_find(x);
-    y = uf_find(y);
-    if(x == y) return x; // 已在同一连通分量
-
-    if(rankv[x] < rankv[y]) {
-        fa[x] = y;
-        return y;
-    } else if(rankv[x] > rankv[y]) {
-        fa[y] = x;
-        return x;
-    } else {
-        fa[y] = x;
-        rankv[x]++;
-        return x;
-    }
-}
-
-// ========== 左式堆(可并堆)部分 ==========
-// 用来维护“前 k 大”的权值集合
-
-// 为简化，令MAXK=某个较小值，若 k 巨大仍需特殊优化
-static const int MAXK = 100; 
-
-// 对每个节点(连通分量的根)，存储一个堆结点指针
-// 但实际上，每个连通分量的左式堆并非只挂在根节点——只在“并查集根”处保存它
-
-// 堆结点结构
-struct HeapNode {
-    long long val;
-    HeapNode* left;
-    HeapNode* right;
-    int size;
-    int dist; // 左式堆中用于维护距离(零路径长)
-};
-
-// 给每个并查集根一个指针
-HeapNode* heapRoot[MAXN+5];
-
-// 手写一个简易的静态池来分配堆结点 (不使用 new/delete)
-static HeapNode nodePool[2*MAXN+5]; // 视数据规模可能需要更大
-int nodePoolTop = 0;
-
-// 分配一个堆结点
-HeapNode* newNode(long long v){
-    HeapNode* p = &nodePool[nodePoolTop++];
-    p->val = v;
-    p->left = p->right = NULL;
-    p->dist = 0;
-    p->size = 1;
-    return p;
-}
-
-// 合并两个左式堆
-HeapNode* mergeHeap(HeapNode* a, HeapNode* b){
-    if(!a) return b;
-    if(!b) return a;
-    // 若a->val < b->val, 则交换, 使得a始终是值更大的
-    if(a->val > b->val){
-        HeapNode* tmp = a; a=b; b=tmp;
-    }
-    // 把b合并到a->right
-    a->right = mergeHeap(a->right, b);
-    // 左式堆保持左儿子的零路径长 >= 右儿子的零路径长
-    if(!a->left || (a->left->dist < a->right->dist)){
-        // swap
-        HeapNode* tmp = a->left;
-        a->left = a->right;
-        a->right = tmp;
-    }
-    // dist = right子树的dist +1
-    if(a->right == NULL) a->dist = 0;
-    else a->dist = a->right->dist + 1;
-    a->size = 1;
-    if(a->left != NULL) a->size += a->left->size;
-    if(a->right != NULL) a->size += a->right->size;
-    // a->size = a->left->size + a->right->size + 1;
-    return a;
-}
-
-// 向左式堆插入一个值
-HeapNode* insertHeap(HeapNode* root, long long v){
-    HeapNode* node = newNode(v);
-    return mergeHeap(root, node);
-}
-
-// 只保留前k大的值 -> 插入后若size超过k，则弹出最小值
-
-// 统计“堆中元素总数”并“只保留前k大”的粗略做法(需要遍历堆+合并小的分支? 下面演示简单处理)
-static int tmpStackPos;
-static HeapNode* stackNodes[3000005]; // 存放遍历用
-
-void collectAll(HeapNode* r){
-    // 将堆的所有节点压栈
-    if(!r) return;
-    stackNodes[tmpStackPos++] = r;
-    collectAll(r->left);
-    collectAll(r->right);
-}
-
-// 合并两个并查集根对应的堆，返回合并后新的堆根
-HeapNode* unionHeap(HeapNode* h1, HeapNode* h2, int k){
-    // 首先合并成一个堆
-    HeapNode* merged = mergeHeap(h1, h2);
-    while(merged->size > k)
-    {
-        merged = mergeHeap(merged->left,merged->right);
+        compSz[i] = 1;
+        heapRoot[i] = i;
+        heapSz[i] = 1;
     }
 
-    // // 然后把堆里所有元素取出来，并只保留前k大
-    // tmpStackPos = 0;
-    // collectAll(merged);
-    // // 清空 merged
-    // merged = NULL;
-
-    // // 简单选择排序or partition找前k大(注意不能用STL sort)
-    // // 这里演示一个O(K* size)的简单做法(若k很大会超时，需要更优算法):
-    // int total = tmpStackPos;
-    // // 将stackNodes里按val冒泡取前k大
-    // // 只演示思路，不保证高效
-    // for(int i = 0; i < k && i < total; i++){
-    //     // 第i大的放到下标i
-    //     for(int j = i+1; j < total; j++){
-    //         if(stackNodes[j]->val > stackNodes[i]->val){
-    //             HeapNode* tmp = stackNodes[j];
-    //             stackNodes[j] = stackNodes[i];
-    //             stackNodes[i] = tmp;
-    //         }
-    //     }
-    // }
-    // // 取前k个做成一个左式堆
-    // int limit = (k < total ? k : total);
-    // for(int i = 0; i < limit; i++){
-    //     stackNodes[i]->left = stackNodes[i]->right = NULL;
-    //     stackNodes[i]->dist = 0;
-    // }
-    // merged = NULL;
-
-    // for(int i=0; i<limit; i++){
-    //     merged = mergeHeap(merged, stackNodes[i]);
-    // }
-    // // 剩下的就丢弃了(因为只需要前k大)
-    return merged;
-}
-
-// 查询：把堆root的所有节点遍历相加(仅当其数量>=k，否则-1)
-long long sumOfHeap(HeapNode* r, int k){
-    // 遍历堆中所有节点
-    tmpStackPos = 0;
-    // collectAll(r);
-    int total = tmpStackPos;
-    if(r->size < k) return -1; // 不足k个
-    else
-        return r->val;
-    // // 取前k大的值(因这个堆实际上只存了前k大，但仍需遍历确认个数)
-    // long long s = 0;
-    // // 这里堆中存的已经是前k大的了(若严格维护) -> 直接把全部加起来?
-    // // 若保险起见，仍做一次选择k大
-    // // 下面为简单演示:
-    // // 冒泡找最大的k个
-    // for(int i = 0; i < k; i++){
-    //     for(int j = i+1; j < total; j++){
-    //         if(stackNodes[j]->val > stackNodes[i]->val){
-    //             HeapNode* tmp = stackNodes[j];
-    //             stackNodes[j] = stackNodes[i];
-    //             stackNodes[i] = tmp;
-    //         }
-    //     }
-    //     s += stackNodes[i]->val;
-    // }
-    // return stackNodes[k-1]->val;
-}
-
-// ========== 主流程 ==========
-
-// 节点权值
-long long weight[MAXN+5];
-
-int main(){
-    // freopen("in.txt","r",stdin);
-    // freopen("out.txt","w",stdout);
-    // 读入 n, m, k, q
-    int n, m, K, q;
-    std::scanf("%d %d %d %d", &n, &m, &K, &q);
-
-    // 读入 n 个点权
-    for(int i = 1; i <= n; i++){
-        std::scanf("%lld", &weight[i]);
+    // 初始边并入
+    for (int i = 0; i < m; i++) {
+        int u = readInt();
+        int v = readInt();
+        unite(u, v);
     }
 
-    // 初始化并查集 & 堆指针
-    uf_init(n);
-    for(int i=1; i<=n; i++){
-        heapRoot[i] = newNode(weight[i]);
-    }
+    long long queryCnt = 0, addCnt = 0;
 
-    // 读入原图的 m 条边
-    for(int i=0; i<m; i++){
-        int u,v;
-        std::scanf("%d %d", &u, &v);
-        // union
-        int r1 = uf_find(u);
-        int r2 = uf_find(v);
-        if(r1 != r2){
-            int r = uf_union(r1, r2);
-            // merge heap
-            if(r == r1){
-                heapRoot[r1] = unionHeap(heapRoot[r1], heapRoot[r2], K);
-            } else {
-                heapRoot[r] = unionHeap(heapRoot[r1], heapRoot[r2], K);
-            }
-        }
-    }
-
-    // 处理 q 次操作
-    while(q--){
-        int op;
-        std::scanf("%d",&op);
-        if(op == 1){
-            // 加边
-            int u,v;
-            std::scanf("%d %d",&u,&v);
-            int r1 = uf_find(u);
-            int r2 = uf_find(v);
-            if(r1 != r2){
-                int r = uf_union(r1, r2);
-                // 合并堆
-                if(r == r1){
-                    heapRoot[r1] = unionHeap(heapRoot[r1], heapRoot[r2], K);
-                } else {
-                    heapRoot[r] = unionHeap(heapRoot[r1], heapRoot[r2], K);
-                }
-            }
+    // 操作
+    for (int i = 0; i < q; i++) {
+        int op = readInt();
+        if (op == 1) {
+            int u = readInt();
+            int v = readInt();
+            unite(u, v);
+            addCnt++;
         } else {
-            // 查询：给定u，取其所在分量的前k大和
-            int u;
-            std::scanf("%d",&u);
-            int r = uf_find(u);
-            long long ans = sumOfHeap(heapRoot[r], K);
-            std::printf("%lld\n", ans);
+            int u = readInt();
+            int r = findSet(u);
+            queryCnt++;
+            if (compSz[r] < K) {
+                outInt(-1);
+            } else {
+                int root = heapRoot[r];
+                outInt(hKey[root]);
+            }
         }
     }
+
+    // flush 输出
+    if (OUT_POS) std::fwrite(OUT_BUF, 1, OUT_POS, stdout);
+
+    DBG("[DEBUG] n=%d m=%d K=%d q=%d, add=%lld, query=%lld\n",
+        n, m, K, q, addCnt, queryCnt);
+
+    std::free(fa);
+    std::free(compSz);
+    std::free(heapRoot);
+    std::free(heapSz);
+    std::free(hL);
+    std::free(hR);
+    std::free(hDist);
+    std::free(hKey);
+    std::free(OUT_BUF);
 
     return 0;
 }
