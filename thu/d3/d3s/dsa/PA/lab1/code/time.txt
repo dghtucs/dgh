@@ -1,0 +1,17 @@
+solution_1 time: 0.000122 seconds
+solution_2 time: 0.000226 seconds
+solution_3 time: 0.000160 seconds
+
+
+solution_1 time: 0.141378 seconds
+solution_2 time: 0.161455 seconds
+solution_3 time: 0.153798 seconds
+
+solution_1 time: 43.041824 seconds
+solution_2 time: 0.929999 seconds
+solution_3 time: 0.186934 seconds
+
+
+solution_1 time: 0.358786 seconds
+solution_2 time: 0.185471 seconds
+solution_3 time: 0.161679 seconds

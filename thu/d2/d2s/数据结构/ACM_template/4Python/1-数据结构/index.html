@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../../../../img/favicon.ico">
+        <title>数据结构 - 勿怯 勿惰 勿贪 勿我</title>
+        <link href="../../../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../../../..">勿怯 勿惰 勿贪 勿我</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../../../.." class="nav-link">个人首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../../../../about/" class="nav-link">工具链接网址</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">清华</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../thu/" class="dropdown-item">清华</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d1/d1/" class="dropdown-item">大一</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../d2/" class="dropdown-item">大二</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d3/d3/" class="dropdown-item">大三</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d4/d4/" class="dropdown-item">大四</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">数学</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../math/math/" class="dropdown-item">数学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/caculus/" class="dropdown-item">微积分</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/linear/" class="dropdown-item">线性代数</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/probability/" class="dropdown-item">概率论</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">计算机</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../cs/cs/" class="dropdown-item">计算机</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">编程语言</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c/c/" class="dropdown-item">C</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C++语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/cpp/cpp/" class="dropdown-item">C++</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">数据结构</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/dsa/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">操作系统</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/os/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机组成原理</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/jz/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机网络</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/jw/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">金融量化</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../finance/finance/" class="dropdown-item">金融</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/crypto/crypto/" class="dropdown-item">币</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/stock/stock/" class="dropdown-item">股票</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/quant/quant/" class="dropdown-item">量化</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">艺体</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../art/art/" class="dropdown-item">文学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../art/English/english/" class="dropdown-item">英语</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">读书</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../books/cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/lan/" class="dropdown-item">编程语言</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../../../../../../../books/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/gr/" class="dropdown-item">个人成长</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../books/navy/zashu/" class="dropdown-item">杂书</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../../../../art/music/" class="dropdown-item">音乐</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">生活记录</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../me/dgh/" class="dropdown-item">我是谁</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2024</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/2024/" class="dropdown-item">2024年</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">8月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%886%E6%97%A5/" class="dropdown-item">2024年8月6日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%887%E6%97%A5/" class="dropdown-item">2024年8月7日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%888%E6%97%A5/" class="dropdown-item">2024年8月8日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%889%E6%97%A5/" class="dropdown-item">2024年8月9日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8810%E6%97%A5/" class="dropdown-item">2024年8月10日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8811%E6%97%A5/" class="dropdown-item">2024年8月11日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8812%E6%97%A5/" class="dropdown-item">2024年8月12日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8813%E6%97%A5/" class="dropdown-item">2024年8月13日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8814%E6%97%A5/" class="dropdown-item">2024年8月14日</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">11月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/11/2024%E5%B9%B411%E6%9C%8828%E6%97%A5/" class="dropdown-item">2024年11月28日</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2025</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2025/2025%E5%B9%B4/" class="dropdown-item">2025年</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2025/1%E6%9C%88/2025%E5%B9%B41%E6%9C%88/" class="dropdown-item">2025年1月</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">数据结构</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#st" class="nav-link">ST 表</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">线段树</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">均摊复杂度线段树</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">持久化线段树</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#k-d-tree" class="nav-link">K-D Tree</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">树状数组</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_6" class="nav-link">主席树</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_7" class="nav-link">左偏树</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#treap" class="nav-link">Treap</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#treap-" class="nav-link">Treap-序列</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_8" class="nav-link">可回滚并查集</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_9" class="nav-link">舞蹈链</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#cdq" class="nav-link">CDQ 分治</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_10" class="nav-link">笛卡尔树</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#trie" class="nav-link">Trie</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#exstl" class="nav-link">exSTL</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#link-cut-tree" class="nav-link">Link-Cut Tree</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_15" class="nav-link">莫队</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">数据结构</h1>
+<h2 id="st">ST 表</h2>
+<ul>
+<li>二维</li>
+</ul>
+<pre><code class="language-cpp">int f[maxn][maxn][10][10];
+inline int highbit(int x) { return 31 - __builtin_clz(x); }
+inline int calc(int x, int y, int xx, int yy, int p, int q) {
+    return max(
+        max(f[x][y][p][q], f[xx - (1 &lt;&lt; p) + 1][yy - (1 &lt;&lt; q) + 1][p][q]),
+        max(f[xx - (1 &lt;&lt; p) + 1][y][p][q], f[x][yy - (1 &lt;&lt; q) + 1][p][q])
+    );
+}
+void init() {
+    FOR (x, 0, highbit(n) + 1)
+    FOR (y, 0, highbit(m) + 1)
+        FOR (i, 0, n - (1 &lt;&lt; x) + 1)
+        FOR (j, 0, m - (1 &lt;&lt; y) + 1) {
+            if (!x &amp;&amp; !y) { f[i][j][x][y] = a[i][j]; continue; }
+            f[i][j][x][y] = calc(
+                i, j,
+                i + (1 &lt;&lt; x) - 1, j + (1 &lt;&lt; y) - 1,
+                max(x - 1, 0), max(y - 1, 0)
+            );
+        }
+}
+inline int get_max(int x, int y, int xx, int yy) {
+    return calc(x, y, xx, yy, highbit(xx - x + 1), highbit(yy - y + 1));
+}
+</code></pre>
+<ul>
+<li>一维</li>
+</ul>
+<pre><code class="language-cpp">struct RMQ {
+    int f[22][M];
+    inline int highbit(int x) { return 31 - __builtin_clz(x); }
+    void init(int* v, int n) {
+        FOR (i, 0, n) f[0][i] = v[i];
+        FOR (x, 1, highbit(n) + 1)
+            FOR (i, 0, n - (1 &lt;&lt; x) + 1)
+                f[x][i] = min(f[x - 1][i], f[x - 1][i + (1 &lt;&lt; (x - 1))]);
+    }
+    int get_min(int l, int r) {
+        assert(l &lt;= r);
+        int t = highbit(r - l + 1);
+        return min(f[t][l], f[t][r - (1 &lt;&lt; t) + 1]);
+    }
+} rmq;
+</code></pre>
+<h2 id="_2">线段树</h2>
+<ul>
+<li>普适</li>
+</ul>
+<pre><code class="language-cpp">namespace sg {
+    struct Q {
+        LL setv;
+        explicit Q(LL setv = -1): setv(setv) {}
+        void operator += (const Q&amp; q) { if (q.setv != -1) setv = q.setv; }
+    };
+    struct P {
+        LL min;
+        explicit P(LL min = INF): min(min) {}
+        void up(Q&amp; q) { if (q.setv != -1) min = q.setv; }
+    };
+    template&lt;typename T&gt;
+    P operator &amp; (T&amp;&amp; a, T&amp;&amp; b) {
+        return P(min(a.min, b.min));
+    }
+    P p[maxn &lt;&lt; 2];
+    Q q[maxn &lt;&lt; 2];
+#define lson o * 2, l, (l + r) / 2
+#define rson o * 2 + 1, (l + r) / 2 + 1, r
+    void up(int o, int l, int r) {
+        if (l == r) p[o] = P();
+        else p[o] = p[o * 2] &amp; p[o * 2 + 1];
+        p[o].up(q[o]);
+    }
+    void down(int o, int l, int r) {
+        q[o * 2] += q[o]; q[o * 2 + 1] += q[o];
+        q[o] = Q();
+        up(lson); up(rson);
+    }
+    template&lt;typename T&gt;
+    void build(T&amp;&amp; f, int o = 1, int l = 1, int r = n) {
+        if (l == r) q[o] = f(l);
+        else { build(f, lson); build(f, rson); q[o] = Q(); }
+        up(o, l, r);
+    }
+    P query(int ql, int qr, int o = 1, int l = 1, int r = n) {
+        if (ql &gt; r || l &gt; qr) return P();
+        if (ql &lt;= l &amp;&amp; r &lt;= qr) return p[o];
+        down(o, l, r);
+        return query(ql, qr, lson) &amp; query(ql, qr, rson);
+    }
+    void update(int ql, int qr, const Q&amp; v, int o = 1, int l = 1, int r = n) {
+        if (ql &gt; r || l &gt; qr) return;
+        if (ql &lt;= l &amp;&amp; r &lt;= qr) q[o] += v;
+        else {
+            down(o, l, r);
+            update(ql, qr, v, lson); update(ql, qr, v, rson);
+        }
+        up(o, l, r);
+    }
+}
+</code></pre>
+<ul>
+<li>SET + ADD</li>
+</ul>
+<pre><code class="language-cpp">struct IntervalTree {
+#define ls o * 2, l, m
+#define rs o * 2 + 1, m + 1, r
+    static const LL M = maxn * 4, RS = 1E18 - 1;
+    LL addv[M], setv[M], minv[M], maxv[M], sumv[M];
+    void init() {
+        memset(addv, 0, sizeof addv);
+        fill(setv, setv + M, RS);
+        memset(minv, 0, sizeof minv);
+        memset(maxv, 0, sizeof maxv);
+        memset(sumv, 0, sizeof sumv);
+    }
+    void maintain(LL o, LL l, LL r) {
+        if (l &lt; r) {
+            LL lc = o * 2, rc = o * 2 + 1;
+            sumv[o] = sumv[lc] + sumv[rc];
+            minv[o] = min(minv[lc], minv[rc]);
+            maxv[o] = max(maxv[lc], maxv[rc]);
+        } else sumv[o] = minv[o] = maxv[o] = 0;
+        if (setv[o] != RS) { minv[o] = maxv[o] = setv[o]; sumv[o] = setv[o] * (r - l + 1); }
+        if (addv[o]) { minv[o] += addv[o]; maxv[o] += addv[o]; sumv[o] += addv[o] * (r - l + 1); }
+    }
+    void build(LL o, LL l, LL r) {
+        if (l == r) addv[o] = a[l];
+        else {
+            LL m = (l + r) / 2;
+            build(ls); build(rs);
+        }
+        maintain(o, l, r);
+    }
+    void pushdown(LL o) {
+        LL lc = o * 2, rc = o * 2 + 1;
+        if (setv[o] != RS) {
+            setv[lc] = setv[rc] = setv[o];
+            addv[lc] = addv[rc] = 0;
+            setv[o] = RS;
+        }
+        if (addv[o]) {
+            addv[lc] += addv[o]; addv[rc] += addv[o];
+            addv[o] = 0;
+        }
+    }
+    void update(LL p, LL q, LL o, LL l, LL r, LL v, LL op) {
+        if (p &lt;= r &amp;&amp; l &lt;= q)
+        if (p &lt;= l &amp;&amp; r &lt;= q) {
+            if (op == 2) { setv[o] = v; addv[o] = 0; }
+            else addv[o] += v;
+        } else {
+            pushdown(o);
+            LL m = (l + r) / 2;
+            update(p, q, ls, v, op); update(p, q, rs, v, op);
+        }
+        maintain(o, l, r);
+    }
+    void query(LL p, LL q, LL o, LL l, LL r, LL add, LL&amp; ssum, LL&amp; smin, LL&amp; smax) {
+        if (p &gt; r || l &gt; q) return;
+        if (setv[o] != RS) {
+            LL v = setv[o] + add + addv[o];
+            ssum += v * (min(r, q) - max(l, p) + 1);
+            smin = min(smin, v);
+            smax = max(smax, v);
+        } else if (p &lt;= l &amp;&amp; r &lt;= q) {
+            ssum += sumv[o] + add * (r - l + 1);
+            smin = min(smin, minv[o] + add);
+            smax = max(smax, maxv[o] + add);
+        } else {
+            LL m = (l + r) / 2;
+            query(p, q, ls, add + addv[o], ssum, smin, smax);
+            query(p, q, rs, add + addv[o], ssum, smin, smax);
+        }
+    }
+} IT;
+</code></pre>
+<h2 id="_3">均摊复杂度线段树</h2>
+<ul>
+<li>区间取 min，区间求和。</li>
+</ul>
+<pre><code class="language-cpp">namespace R {
+#define lson o * 2, l, (l + r) / 2
+#define rson o * 2 + 1, (l + r) / 2 + 1, r
+    int m1[N], m2[N], cm1[N];
+    LL sum[N];
+    void up(int o) {
+        int lc = o * 2, rc = lc + 1;
+        m1[o] = max(m1[lc], m1[rc]);
+        sum[o] = sum[lc] + sum[rc];
+        if (m1[lc] == m1[rc]) {
+            cm1[o] = cm1[lc] + cm1[rc];
+            m2[o] = max(m2[lc], m2[rc]);
+        } else {
+            cm1[o] = m1[lc] &gt; m1[rc] ? cm1[lc] : cm1[rc];
+            m2[o] = max(min(m1[lc], m1[rc]), max(m2[lc], m2[rc]));
+        }
+    }
+    void mod(int o, int x) {
+        if (x &gt;= m1[o]) return;
+        assert(x &gt; m2[o]);
+        sum[o] -= 1LL * (m1[o] - x) * cm1[o];
+        m1[o] = x;
+    }
+    void down(int o) {
+        int lc = o * 2, rc = lc + 1;
+        mod(lc, m1[o]); mod(rc, m1[o]);
+    }
+    void build(int o, int l, int r) {
+        if (l == r) { int t; read(t); sum[o] = m1[o] = t; m2[o] = -INF; cm1[o] = 1; }
+        else { build(lson); build(rson); up(o); }
+    }
+    void update(int ql, int qr, int x, int o, int l, int r) {
+        if (r &lt; ql || qr &lt; l || m1[o] &lt;= x) return;
+        if (ql &lt;= l &amp;&amp; r &lt;= qr &amp;&amp; m2[o] &lt; x) { mod(o, x); return; }
+        down(o);
+        update(ql, qr, x, lson); update(ql, qr, x, rson);
+        up(o);
+    }
+    int qmax(int ql, int qr, int o, int l, int r) {
+        if (r &lt; ql || qr &lt; l) return -INF;
+        if (ql &lt;= l &amp;&amp; r &lt;= qr) return m1[o];
+        down(o);
+        return max(qmax(ql, qr, lson), qmax(ql, qr, rson));
+    }
+    LL qsum(int ql, int qr, int o, int l, int r) {
+        if (r &lt; ql || qr &lt; l) return 0;
+        if (ql &lt;= l &amp;&amp; r &lt;= qr) return sum[o];
+        down(o);
+        return qsum(ql, qr, lson) + qsum(ql, qr, rson);
+    }
+}
+</code></pre>
+<h2 id="_4">持久化线段树</h2>
+<ul>
+<li>ADD</li>
+</ul>
+<pre><code class="language-cpp">namespace tree {
+#define mid ((l + r) &gt;&gt; 1)
+#define lson ql, qr, l, mid
+#define rson ql, qr, mid + 1, r
+    struct P {
+        LL add, sum;
+        int ls, rs;
+    } tr[maxn * 45 * 2];
+    int sz = 1;
+    int N(LL add, int l, int r, int ls, int rs) {
+        tr[sz] = {add, tr[ls].sum + tr[rs].sum + add * (len[r] - len[l - 1]), ls, rs};
+        return sz++;
+    }
+    int update(int o, int ql, int qr, int l, int r, LL add) {
+        if (ql &gt; r || l &gt; qr) return o;
+        const P&amp; t = tr[o];
+        if (ql &lt;= l &amp;&amp; r &lt;= qr) return N(add + t.add, l, r, t.ls, t.rs);
+        return N(t.add, l, r, update(t.ls, lson, add), update(t.rs, rson, add));
+    }
+    LL query(int o, int ql, int qr, int l, int r, LL add = 0) {
+        if (ql &gt; r || l &gt; qr) return 0;
+        const P&amp; t = tr[o];
+        if (ql &lt;= l &amp;&amp; r &lt;= qr) return add * (len[r] - len[l - 1]) + t.sum;
+        return query(t.ls, lson, add + t.add) + query(t.rs, rson, add + t.add);
+    }
+}
+</code></pre>
+<h2 id="k-d-tree">K-D Tree</h2>
+<p><strong>最优化问题一定要用全局变量大力剪枝，而且左右儿子先递归潜力大的</strong></p>
+<ul>
+<li>维护信息</li>
+<li>带重构（适合在线）</li>
+<li>插入时左右儿子要标记为 <code>null</code>。</li>
+</ul>
+<pre><code class="language-cpp">namespace kd {
+    const int K = 2, inf = 1E9, M = N;
+    const double lim = 0.7;
+    struct P {
+        int d[K], l[K], r[K], sz, val;
+        LL sum;
+        P *ls, *rs;
+        P* up() {
+            sz = ls-&gt;sz + rs-&gt;sz + 1;
+            sum = ls-&gt;sum + rs-&gt;sum + val;
+            FOR (i, 0, K) {
+                l[i] = min(d[i], min(ls-&gt;l[i], rs-&gt;l[i]));
+                r[i] = max(d[i], max(ls-&gt;r[i], rs-&gt;r[i]));
+            }
+            return this;
+        }
+    } pool[M], *null = new P, *pit = pool;
+    static P *tmp[M], **pt;
+    void init() {
+        null-&gt;ls = null-&gt;rs = null;
+        FOR (i, 0, K) null-&gt;l[i] = inf, null-&gt;r[i] = -inf;
+        null-&gt;sum = null-&gt;val = 0;
+        null-&gt;sz = 0;
+    }
+
+    P* build(P** l, P** r, int d = 0) { // [l, r)
+        if (d == K) d = 0;
+        if (l &gt;= r) return null;
+        P** m = l + (r - l) / 2; assert(l &lt;= m &amp;&amp; m &lt; r);
+        nth_element(l, m, r, [&amp;](const P* a, const P* b){
+            return a-&gt;d[d] &lt; b-&gt;d[d];
+        });
+        P* o = *m;
+        o-&gt;ls = build(l, m, d + 1); o-&gt;rs = build(m + 1, r, d + 1);
+        return o-&gt;up();
+    }
+    P* Build() {
+        pt = tmp; FOR (it, pool, pit) *pt++ = it;
+        return build(tmp, pt);
+    }
+    inline bool inside(int p[], int q[], int l[], int r[]) {
+        FOR (i, 0, K) if (r[i] &lt; q[i] || p[i] &lt; l[i]) return false;
+        return true;
+    }
+    LL query(P* o, int l[], int r[]) {
+        if (o == null) return 0;
+        FOR (i, 0, K) if (o-&gt;r[i] &lt; l[i] || r[i] &lt; o-&gt;l[i]) return 0;
+        if (inside(o-&gt;l, o-&gt;r, l, r)) return o-&gt;sum;
+        return query(o-&gt;ls, l, r) + query(o-&gt;rs, l, r) +
+               (inside(o-&gt;d, o-&gt;d, l, r) ? o-&gt;val : 0);
+    }
+    void dfs(P* o) {
+        if (o == null) return;
+        *pt++ = o; dfs(o-&gt;ls); dfs(o-&gt;rs);
+    }
+    P* ins(P* o, P* x, int d = 0) {
+        if (d == K) d = 0;
+        if (o == null) return x-&gt;up();
+        P*&amp; oo = x-&gt;d[d] &lt;= o-&gt;d[d] ? o-&gt;ls : o-&gt;rs;
+        if (oo-&gt;sz &gt; o-&gt;sz * lim) {
+            pt = tmp; dfs(o); *pt++ = x;
+            return build(tmp, pt, d);
+        }
+        oo = ins(oo, x, d + 1);
+        return o-&gt;up();
+    }
+}
+</code></pre>
+<ul>
+<li>维护信息</li>
+<li>带修改（适合离线）</li>
+</ul>
+<pre><code class="language-cpp">namespace kd {
+    const int K = 3, inf = 1E9, M = N &lt;&lt; 3;
+    extern struct P* null;
+    struct P {
+        int d[K], l[K], r[K], val;
+        int Max;
+        P *ls, *rs, *fa;
+        P* up() {
+            Max = max(val, max(ls-&gt;Max, rs-&gt;Max));
+            FOR (i, 0, K) {
+                l[i] = min(d[i], min(ls-&gt;l[i], rs-&gt;l[i]));
+                r[i] = max(d[i], max(ls-&gt;r[i], rs-&gt;r[i]));
+            }
+            return ls-&gt;fa = rs-&gt;fa = this;
+        }
+    } pool[M], *null = new P, *pit = pool;
+    void upd(P* o, int val) {
+        o-&gt;val = val;
+        for (; o != null; o = o-&gt;fa)
+            o-&gt;Max = max(o-&gt;Max, val);
+    }
+    static P *tmp[M], **pt;
+    void init() {
+        null-&gt;ls = null-&gt;rs = null;
+        FOR (i, 0, K) null-&gt;l[i] = inf, null-&gt;r[i] = -inf;
+        null-&gt;Max = null-&gt;val = 0;
+    }
+    P* build(P** l, P** r, int d = 0) { // [l, r)
+        if (d == K) d = 0;
+        if (l &gt;= r) return null;
+        P** m = l + (r - l) / 2; assert(l &lt;= m &amp;&amp; m &lt; r);
+        nth_element(l, m, r, [&amp;](const P* a, const P* b){
+            return a-&gt;d[d] &lt; b-&gt;d[d];
+        });
+        P* o = *m;
+        o-&gt;ls = build(l, m, d + 1); o-&gt;rs = build(m + 1, r, d + 1);
+        return o-&gt;up();
+    }
+    P* Build() {
+        pt = tmp; FOR (it, pool, pit) *pt++ = it;
+        P* ret = build(tmp, pt); ret-&gt;fa = null;
+        return ret;
+    }
+    inline bool inside(int p[], int q[], int l[], int r[]) {
+        FOR (i, 0, K) if (r[i] &lt; q[i] || p[i] &lt; l[i]) return false;
+        return true;
+    }
+    int query(P* o, int l[], int r[]) {
+        if (o == null) return 0;
+        FOR (i, 0, K) if (o-&gt;r[i] &lt; l[i] || r[i] &lt; o-&gt;l[i]) return 0;
+        if (inside(o-&gt;l, o-&gt;r, l, r)) return o-&gt;Max;
+        int ret = 0;
+        if (o-&gt;val &gt; ret &amp;&amp; inside(o-&gt;d, o-&gt;d, l, r)) ret = max(ret, o-&gt;val);
+        if (o-&gt;ls-&gt;Max &gt; ret) ret = max(ret, query(o-&gt;ls, l, r));
+        if (o-&gt;rs-&gt;Max &gt; ret) ret = max(ret, query(o-&gt;rs, l, r));
+        return ret;
+    }
+}
+</code></pre>
+<ul>
+<li>最近点对</li>
+<li>要用全局变量大力剪枝</li>
+</ul>
+<pre><code class="language-cpp">namespace kd {
+    const int K = 3;
+    const int M = N;
+    const int inf = 1E9 + 100;
+    struct P {
+        int d[K];
+        int l[K], r[K];
+        P *ls, *rs;
+        P* up() {
+            FOR (i, 0, K) {
+                l[i] = min(d[i], min(ls-&gt;l[i], rs-&gt;l[i]));
+                r[i] = max(d[i], max(ls-&gt;r[i], rs-&gt;r[i]));
+            }
+            return this;
+        }
+    } pool[M], *null = new P, *pit = pool;
+    static P *tmp[M], **pt;
+    void init() {
+        null-&gt;ls = null-&gt;rs = null;
+        FOR (i, 0, K) null-&gt;l[i] = inf, null-&gt;r[i] = -inf;
+    }
+    P* build(P** l, P** r, int d = 0) { // [l, r)
+        if (d == K) d = 0;
+        if (l &gt;= r) return null;
+        P** m = l + (r - l) / 2;
+        nth_element(l, m, r, [&amp;](const P* a, const P* b){
+            return a-&gt;d[d] &lt; b-&gt;d[d];
+        });
+        P* o = *m;
+        o-&gt;ls = build(l, m, d + 1); o-&gt;rs = build(m + 1, r, d + 1);
+        return o-&gt;up();
+    }
+    LL eval(P* o, int d[]) {
+        // ...
+    }
+    LL dist(int d1[], int d2[]) {
+        // ...
+    }
+    LL S;
+    LL query(P* o, int d[]) {
+        if (o == null) return 0;
+        S = max(S, dist(o-&gt;d, d));
+        LL mdl = eval(o-&gt;ls, d), mdr = eval(o-&gt;rs, d);
+        if (mdl &lt; mdr) {
+            if (S &gt; mdl) S = max(S, query(o-&gt;ls, d));
+            if (S &gt; mdr) S = max(S, query(o-&gt;rs, d));
+        } else {
+            if (S &gt; mdr) S = max(S, query(o-&gt;rs, d));
+            if (S &gt; mdl) S = max(S, query(o-&gt;ls, d));
+        }
+        return S;
+    }
+    P* Build() {
+        pt = tmp; FOR (it, pool, pit) *pt++ = it;
+        return build(tmp, pt);
+    }
+}
+</code></pre>
+<h2 id="_5">树状数组</h2>
+<ul>
+<li>注意：0 是无效下标</li>
+</ul>
+<pre><code class="language-cpp">namespace bit {
+    LL c[M];
+    inline int lowbit(int x) { return x &amp; -x; }
+    void add(int x, LL v) {
+        for (int i = x; i &lt; M; i += lowbit(i))
+            c[i] += v;
+    }
+    LL sum(int x) {
+        LL ret = 0;
+        for (int i = x; i &gt; 0; i -= lowbit(i))
+            ret += c[i];
+        return ret;
+    }
+    int kth(LL k) {
+        int p = 0;
+        for (int lim = 1 &lt;&lt; 20; lim; lim /= 2)
+            if (p + lim &lt; M &amp;&amp; c[p + lim] &lt; k) {
+                p += lim;
+                k -= c[p];
+            }
+        return p + 1;
+    }
+    LL sum(int l, int r) { return sum(r) - sum(l - 1); }
+    void add(int l, int r, LL v) { add(l, v); add(r + 1, -v); }
+}
+</code></pre>
+<ul>
+<li>区间修改 &amp; 区间查询（单点修改，查询前缀和的前缀和）</li>
+</ul>
+<pre><code class="language-cpp">namespace bit {
+    int c[maxn], cc[maxn];
+    inline int lowbit(int x) { return x &amp; -x; }
+    void add(int x, int v) {
+        for (int i = x; i &lt;= n; i += lowbit(i)) {
+            c[i] += v; cc[i] += x * v;
+        }
+    }
+    void add(int l, int r, int v) { add(l, v); add(r + 1, -v); }
+    int sum(int x) {
+        int ret = 0;
+        for (int i = x; i &gt; 0; i -= lowbit(i))
+            ret += (x + 1) * c[i] - cc[i];
+        return ret;
+    }
+    int sum(int l, int r) { return sum(r) - sum(l - 1); }
+}
+</code></pre>
+<ul>
+<li>单点修改，查询前缀和的前缀和的前缀和（有用才怪）</li>
+</ul>
+<pre><code class="language-cpp">namespace bit {
+    LL c[N], cc[N], ccc[N];
+    inline LL lowbit(LL x) { return x &amp; -x; }
+    void add(LL x, LL v) {
+        for (LL i = x; i &lt; N; i += lowbit(i)) {
+            c[i] = (c[i] + v) % MOD;
+            cc[i] = (cc[i] + x * v) % MOD;
+            ccc[i] = (ccc[i] + x * x % MOD * v) % MOD;
+        }
+    }
+    void add(LL l, LL r, LL v) { add(l, v); add(r + 1, -v); }
+    LL sum(LL x) {
+        static LL INV2 = (MOD + 1) / 2;
+        LL ret = 0;
+        for (LL i = x; i &gt; 0; i -= lowbit(i))
+            ret += (x + 1) * (x + 2) % MOD * c[i] % MOD
+                    - (2 * x + 3) * cc[i] % MOD
+                    + ccc[i];
+        return ret % MOD * INV2 % MOD;
+    }
+    LL sum(LL l, LL r) { return sum(r) - sum(l - 1); }
+}
+
+</code></pre>
+<ul>
+<li>三维</li>
+</ul>
+<pre><code class="language-cpp">inline int lowbit(int x) { return x &amp; -x; }
+void update(int x, int y, int z, int d) {
+    for (int i = x; i &lt;= n; i += lowbit(i))
+        for (int j = y; j &lt;= n; j += lowbit(j))
+            for (int k = z; k &lt;= n; k += lowbit(k))
+                c[i][j][k] += d;
+}
+LL query(int x, int y, int z) {
+    LL ret = 0;
+    for (int i = x; i &gt; 0; i -= lowbit(i))
+        for (int j = y; j &gt; 0; j -= lowbit(j))
+            for (int k = z; k &gt; 0; k -= lowbit(k))
+                ret += c[i][j][k];
+    return ret;
+}
+LL solve(int x, int y, int z, int xx, int yy, int zz) {
+    return    query(xx, yy, zz)
+            - query(xx, yy, z - 1)
+            - query(xx, y - 1, zz)
+            - query(x - 1, yy, zz)
+            + query(xx, y - 1, z - 1)
+            + query(x - 1, yy, z - 1)
+            + query(x - 1, y - 1, zz)
+            - query(x - 1, y - 1, z - 1);
+</code></pre>
+<h2 id="_6">主席树</h2>
+<ul>
+<li>正常主席树</li>
+</ul>
+<pre><code class="language-cpp">namespace tree {
+#define mid ((l + r) &gt;&gt; 1)
+#define lson l, mid
+#define rson mid + 1, r
+    const int MAGIC = M * 30;
+    struct P {
+        int sum, ls, rs;
+    } tr[MAGIC] = {{0, 0, 0}};
+    int sz = 1;
+    int N(int sum, int ls, int rs) {
+        if (sz == MAGIC) assert(0);
+        tr[sz] = {sum, ls, rs};
+        return sz++;
+    }
+    int ins(int o, int x, int v, int l = 1, int r = ls) {
+        if (x &lt; l || x &gt; r) return o;
+        const P&amp; t = tr[o];
+        if (l == r) return N(t.sum + v, 0, 0);
+        return N(t.sum + v, ins(t.ls, x, v, lson), ins(t.rs, x, v, rson));
+    }
+    int query(int o, int ql, int qr, int l = 1, int r = ls) {
+        if (ql &gt; r || l &gt; qr) return 0;
+        const P&amp; t = tr[o];
+        if (ql &lt;= l &amp;&amp; r &lt;= qr) return t.sum;
+        return query(t.ls, ql, qr, lson) + query(t.rs, ql, qr, rson);
+    }
+}
+</code></pre>
+<ul>
+<li>第 k 大</li>
+</ul>
+<pre><code class="language-cpp">struct TREE {
+#define mid ((l + r) &gt;&gt; 1)
+#define lson l, mid
+#define rson mid + 1, r
+    struct P {
+        int w, ls, rs;
+    } tr[maxn * 20];
+    int sz = 1;
+    TREE() { tr[0] = {0, 0, 0}; }
+    int N(int w, int ls, int rs) {
+        tr[sz] = {w, ls, rs};
+        return sz++;
+    }
+    int ins(int tt, int l, int r, int x) {
+        if (x &lt; l || r &lt; x) return tt;
+        const P&amp; t = tr[tt];
+        if (l == r) return N(t.w + 1, 0, 0);
+        return N(t.w + 1, ins(t.ls, lson, x), ins(t.rs, rson, x));
+    }
+    int query(int pp, int qq, int l, int r, int k) { // (pp, qq]
+        if (l == r) return l;
+        const P &amp;p = tr[pp], &amp;q = tr[qq];
+        int w = tr[q.ls].w - tr[p.ls].w;
+        if (k &lt;= w) return query(p.ls, q.ls, lson, k);
+        else return query(p.rs, q.rs, rson, k - w);
+    }
+} tree;
+</code></pre>
+<ul>
+<li>树状数组套主席树</li>
+</ul>
+<pre><code class="language-cpp">typedef vector&lt;int&gt; VI;
+struct TREE {
+#define mid ((l + r) &gt;&gt; 1)
+#define lson l, mid
+#define rson mid + 1, r
+    struct P {
+        int w, ls, rs;
+    } tr[maxn * 20 * 20];
+    int sz = 1;
+    TREE() { tr[0] = {0, 0, 0}; }
+    int N(int w, int ls, int rs) {
+        tr[sz] = {w, ls, rs};
+        return sz++;
+    }
+    int add(int tt, int l, int r, int x, int d) {
+        if (x &lt; l || r &lt; x) return tt;
+        const P&amp; t = tr[tt];
+        if (l == r) return N(t.w + d, 0, 0);
+        return N(t.w + d, add(t.ls, lson, x, d), add(t.rs, rson, x, d));
+    }
+    int ls_sum(const VI&amp; rt) {
+        int ret = 0;
+        FOR (i, 0, rt.size())
+            ret += tr[tr[rt[i]].ls].w;
+        return ret;
+    }
+    inline void ls(VI&amp; rt) { transform(rt.begin(), rt.end(), rt.begin(), [&amp;](int x)-&gt;int{ return tr[x].ls; }); }
+    inline void rs(VI&amp; rt) { transform(rt.begin(), rt.end(), rt.begin(), [&amp;](int x)-&gt;int{ return tr[x].rs; }); }
+    int query(VI&amp; p, VI&amp; q, int l, int r, int k) {
+        if (l == r) return l;
+        int w = ls_sum(q) - ls_sum(p);
+        if (k &lt;= w) {
+            ls(p); ls(q);
+            return query(p, q, lson, k);
+        }
+        else {
+            rs(p); rs(q);
+            return query(p, q, rson, k - w);
+        }
+    }
+} tree;
+struct BIT {
+    int root[maxn];
+    void init() { memset(root, 0, sizeof root); }
+    inline int lowbit(int x) { return x &amp; -x; }
+    void update(int p, int x, int d) {
+        for (int i = p; i &lt;= m; i += lowbit(i))
+            root[i] = tree.add(root[i], 1, m, x, d);
+    }
+    int query(int l, int r, int k) {
+        VI p, q;
+        for (int i = l - 1; i &gt; 0; i -= lowbit(i)) p.push_back(root[i]);
+        for (int i = r; i &gt; 0; i -= lowbit(i)) q.push_back(root[i]);
+        return tree.query(p, q, 1, m, k);
+    }
+} bit;
+
+void init() {
+    m = 10000;
+    tree.sz = 1;
+    bit.init();
+    FOR (i, 1, m + 1)
+        bit.update(i, a[i], 1);
+}
+</code></pre>
+<h2 id="_7">左偏树</h2>
+<pre><code class="language-cpp">namespace LTree {
+    extern struct P* null, *pit;
+    queue&lt;P*&gt; trash;
+    const int M = 1E5 + 100;
+    struct P {
+        P *ls, *rs;
+        LL v;
+        int d;
+        void operator delete (void* ptr) {
+            trash.push((P*)ptr);
+        }
+        void* operator new(size_t size) {
+            if (trash.empty()) return pit++;
+            void* ret = trash.front(); trash.pop(); return ret;
+        }
+
+        void prt() {
+            if (this == null) return;
+            cout &lt;&lt; v &lt;&lt; ' ';
+            ls-&gt;prt(); rs-&gt;prt();
+        }
+    } pool[M], *pit = pool, *null = new P{0, 0, -1, -1};
+    P* N(LL v) {
+        return new P{null, null, v, 0};
+    }
+    P* merge(P* a, P* b) {
+        if (a == null) return b;
+        if (b == null) return a;
+        if (a-&gt;v &gt; b-&gt;v) swap(a, b);
+        a-&gt;rs = merge(a-&gt;rs, b);
+        if (a-&gt;ls-&gt;d &lt; a-&gt;rs-&gt;d) swap(a-&gt;ls, a-&gt;rs);
+        a-&gt;d = a-&gt;rs-&gt;d + 1;
+        return a;
+    }
+
+    LL pop(P*&amp; o) {
+        LL ret = o-&gt;v;
+        P* t = o;
+        o = merge(o-&gt;ls, o-&gt;rs);
+        delete t;
+        return ret;
+    }
+}
+</code></pre>
+<p>可持久化</p>
+<pre><code class="language-cpp">namespace LTree {
+    extern struct P* null, *pit;
+    queue&lt;P*&gt; trash;
+    const int M = 1E6 + 100;
+    struct P {
+        P *ls, *rs;
+        LL v;
+        int d;
+        void operator delete (void* ptr) {
+            trash.push((P*)ptr);
+        }
+        void* operator new(size_t size) {
+            if (trash.empty()) return pit++;
+            void* ret = trash.front(); trash.pop(); return ret;
+        }
+    } pool[M], *pit = pool, *null = new P{0, 0, -1, -1};
+    P* N(LL v, P* ls = null, P* rs = null) {
+        if (ls-&gt;d &lt; rs-&gt;d) swap(ls, rs);
+        return new P{ls, rs, v, rs-&gt;d + 1};
+    }
+    P* merge(P* a, P* b) {
+        if (a == null) return b;
+        if (b == null) return a;
+        if (a-&gt;v &lt; b-&gt;v)
+            return N(a-&gt;v, a-&gt;ls, merge(a-&gt;rs, b));
+        else
+            return N(b-&gt;v, b-&gt;ls, merge(b-&gt;rs, a));
+    }
+
+    LL pop(P*&amp; o) {
+        LL ret = o-&gt;v;
+        o = merge(o-&gt;ls, o-&gt;rs);
+        return ret;
+    }
+}
+</code></pre>
+<h2 id="treap">Treap</h2>
+<ul>
+<li>非旋 Treap</li>
+<li>v 小根堆</li>
+<li>模板题 bzoj 3224</li>
+<li>lower 第一个大于等于的是第几个 (0-based)</li>
+<li>upper 第一个大于的是第几个 (0-based)</li>
+<li>split 左侧分割出 rk 个元素</li>
+<li>树套树 略</li>
+</ul>
+<pre><code class="language-cpp">namespace treap {
+    const int M = maxn * 17;
+    extern struct P* const null;
+    struct P {
+        P *ls, *rs;
+        int v, sz;
+        unsigned rd;
+        P(int v): ls(null), rs(null), v(v), sz(1), rd(rnd()) {}
+        P(): sz(0) {}
+
+        P* up() { sz = ls-&gt;sz + rs-&gt;sz + 1; return this; }
+        int lower(int v) {
+            if (this == null) return 0;
+            return this-&gt;v &gt;= v ? ls-&gt;lower(v) : rs-&gt;lower(v) + ls-&gt;sz + 1;
+        }
+        int upper(int v) {
+            if (this == null) return 0;
+            return this-&gt;v &gt; v ? ls-&gt;upper(v) : rs-&gt;upper(v) + ls-&gt;sz + 1;
+        }
+    } *const null = new P, pool[M], *pit = pool;
+
+    P* merge(P* l, P* r) {
+        if (l == null) return r; if (r == null) return l;
+        if (l-&gt;rd &lt; r-&gt;rd) { l-&gt;rs = merge(l-&gt;rs, r); return l-&gt;up(); }
+        else { r-&gt;ls = merge(l, r-&gt;ls); return r-&gt;up(); }
+    }
+
+    void split(P* o, int rk, P*&amp; l, P*&amp; r) {
+        if (o == null) { l = r = null; return; }
+        if (o-&gt;ls-&gt;sz &gt;= rk) { split(o-&gt;ls, rk, l, o-&gt;ls); r = o-&gt;up(); }
+        else { split(o-&gt;rs, rk - o-&gt;ls-&gt;sz - 1, o-&gt;rs, r); l = o-&gt;up(); }
+    }
+}
+</code></pre>
+<ul>
+<li>持久化 Treap</li>
+</ul>
+<pre><code class="language-cpp">namespace treap {
+    const int M = maxn * 17 * 12;
+    extern struct P* const null, *pit;
+    struct P {
+        P *ls, *rs;
+        int v, sz;
+        LL sum;
+        P(P* ls, P* rs, int v): ls(ls), rs(rs), v(v), sz(ls-&gt;sz + rs-&gt;sz + 1),
+                                                     sum(ls-&gt;sum + rs-&gt;sum + v) {}
+        P() {}
+
+        void* operator new(size_t _) { return pit++; }
+        template&lt;typename T&gt;
+        int rk(int v, T&amp;&amp; cmp) {
+            if (this == null) return 0;
+            return cmp(this-&gt;v, v) ? ls-&gt;rk(v, cmp) : rs-&gt;rk(v, cmp) + ls-&gt;sz + 1;
+        }
+        int lower(int v) { return rk(v, greater_equal&lt;int&gt;()); }
+        int upper(int v) { return rk(v, greater&lt;int&gt;()); }
+    } pool[M], *pit = pool, *const null = new P;
+    P* merge(P* l, P* r) {
+        if (l == null) return r; if (r == null) return l;
+        if (rnd() % (l-&gt;sz + r-&gt;sz) &lt; l-&gt;sz) return new P{l-&gt;ls, merge(l-&gt;rs, r), l-&gt;v};
+        else return new P{merge(l, r-&gt;ls), r-&gt;rs, r-&gt;v};
+    }
+    void split(P* o, int rk, P*&amp; l, P*&amp; r) {
+        if (o == null) { l = r = null; return; }
+        if (o-&gt;ls-&gt;sz &gt;= rk) { split(o-&gt;ls, rk, l, r); r = new P{r, o-&gt;rs, o-&gt;v}; }
+        else { split(o-&gt;rs, rk - o-&gt;ls-&gt;sz - 1, l, r); l = new P{o-&gt;ls, l, o-&gt;v}; }
+    }
+}
+</code></pre>
+<ul>
+<li>带 pushdown 的持久化 Treap</li>
+<li>注意任何修改操作前一定要 FIX</li>
+</ul>
+<pre><code class="language-cpp">int now;
+namespace Treap {
+    const int M = 10000000;
+    extern struct P* const null, *pit;
+    struct P {
+        P *ls, *rs;
+        int sz, time;
+        LL cnt, sc, pos, add;
+        bool rev;
+
+        P* up() { sz = ls-&gt;sz + rs-&gt;sz + 1; sc = ls-&gt;sc + rs-&gt;sc + cnt; return this; } // MOD
+        P* check() {
+            if (time == now) return this;
+            P* t = new(pit++) P; *t = *this; t-&gt;time = now; return t;
+        };
+        P* _do_rev() { rev ^= 1; add *= -1; pos *= -1; swap(ls, rs); return this; } // MOD
+        P* _do_add(LL v) { add += v; pos += v; return this; } // MOD
+        P* do_rev() { if (this == null) return this; return check()-&gt;_do_rev(); } // FIX &amp; MOD
+        P* do_add(LL v) { if (this == null) return this; return check()-&gt;_do_add(v); } // FIX &amp; MOD
+        P* _down() { // MOD
+            if (rev) { ls = ls-&gt;do_rev(); rs = rs-&gt;do_rev(); rev = 0; }
+            if (add) { ls = ls-&gt;do_add(add); rs = rs-&gt;do_add(add); add = 0; }
+            return this;
+        }
+        P* down() { return check()-&gt;_down(); } // FIX &amp; MOD
+        void _split(LL p, P*&amp; l, P*&amp; r) { // MOD
+            if (pos &gt;= p) { ls-&gt;split(p, l, r); ls = r; r = up(); }
+            else          { rs-&gt;split(p, l, r); rs = l; l = up(); }
+        }
+        void split(LL p, P*&amp; l, P*&amp; r) { // FIX &amp; MOD
+            if (this == null) l = r = null;
+            else down()-&gt;_split(p, l, r);
+        }
+    } pool[M], *pit = pool, *const null = new P;
+    P* merge(P* a, P* b) {
+        if (a == null) return b; if (b == null) return a;
+        if (rand() % (a-&gt;sz + b-&gt;sz) &lt; a-&gt;sz) { a = a-&gt;down(); a-&gt;rs = merge(a-&gt;rs, b); return a-&gt;up(); }
+        else                                 { b = b-&gt;down(); b-&gt;ls = merge(a, b-&gt;ls); return b-&gt;up(); }
+    }
+}
+</code></pre>
+<h2 id="treap-">Treap-序列</h2>
+<ul>
+<li>区间 ADD，SUM</li>
+</ul>
+<pre><code class="language-cpp">namespace treap {
+    const int M = 8E5 + 100;
+    extern struct P*const null;
+    struct P {
+        P *ls, *rs;
+        int sz, val, add, sum;
+        P(int v, P* ls = null, P* rs = null): ls(ls), rs(rs), sz(1), val(v), add(0), sum(v) {}
+        P(): sz(0), val(0), add(0), sum(0) {}
+
+        P* up() {
+            assert(this != null);
+            sz = ls-&gt;sz + rs-&gt;sz + 1;
+            sum = ls-&gt;sum + rs-&gt;sum + val + add * sz;
+            return this;
+        }
+        void upd(int v) {
+            if (this == null) return;
+            add += v;
+            sum += sz * v;
+        }
+        P* down() {
+            if (add) {
+                ls-&gt;upd(add); rs-&gt;upd(add);
+                val += add;
+                add = 0;
+            }
+            return this;
+        }
+
+        P* select(int rk) {
+            if (rk == ls-&gt;sz + 1) return this;
+            return ls-&gt;sz &gt;= rk ? ls-&gt;select(rk) : rs-&gt;select(rk - ls-&gt;sz - 1);
+        }
+    } pool[M], *pit = pool, *const null = new P, *rt = null;
+
+    P* merge(P* a, P* b) {
+        if (a == null) return b-&gt;up();
+        if (b == null) return a-&gt;up();
+        if (rand() % (a-&gt;sz + b-&gt;sz) &lt; a-&gt;sz) {
+            a-&gt;down()-&gt;rs = merge(a-&gt;rs, b);
+            return a-&gt;up();
+        } else {
+            b-&gt;down()-&gt;ls = merge(a, b-&gt;ls);
+            return b-&gt;up();
+        }
+    }
+
+    void split(P* o, int rk, P*&amp; l, P*&amp; r) {
+        if (o == null) { l = r = null; return; }
+        o-&gt;down();
+        if (o-&gt;ls-&gt;sz &gt;= rk) {
+            split(o-&gt;ls, rk, l, o-&gt;ls);
+            r = o-&gt;up();
+        } else {
+            split(o-&gt;rs, rk - o-&gt;ls-&gt;sz - 1, o-&gt;rs, r);
+            l = o-&gt;up();
+        }
+    }
+
+    inline void insert(int k, int v) {
+        P *l, *r;
+        split(rt, k - 1, l, r);
+        rt = merge(merge(l, new (pit++) P(v)), r);
+    }
+
+    inline void erase(int k) {
+        P *l, *r, *_, *t;
+        split(rt, k - 1, l, t);
+        split(t, 1, _, r);
+        rt = merge(l, r);
+    }
+
+    P* build(int l, int r, int* a) {
+        if (l &gt; r) return null;
+        if (l == r) return new(pit++) P(a[l]);
+        int m = (l + r) / 2;
+        return (new(pit++) P(a[m], build(l, m - 1, a), build(m + 1, r, a)))-&gt;up();
+    }
+};
+</code></pre>
+<ul>
+<li>区间 REVERSE，ADD，MIN</li>
+</ul>
+<pre><code class="language-cpp">namespace treap {
+    extern struct P*const null;
+    struct P {
+        P *ls, *rs;
+        int sz, v, add, m;
+        bool flip;
+        P(int v, P* ls = null, P* rs = null): ls(ls), rs(rs), sz(1), v(v), add(0), m(v), flip(0) {}
+        P(): sz(0), v(INF), m(INF) {}
+
+        void upd(int v) {
+            if (this == null) return;
+            add += v; m += v;
+        }
+        void rev() {
+            if (this == null) return;
+            swap(ls, rs);
+            flip ^= 1;
+        }
+        P* up() {
+            assert(this != null);
+            sz = ls-&gt;sz + rs-&gt;sz + 1;
+            m = min(min(ls-&gt;m, rs-&gt;m), v) + add;
+            return this;
+        }
+        P* down() {
+            if (add) {
+                ls-&gt;upd(add); rs-&gt;upd(add);
+                v += add;
+                add = 0;
+            }
+            if (flip) {
+                ls-&gt;rev(); rs-&gt;rev();
+                flip = 0;
+            }
+            return this;
+        }
+
+        P* select(int k) {
+            if (ls-&gt;sz + 1 == k) return this;
+            if (ls-&gt;sz &gt;= k) return ls-&gt;select(k);
+            return rs-&gt;select(k - ls-&gt;sz - 1);
+        }
+
+    } pool[M], *const null = new P, *pit = pool, *rt = null;
+
+    P* merge(P* a, P* b) {
+        if (a == null) return b;
+        if (b == null) return a;
+        if (rnd() % (a-&gt;sz + b-&gt;sz) &lt; a-&gt;sz) {
+            a-&gt;down()-&gt;rs = merge(a-&gt;rs, b);
+            return a-&gt;up();
+        } else {
+            b-&gt;down()-&gt;ls = merge(a, b-&gt;ls);
+            return b-&gt;up();
+        }
+    }
+
+    void split(P* o, int k, P*&amp; l, P*&amp; r) {
+        if (o == null) { l = r = null; return; }
+        o-&gt;down();
+        if (o-&gt;ls-&gt;sz &gt;= k) {
+            split(o-&gt;ls, k, l, o-&gt;ls);
+            r = o-&gt;up();
+        } else {
+            split(o-&gt;rs, k - o-&gt;ls-&gt;sz - 1, o-&gt;rs, r);
+            l = o-&gt;up();
+        }
+    }
+
+    P* build(int l, int r, int* v) {
+        if (l &gt; r) return null;
+        int m = (l + r) &gt;&gt; 1;
+        return (new (pit++) P(v[m], build(l, m - 1, v), build(m + 1, r, v)))-&gt;up();
+    }
+
+    void go(int x, int y, void f(P*&amp;)) {
+        P *l, *m, *r;
+        split(rt, y, l, r);
+        split(l, x - 1, l, m);
+        f(m);
+        rt = merge(merge(l, m), r);
+    }
+}
+using namespace treap;
+int a[maxn], n, x, y, Q, v, k, d;
+char s[100];
+
+int main() {
+    cin &gt;&gt; n;
+    FOR (i, 1, n + 1) scanf(&quot;%d&quot;, &amp;a[i]);
+    rt = build(1, n, a);
+    cin &gt;&gt; Q;
+    while (Q--) {
+        scanf(&quot;%s&quot;, s);
+        if (s[0] == 'A') {
+            scanf(&quot;%d%d%d&quot;, &amp;x, &amp;y, &amp;v);
+            go(x, y, [](P*&amp; o){ o-&gt;upd(v); });
+        } else if (s[0] == 'R' &amp;&amp; s[3] == 'E') {
+            scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
+            go(x, y, [](P*&amp; o){ o-&gt;rev(); });
+        } else if (s[0] == 'R' &amp;&amp; s[3] == 'O') {
+            scanf(&quot;%d%d%d&quot;, &amp;x, &amp;y, &amp;d);
+            d %= y - x + 1;
+            go(x, y, [](P*&amp; o){
+                P *l, *r;
+                split(o, o-&gt;sz - d, l, r);
+                o = merge(r, l);
+            });
+        } else if (s[0] == 'I') {
+            scanf(&quot;%d%d&quot;, &amp;k, &amp;v);
+            go(k + 1, k, [](P*&amp; o){ o = new (pit++) P(v); });
+        } else if (s[0] == 'D') {
+            scanf(&quot;%d&quot;, &amp;k);
+            go(k, k, [](P*&amp; o){ o = null; });
+        } else if (s[0] == 'M') {
+            scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
+            go(x, y, [](P*&amp; o) {
+                printf(&quot;%d\n&quot;, o-&gt;m);
+            });
+        }
+    }
+}
+
+</code></pre>
+<ul>
+<li>持久化</li>
+</ul>
+<pre><code class="language-cpp">namespace treap {
+    struct P;
+    extern P*const null;
+    P* N(P* ls, P* rs, LL v, bool fill);
+    struct P {
+        P *const ls, *const rs;
+        const int sz, v;
+        const LL sum;
+        bool fill;
+        int cnt;
+
+        void split(int k, P*&amp; l, P*&amp; r) {
+            if (this == null) { l = r = null; return; }
+            if (ls-&gt;sz &gt;= k) {
+                ls-&gt;split(k, l, r);
+                r = N(r, rs, v, fill);
+            } else {
+                rs-&gt;split(k - ls-&gt;sz - fill, l, r);
+                l = N(ls, l, v, fill);
+            }
+        }
+
+
+    } *const null = new P{0, 0, 0, 0, 0, 0, 1};
+
+    P* N(P* ls, P* rs, LL v, bool fill) {
+        ls-&gt;cnt++; rs-&gt;cnt++;
+        return new P{ls, rs, ls-&gt;sz + rs-&gt;sz + fill, v, ls-&gt;sum + rs-&gt;sum + v, fill, 1};
+    }
+
+    P* merge(P* a, P* b) {
+        if (a == null) return b;
+        if (b == null) return a;
+        if (rand() % (a-&gt;sz + b-&gt;sz) &lt; a-&gt;sz)
+            return N(a-&gt;ls, merge(a-&gt;rs, b), a-&gt;v, a-&gt;fill);
+        else
+            return N(merge(a, b-&gt;ls), b-&gt;rs, b-&gt;v, b-&gt;fill);
+    }
+
+    void go(P* o, int x, int y, P*&amp; l, P*&amp; m, P*&amp; r) {
+        o-&gt;split(y, l, r);
+        l-&gt;split(x - 1, l, m);
+    }
+}
+</code></pre>
+<h2 id="_8">可回滚并查集</h2>
+<ul>
+<li>注意这个不是可持久化并查集</li>
+<li>查找时不进行路径压缩</li>
+<li>复杂度靠按秩合并解决</li>
+</ul>
+<pre><code class="language-cpp">namespace uf {
+    int fa[maxn], sz[maxn];
+    int undo[maxn], top;
+    void init() { memset(fa, -1, sizeof fa); memset(sz, 0, sizeof sz); top = 0; }
+    int findset(int x) { while (fa[x] != -1) x = fa[x]; return x; }
+    bool join(int x, int y) {
+        x = findset(x); y = findset(y);
+        if (x == y) return false;
+        if (sz[x] &gt; sz[y]) swap(x, y);
+        undo[top++] = x;
+        fa[x] = y;
+        sz[y] += sz[x] + 1;
+        return true;
+    }
+    inline int checkpoint() { return top; }
+    void rewind(int t) {
+        while (top &gt; t) {
+            int x = undo[--top];
+            sz[fa[x]] -= sz[x] + 1;
+            fa[x] = -1;
+        }
+    }
+}
+</code></pre>
+<h2 id="_9">舞蹈链</h2>
+<ul>
+<li>注意 link 的 y 的范围是 [1, n]</li>
+<li>
+<p>注意在某些情况下替换掉 memset</p>
+</li>
+<li>
+<p>精确覆盖</p>
+</li>
+</ul>
+<pre><code class="language-cpp">struct P {
+    P *L, *R, *U, *D;
+    int x, y;
+};
+
+const int INF = 1E9;
+
+struct DLX {
+#define TR(i, D, s) for (P* i = s-&gt;D; i != s; i = i-&gt;D)
+    static const int M = 2E5;
+    P pool[M], *h[M], *r[M], *pit;
+    int sz[M];
+    bool solved;
+    stack&lt;int&gt; ans;
+    void init(int n) {
+        pit = pool;
+        ++n;
+        solved = false;
+        while (!ans.empty()) ans.pop();
+        memset(r, 0, sizeof r);
+        memset(sz, 0, sizeof sz);
+        FOR (i, 0, n)
+            h[i] = new (pit++) P;
+        FOR (i, 0, n) {
+            h[i]-&gt;L = h[(i + n - 1) % n];
+            h[i]-&gt;R = h[(i + 1) % n];
+            h[i]-&gt;U = h[i]-&gt;D = h[i];
+            h[i]-&gt;y = i;
+        }
+    }
+
+    void link(int x, int y) {
+        sz[y]++;
+        auto p = new (pit++) P;
+        p-&gt;x = x; p-&gt;y = y;
+        p-&gt;U = h[y]-&gt;U; p-&gt;D = h[y];
+        p-&gt;D-&gt;U = p-&gt;U-&gt;D = p;
+        if (!r[x]) r[x] = p-&gt;L = p-&gt;R = p;
+        else {
+            p-&gt;L = r[x]; p-&gt;R = r[x]-&gt;R;
+            p-&gt;L-&gt;R = p-&gt;R-&gt;L = p;
+        }
+    }
+
+    void remove(P* p) {
+        p-&gt;L-&gt;R = p-&gt;R; p-&gt;R-&gt;L = p-&gt;L;
+        TR (i, D, p)
+            TR (j, R, i) {
+                j-&gt;D-&gt;U = j-&gt;U; j-&gt;U-&gt;D = j-&gt;D;
+                sz[j-&gt;y]--;
+            }
+    }
+
+    void recall(P* p) {
+        p-&gt;L-&gt;R = p-&gt;R-&gt;L = p;
+        TR (i, U, p)
+            TR (j, L, i) {
+                j-&gt;D-&gt;U = j-&gt;U-&gt;D = j;
+                sz[j-&gt;y]++;
+            }
+    }
+
+    bool dfs(int d) {
+        if (solved) return true;
+        if (h[0]-&gt;R == h[0]) return solved = true;
+        int m = INF;
+        P* c;
+        TR (i, R, h[0])
+            if (sz[i-&gt;y] &lt; m) { m = sz[i-&gt;y]; c = i; }
+        remove(c);
+        TR (i, D, c) {
+            ans.push(i-&gt;x);
+            TR (j, R, i) remove(h[j-&gt;y]);
+            if (dfs(d + 1)) return true;
+            TR (j, L, i) recall(h[j-&gt;y]);
+            ans.pop();
+        }
+        recall(c);
+        return false;
+    }
+} dlx;
+</code></pre>
+<ul>
+<li>可重复覆盖</li>
+</ul>
+<pre><code class="language-cpp">struct P {
+    P *L, *R, *U, *D;
+    int x, y;
+};
+
+const int INF = 1E9;
+
+struct DLX {
+#define TR(i, D, s) for (P* i = s-&gt;D; i != s; i = i-&gt;D)
+    static const int M = 2E5;
+    P pool[M], *h[M], *r[M], *pit;
+    int sz[M], vis[M], ans, clk;
+    void init(int n) {
+        clk = 0;
+        ans = INF;
+        pit = pool;
+        ++n;
+        memset(r, 0, sizeof r);
+        memset(sz, 0, sizeof sz);
+        memset(vis, -1, sizeof vis);
+        FOR (i, 0, n)
+            h[i] = new (pit++) P;
+        FOR (i, 0, n) {
+            h[i]-&gt;L = h[(i + n - 1) % n];
+            h[i]-&gt;R = h[(i + 1) % n];
+            h[i]-&gt;U = h[i]-&gt;D = h[i];
+            h[i]-&gt;y = i;
+        }
+    }
+
+    void link(int x, int y) {
+        sz[y]++;
+        auto p = new (pit++) P;
+        p-&gt;x = x; p-&gt;y = y;
+        p-&gt;U = h[y]-&gt;U; p-&gt;D = h[y];
+        p-&gt;D-&gt;U = p-&gt;U-&gt;D = p;
+        if (!r[x]) r[x] = p-&gt;L = p-&gt;R = p;
+        else {
+            p-&gt;L = r[x]; p-&gt;R = r[x]-&gt;R;
+            p-&gt;L-&gt;R = p-&gt;R-&gt;L = p;
+        }
+    }
+
+    void remove(P* p) {
+        TR (i, D, p) {
+            i-&gt;L-&gt;R = i-&gt;R;
+            i-&gt;R-&gt;L = i-&gt;L;
+        }
+    }
+
+    void recall(P* p) {
+        TR (i, U, p)
+            i-&gt;L-&gt;R = i-&gt;R-&gt;L = i;
+    }
+
+    int eval() {
+        ++clk;
+        int ret = 0;
+        TR (i, R, h[0])
+            if (vis[i-&gt;y] != clk) {
+                ++ret;
+                vis[i-&gt;y] = clk;
+                TR (j, D, i)
+                    TR (k, R, j)
+                        vis[k-&gt;y] = clk;
+            }
+        return ret;
+    }
+
+    void dfs(int d) {
+        if (h[0]-&gt;R == h[0]) { ans = min(ans, d); return; }
+        if (eval() + d &gt;= ans) return;
+        P* c;
+        int m = INF;
+        TR (i, R, h[0])
+            if (sz[i-&gt;y] &lt; m) { m = sz[i-&gt;y]; c = i; }
+        TR (i, D, c) {
+            remove(i);
+            TR (j, R, i) remove(j);
+            dfs(d + 1);
+            TR (j, L, i) recall(j);
+            recall(i);
+        }
+    }
+} dlx;
+</code></pre>
+<h2 id="cdq">CDQ 分治</h2>
+<pre><code class="language-cpp">const int maxn = 2E5 + 100;
+struct P {
+    int x, y;
+    int* f;
+    bool d1, d2;
+} a[maxn], b[maxn], c[maxn];
+int f[maxn];
+
+void go2(int l, int r) {
+    if (l + 1 == r) return;
+    int m = (l + r) &gt;&gt; 1;
+    go2(l, m); go2(m, r);
+    FOR (i, l, m) b[i].d2 = 0;
+    FOR (i, m, r) b[i].d2 = 1;
+    merge(b + l, b + m, b + m, b + r, c + l, [](const P&amp; a, const P&amp; b)-&gt;bool {
+            if (a.y != b.y) return a.y &lt; b.y;
+            return a.d2 &gt; b.d2;
+        });
+    int mx = -1;
+    FOR (i, l, r) {
+        if (c[i].d1 &amp;&amp; c[i].d2) *c[i].f = max(*c[i].f, mx + 1);
+        if (!c[i].d1 &amp;&amp; !c[i].d2) mx = max(mx, *c[i].f);
+    }
+    FOR (i, l, r) b[i] = c[i];
+}
+
+void go1(int l, int r) { // [l, r)
+    if (l + 1 == r) return;
+    int m = (l + r) &gt;&gt; 1;
+    go1(l, m);
+    FOR (i, l, m) a[i].d1 = 0;
+    FOR (i, m, r) a[i].d1 = 1;
+    copy(a + l, a + r, b + l);
+    sort(b + l, b + r, [](const P&amp; a, const P&amp; b)-&gt;bool {
+            if (a.x != b.x) return a.x &lt; b.x;
+            return a.d1 &gt; b.d1;
+        });
+    go2(l, r);
+    go1(m, r);
+}
+</code></pre>
+<ul>
+<li>k 维 LIS </li>
+</ul>
+<pre><code class="language-cpp">struct P {
+    int v[K];
+    LL f;
+    bool d[K];
+} o[N &lt;&lt; 10];
+P* a[K][N &lt;&lt; 10];
+int k;
+void go(int now, int l, int r) {
+    if (now == 0) {
+        if (l + 1 == r) return;
+        int m = (l + r) / 2;
+        go(now, l, m);
+        FOR (i, l, m) a[now][i]-&gt;d[now] = 0;
+        FOR (i, m, r) a[now][i]-&gt;d[now] = 1;
+        copy(a[now] + l, a[now] + r, a[now + 1] + l);
+        sort(a[now + 1] + l, a[now + 1] + r, [now](const P* a, const P* b){
+            if (a-&gt;v[now] != b-&gt;v[now]) return a-&gt;v[now] &lt; b-&gt;v[now];
+            return a-&gt;d[now] &gt; b-&gt;d[now];
+        });
+        go(now + 1, l, r);
+        go(now, m, r);
+    } else {
+        if (l + 1 == r) return;
+        int m = (l + r) / 2;
+        go(now, l, m); go(now, m, r);
+        FOR (i, l, m) a[now][i]-&gt;d[now] = 0;
+        FOR (i, m, r) a[now][i]-&gt;d[now] = 1;
+        merge(a[now] + l, a[now] + m, a[now] + m, a[now] + r, a[now + 1] + l, [now](const P* a, const P* b){
+            if (a-&gt;v[now] != b-&gt;v[now]) return a-&gt;v[now] &lt; b-&gt;v[now];
+            return a-&gt;d[now] &gt; b-&gt;d[now];
+        });
+        copy(a[now + 1] + l, a[now + 1] + r, a[now] + l);
+        if (now &lt; k - 2) {
+            go(now + 1, l, r);
+        } else {
+            LL sum = 0;
+            FOR (i, l, r) {
+                dbg(a[now][i]-&gt;v[0], a[now][i]-&gt;v[1], a[now][i]-&gt;f,
+                                  a[now][i]-&gt;d[0], a[now][i]-&gt;d[1]);
+                int cnt = 0;
+                FOR (j, 0, now + 1) cnt += a[now][i]-&gt;d[j];
+                if (cnt == 0) {
+                    sum += a[now][i]-&gt;f;
+                } else if (cnt == now + 1) {
+                    a[now][i]-&gt;f = (a[now][i]-&gt;f + sum) % MOD;
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="_10">笛卡尔树</h2>
+<pre><code class="language-cpp">void build(const vector&lt;int&gt;&amp; a) {
+    static P *stack[M], *x, *last;
+    int p = 0;
+    FOR (i, 0, a.size()) {
+        x = new P(i + 1, a[i]);
+        last = null;
+        while (p &amp;&amp; stack[p - 1]-&gt;v &gt; x-&gt;v) {
+            stack[p - 1]-&gt;maintain();
+            last = stack[--p];
+        }
+        if (p) stack[p - 1]-&gt;rs = x;
+        x-&gt;ls = last;
+        stack[p++] = x;
+    }
+    while (p)
+        stack[--p]-&gt;maintain();
+    rt = stack[0];
+}
+</code></pre>
+<pre><code class="language-cpp">void build() {
+    static int s[N], last;
+    int p = 0;
+    FOR (x, 1, n + 1) {
+        last = 0;
+        while (p &amp;&amp; val[s[p - 1]] &gt; val[x]) last = s[--p];
+        if (p) G[s[p - 1]][1] = x;
+        if (last) G[x][0] = last;
+        s[p++] = x;
+    }
+    rt = s[0];
+}
+</code></pre>
+<h2 id="trie">Trie</h2>
+<ul>
+<li>二进制 Trie</li>
+</ul>
+<pre><code class="language-cpp">namespace trie {
+    const int M = 31;
+    int ch[N * M][2], sz;
+    void init() { memset(ch, 0, sizeof ch); sz = 2; }
+    void ins(LL x) {
+        int u = 1;
+        FORD (i, M, -1) {
+            bool b = x &amp; (1LL &lt;&lt; i);
+            if (!ch[u][b]) ch[u][b] = sz++;
+            u = ch[u][b];
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>持久化二进制 Trie</li>
+<li><code>sz=1</code></li>
+</ul>
+<pre><code class="language-cpp">struct P { int w, ls, rs; };
+P tr[M] = {{0, 0, 0}};
+int sz;
+
+int _new(int w, int ls, int rs) { tr[sz] = {w, ls, rs}; return sz++; }
+int ins(int oo, int v, int d = 30) {
+    P&amp; o = tr[oo];
+    if (d == -1) return _new(o.w + 1, 0, 0);
+    bool u = v &amp; (1 &lt;&lt; d);
+    return _new(o.w + 1, u == 0 ? ins(o.ls, v, d - 1) : o.ls, u == 1 ? ins(o.rs, v, d - 1) : o.rs);
+}
+int query(int pp, int qq, int v, int d = 30) {
+    if (d == -1) return 0;
+    bool u = v &amp; (1 &lt;&lt; d);
+    P &amp;p = tr[pp], &amp;q = tr[qq];
+    int lw = tr[q.ls].w - tr[p.ls].w;
+    int rw = tr[q.rs].w - tr[p.rs].w;
+
+    int ret = 0;
+    if (u == 0) {
+        if (rw) { ret += 1 &lt;&lt; d; ret += query(p.rs, q.rs, v, d - 1); }
+        else ret += query(p.ls, q.ls, v, d - 1);
+    } else {
+        if (lw) { ret += 1 &lt;&lt; d; ret += query(p.ls, q.ls, v, d - 1); }
+        else ret += query(p.rs, q.rs, v, d - 1);
+    }
+    return ret;
+}
+</code></pre>
+<h2 id="exstl">exSTL</h2>
+<h3 id="_11">优先队列</h3>
+<ul>
+<li>binary_heap_tag</li>
+<li>pairing_heap_tag 支持修改</li>
+<li>thin_heap_tag 如果修改只有 increase 则较快，不支持 join</li>
+</ul>
+<pre><code class="language-cpp">#include&lt;ext/pb_ds/priority_queue.hpp&gt;
+using namespace __gnu_pbds;
+
+typedef __gnu_pbds::priority_queue&lt;LL, less&lt;LL&gt;, pairing_heap_tag&gt; PQ;
+__gnu_pbds::priority_queue&lt;int, cmp, pairing_heap_tag&gt;::point_iterator it;
+PQ pq, pq2;
+
+int main() {
+    auto it = pq.push(2);
+    pq.push(3);
+    assert(pq.top() == 3);
+    pq.modify(it, 4);
+    assert(pq.top() == 4);
+    pq2.push(5);
+    pq.join(pq2);
+    assert(pq.top() == 5);
+}
+</code></pre>
+<h3 id="_12">平衡树</h3>
+<ul>
+<li>ov_tree_tag</li>
+<li>rb_tree_tag</li>
+<li>
+<p>splay_tree_tag</p>
+</li>
+<li>
+<p>mapped: null_type 或 null_mapped_type（旧版本） 为空</p>
+</li>
+<li>Node_Update 为 tree_order_statistics_node_update 时才可以 find_by_order &amp; order_of_key</li>
+<li>find_by_order 找 order + 1 小的元素 （其实都是从 0 开始计数），或者有 order 个元素比它小的 key</li>
+<li>order_of_key 有多少个比 r_key 小的元素</li>
+<li>join &amp; split</li>
+</ul>
+<pre><code class="language-cpp">#include &lt;ext/pb_ds/assoc_container.hpp&gt;
+using namespace __gnu_pbds;
+using Tree = tree&lt;int, null_type, less&lt;int&gt;, rb_tree_tag, tree_order_statistics_node_update&gt;;
+Tree t;
+</code></pre>
+<h3 id="_13">持久化平衡树</h3>
+<pre><code class="language-cpp">#include &lt;ext/rope&gt;
+using namespace __gnu_cxx;
+rope&lt;int&gt; s;
+
+int main() {
+    FOR (i, 0, 5) s.push_back(i); // 0 1 2 3 4
+    s.replace(1, 2, s); // 0 (0 1 2 3 4) 3 4
+    auto ss = s.substr(2, 2); // 1 2、
+    s.erase(2, 2); // 0 1 4
+    s.insert(2, s); // equal to s.replace(2, 0, s)
+    assert(s[2] == s.at(2)); // 2
+}
+</code></pre>
+<h3 id="_14">哈希表</h3>
+<pre><code class="language-cpp">#include&lt;ext/pb_ds/assoc_container.hpp&gt;
+#include&lt;ext/pb_ds/hash_policy.hpp&gt;
+using namespace __gnu_pbds;
+
+gp_hash_table&lt;int, int&gt; mp;
+cc_hash_table&lt;int, int&gt; mp;
+</code></pre>
+<h2 id="link-cut-tree">Link-Cut Tree</h2>
+<ul>
+<li>图中相邻的结点在伸展树中不一定是父子关系</li>
+<li>遇事不决 <code>make_root</code></li>
+<li>跑左右儿子的时候不要忘记 <code>down</code></li>
+</ul>
+<pre><code class="language-cpp">namespace lct {
+    extern struct P *const null;
+    const int M = N;
+    struct P {
+        P *fa, *ls, *rs;
+        int v, maxv;
+        bool rev;
+
+        bool has_fa() { return fa-&gt;ls == this || fa-&gt;rs == this; }
+        bool d() { return fa-&gt;ls == this; }
+        P*&amp; c(bool x) { return x ? ls : rs; }
+        void do_rev() {
+            if (this == null) return;
+            rev ^= 1;
+            swap(ls, rs);
+        }
+        P* up() {
+            maxv = max(v, max(ls-&gt;maxv, rs-&gt;maxv));
+            return this;
+        }
+        void down() {
+            if (rev) {
+                rev = 0;
+                ls-&gt;do_rev(); rs-&gt;do_rev();
+            }
+        }
+        void all_down() { if (has_fa()) fa-&gt;all_down(); down(); }
+    } *const null = new P{0, 0, 0, 0, 0, 0}, pool[M], *pit = pool;
+
+    void rot(P* o) {
+        bool dd = o-&gt;d();
+        P *f = o-&gt;fa, *t = o-&gt;c(!dd);
+        if (f-&gt;has_fa()) f-&gt;fa-&gt;c(f-&gt;d()) = o; o-&gt;fa = f-&gt;fa;
+        if (t != null) t-&gt;fa = f; f-&gt;c(dd) = t;
+        o-&gt;c(!dd) = f-&gt;up(); f-&gt;fa = o;
+    }
+    void splay(P* o) {
+        o-&gt;all_down();
+        while (o-&gt;has_fa()) {
+            if (o-&gt;fa-&gt;has_fa())
+                rot(o-&gt;d() ^ o-&gt;fa-&gt;d() ? o : o-&gt;fa);
+            rot(o);
+        }
+        o-&gt;up();
+    }
+    void access(P* u, P* v = null) {
+        if (u == null) return;
+        splay(u); u-&gt;rs = v;
+        access(u-&gt;up()-&gt;fa, u);
+    }
+    void make_root(P* o) {
+        access(o); splay(o); o-&gt;do_rev();
+    }
+    void split(P* o, P* u) {
+        make_root(o); access(u); splay(u);
+    }
+    void link(P* u, P* v) {
+        make_root(u); u-&gt;fa = v;
+    }
+    void cut(P* u, P* v) {
+        split(u, v);
+        u-&gt;fa = v-&gt;ls = null; v-&gt;up();
+    }
+    bool adj(P* u, P* v) {
+        split(u, v);
+        return v-&gt;ls == u &amp;&amp; u-&gt;ls == null &amp;&amp; u-&gt;rs == null;
+    }
+    bool linked(P* u, P* v) {
+        split(u, v);
+        return u == v || u-&gt;fa != null;
+    }
+    P* findrt(P* o) {
+        access(o); splay(o);
+        while (o-&gt;ls != null) o = o-&gt;ls;
+        return o;
+    }
+    P* findfa(P* rt, P* u) {
+        split(rt, u);
+        u = u-&gt;ls;
+        while (u-&gt;rs != null) {
+            u = u-&gt;rs;
+            u-&gt;down();
+        }
+        return u;
+    }
+}
+</code></pre>
+<ul>
+<li>维护子树大小</li>
+</ul>
+<pre><code class="language-cpp">P* up() {
+    sz = ls-&gt;sz + rs-&gt;sz + _sz + 1;
+    return this;
+}
+void access(P* u, P* v = null) {
+    if (u == null) return;
+    splay(u);
+    u-&gt;_sz += u-&gt;rs-&gt;sz - v-&gt;sz;
+    u-&gt;rs = v;
+    access(u-&gt;up()-&gt;fa, u);
+}
+void link(P* u, P* v) {
+    split(u, v);
+    u-&gt;fa = v; v-&gt;_sz += u-&gt;sz;
+    v-&gt;up();
+}
+</code></pre>
+<h2 id="_15">莫队</h2>
+<ul>
+<li>[l, r)</li>
+</ul>
+<pre><code class="language-cpp">while (l &gt; q.l) mv(--l, 1);
+while (r &lt; q.r) mv(r++, 1);
+while (l &lt; q.l) mv(l++, -1);
+while (r &gt; q.r) mv(--r, -1);
+</code></pre>
+<ul>
+<li>树上莫队</li>
+<li>注意初始状态 u = v = 1, flip(1)</li>
+</ul>
+<pre><code class="language-cpp">struct Q {
+    int u, v, idx;
+    bool operator &lt; (const Q&amp; b) const {
+        const Q&amp; a = *this;
+        return blk[a.u] &lt; blk[b.u] || (blk[a.u] == blk[b.u] &amp;&amp; in[a.v] &lt; in[b.v]);
+    }
+};
+
+void dfs(int u = 1, int d = 0) {
+    static int S[maxn], sz = 0, blk_cnt = 0, clk = 0;
+    in[u] = clk++;
+    dep[u] = d;
+    int btm = sz;
+    for (int v: G[u]) {
+        if (v == fa[u]) continue;
+        fa[v] = u;
+        dfs(v, d + 1);
+        if (sz - btm &gt;= B) {
+            while (sz &gt; btm) blk[S[--sz]] = blk_cnt;
+            ++blk_cnt;
+        }
+    }
+    S[sz++] = u;
+    if (u == 1) while (sz) blk[S[--sz]] = blk_cnt - 1;
+}
+
+void flip(int k) {
+    dbg(k);
+    if (vis[k]) {
+        // ...
+    } else {
+        // ...
+    }
+    vis[k] ^= 1;
+}
+
+void go(int&amp; k) {
+    if (bug == -1) {
+        if (vis[k] &amp;&amp; !vis[fa[k]]) bug = k;
+        if (!vis[k] &amp;&amp; vis[fa[k]]) bug = fa[k];
+    }
+    flip(k);
+    k = fa[k];
+}
+
+void mv(int a, int b) {
+    bug = -1;
+    if (vis[b]) bug = b;
+    if (dep[a] &lt; dep[b]) swap(a, b);
+    while (dep[a] &gt; dep[b]) go(a);
+    while (a != b) {
+        go(a); go(b);
+    }
+    go(a); go(bug);
+}
+
+for (Q&amp; q: query) {
+    mv(u, q.u); u = q.u;
+    mv(v, q.v); v = q.v;
+    ans[q.idx] = Ans;
+}
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../../../js/base.js"></script>
+        <script src="../../../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

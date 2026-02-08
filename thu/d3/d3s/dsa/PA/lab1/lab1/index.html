@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../../../../../img/favicon.ico">
+        <title>Lab1 - 勿怯 勿惰 勿贪 勿我</title>
+        <link href="../../../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../../../..">勿怯 勿惰 勿贪 勿我</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../../../.." class="nav-link">个人首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../../../../about/" class="nav-link">工具链接网址</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">清华</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../thu/" class="dropdown-item">清华</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d1/d1/" class="dropdown-item">大一</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d2/d2/" class="dropdown-item">大二</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../d3/" class="dropdown-item">大三</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../d4/d4/" class="dropdown-item">大四</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">数学</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../math/math/" class="dropdown-item">数学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/caculus/" class="dropdown-item">微积分</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/linear/" class="dropdown-item">线性代数</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../math/probability/" class="dropdown-item">概率论</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">计算机</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../cs/cs/" class="dropdown-item">计算机</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">编程语言</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c/c/" class="dropdown-item">C</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">C++语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/cpp/cpp/" class="dropdown-item">C++</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">数据结构</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/dsa/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">操作系统</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/os/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机组成原理</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/jz/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机网络</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/jw/" class="dropdown-item">总述</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">金融量化</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../finance/finance/" class="dropdown-item">金融</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/crypto/crypto/" class="dropdown-item">币</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/stock/stock/" class="dropdown-item">股票</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../finance/quant/quant/" class="dropdown-item">量化</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">艺体</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../art/art/" class="dropdown-item">文学</a>
+</li>
+                                    
+<li>
+    <a href="../../../../../../../art/English/english/" class="dropdown-item">英语</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">读书</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">计算机</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../books/cs/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/lan/" class="dropdown-item">编程语言</a>
+</li>
+    </ul>
+  </li>
+            
+<li>
+    <a href="../../../../../../../books/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/gr/" class="dropdown-item">个人成长</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../books/navy/zashu/" class="dropdown-item">杂书</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../../../../../art/music/" class="dropdown-item">音乐</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">生活记录</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../../../../me/dgh/" class="dropdown-item">我是谁</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2024</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/2024/" class="dropdown-item">2024年</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">8月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%886%E6%97%A5/" class="dropdown-item">2024年8月6日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%887%E6%97%A5/" class="dropdown-item">2024年8月7日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%888%E6%97%A5/" class="dropdown-item">2024年8月8日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%889%E6%97%A5/" class="dropdown-item">2024年8月9日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8810%E6%97%A5/" class="dropdown-item">2024年8月10日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8811%E6%97%A5/" class="dropdown-item">2024年8月11日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8812%E6%97%A5/" class="dropdown-item">2024年8月12日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8813%E6%97%A5/" class="dropdown-item">2024年8月13日</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2024/8/2024%E5%B9%B48%E6%9C%8814%E6%97%A5/" class="dropdown-item">2024年8月14日</a>
+</li>
+    </ul>
+  </li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">11月</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2024/11/2024%E5%B9%B411%E6%9C%8828%E6%97%A5/" class="dropdown-item">2024年11月28日</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2025</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../../../../me/2025/2025%E5%B9%B4/" class="dropdown-item">2025年</a>
+</li>
+            
+<li>
+    <a href="../../../../../../../me/2025/1%E6%9C%88/2025%E5%B9%B41%E6%9C%88/" class="dropdown-item">2025年1月</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#20" class="nav-link">2.0 思考题</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 调试和测试</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1) 只查询、不修改（静态）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2) 点修改 + 矩形求和（在线）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#3_1" class="nav-link">3) 区间/矩形修改 + 矩形求和</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#4_1" class="nav-link">4) 离线技巧（当操作都可提前拿到）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#5_1" class="nav-link">5) 选择建议</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6) 小表格（典型复杂度与要点）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="20">2.0 思考题</h2>
+<h3 id="2a">2A</h3>
+<p>$$10n^2 \times 10^{-8} \times 2 \leq 1$$</p>
+<p>所以</p>
+<p>$$n^2 \leq 5 \times 10^{6}$$</p>
+<p>即</p>
+<p>$$n \leq 2236$$</p>
+<h3 id="2b">2B</h3>
+<p>$$20nlog_{2}n \times 10^{-8} \times 2 \leq 1$$</p>
+<p>所以</p>
+<p>$$nlog_{2}n \leq 2.5 \times 10^{6}$$</p>
+<p>通过计算可得
+$$n \leq 145746$$</p>
+<h2 id="3">3. 调试和测试</h2>
+<h3 id="3a">3A</h3>
+<pre><code class="language-cpp">//solution_1.cpp
+#include &lt;cstdio&gt;
+
+int matrix[2000][2000];
+
+int main() {
+    int n, m, q;
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i) {
+        for (int j = 1; j &lt;= m; ++j) {
+            scanf(&quot;%d&quot;, &amp;matrix[i][j]);
+        }
+    }
+    scanf(&quot;%d&quot;, &amp;q);
+    int sum = 0;
+    for (int i = 1; i &lt;= q; ++i) {
+        int x, y, a, b;
+        scanf(&quot;%d %d %d %d&quot;, &amp;x, &amp;y, &amp;a, &amp;b);
+        for (int j = 0; j &lt; a; ++j) {
+            for (int k = 0; k &lt; b; ++k) {
+                sum += matrix[x + j][y + k];
+            }
+        }
+        printf(&quot;%d\n&quot;, sum);
+    }
+    return 0;
+}
+</code></pre>
+<p>1.<code>int sum = 0;</code>应该放在循环内，否则每次查询的结果会叠加。(静态检查)
+2.数组越界，当n或m等于2000时，访问matrix[2000][2000]会越界。(输出调试)
+3.整型溢出，当查询的子矩阵较大时，sum会超过int的范围。(对拍)</p>
+<p>AIGC发现的问题包括以上问题，还有下述问题
+每次查询 O(a*b)，在最坏情况下会 TLE（q 可达 1e5）</p>
+<p>评价一下AIGC工具的调试能力，它能够快速定位代码中的问题，并给出相应的修改建议，极大提高了调试效率。但在某些复杂场景下，可能无法完全理解代码逻辑，仍需人工干预。</p>
+<pre><code class="language-cpp">//solution_2.cpp
+#include &lt;cstdio&gt;
+
+int matrix[2000][2000];
+int rowsum[2000][2000];
+
+int main() {
+    int n, m, q;
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; ++i) {
+        for (int j = 1; j &lt;= m; ++j) {
+            scanf(&quot;%d&quot;, &amp;matrix[i][j]);
+        }
+    }
+    for (int i = 1; i &lt;= n; ++i) {
+        rowsum[i][0] = 0;
+        for (int j = 1; j &lt;= m; ++j) {
+            rowsum[i][j] = rowsum[i][j - 1] + matrix[i][j];
+        }
+    }
+    scanf(&quot;%d&quot;, &amp;q);
+    int sum = 0;
+    for (int i = 1; i &lt;= q; ++i) {
+        int x, y, a, b;
+        scanf(&quot;%d %d %d %d&quot;, &amp;x, &amp;y, &amp;a, &amp;b);
+        for (int j = 0; j &lt; a; ++j) {
+            sum += rowsum[x + j][y + b] - rowsum[x + j][y];
+        }
+        printf(&quot;%d\n&quot;, sum);
+    }
+    return 0;
+}
+</code></pre>
+<p>1.<code>int sum = 0;</code>应该放在循环内，否则每次查询的结果会叠加。(静态检查)
+2.数组越界，当n或m等于2000时，访问matrix[2000][2000]会越界。(输出调试)
+3.整型溢出，当查询的子矩阵较大时，sum会超过int的范围，应该用long long。(对拍)</p>
+<p>AIGC发现的问题包括以上问题，还有下述问题
+性能仍可能超时：行前缀只能把每次查询降到 O(a)，在最坏情况下依旧不够快。应改为二维前缀和，把每次查询降到 O(1)。性能仍可能超时：行前缀只能把每次查询降到 O(a)，在最坏情况下依旧不够快。应改为二维前缀和，把每次查询降到 O(1)。</p>
+<p>评价一下AIGC工具的调试能力，它能够快速定位代码中的问题，并给出相应的修改建议，极大提高了调试效率。但在某些复杂场景下，可能无法完全理解代码逻辑，仍需人工干预。</p>
+<h3 id="3b">3B</h3>
+<p>用 gcc/g++ 编译时，需要加入 -g 选项，它会在可执行文件中嵌入符号表和源代码行号信息，方便调试器映射机器指令到源码行。</p>
+<pre><code class="language-bash">g++ -g -O0 -Wall battle.cpp -o main
+
+</code></pre>
+<p>使用三个编译选项
+-g: 在可执行文件中嵌入调试信息，方便调试。</p>
+<p>-O0: 关闭优化，避免编译器对代码进行优化后，调试时变量值和代码逻辑难以对应。</p>
+<p>-Wall: 开启所有警告，帮助发现潜在问题。</p>
+<p>启动gdb</p>
+<pre><code class="language-bash">gdb ./main
+</code></pre>
+<p>设置断点</p>
+<pre><code class="language-gdb">(gdb) break main
+</code></pre>
+<p>运行程序</p>
+<pre><code class="language-gdb">(gdb) run &lt; input.txt
+</code></pre>
+<p>单步执行</p>
+<pre><code class="language-gdb">(gdb) next
+(gdb) step
+</code></pre>
+<p>查看变量</p>
+<p>print x：打印变量 x 的值。</p>
+<p>display x：每次停下都会自动显示 x 的值。</p>
+<p>info locals：查看当前函数的局部变量。</p>
+<p>查看源代码</p>
+<p>list：显示源码（默认当前行附近 10 行）。</p>
+<p>list 30,50：显示第 30–50 行。</p>
+<h3 id="3c">3C</h3>
+<p>回答 rand_input.cpp 中调用 srand(time(0)) 的作用。</p>
+<p>调用 srand(time(0)) 的作用是用当前时间作为随机数生成器的种子，从而使得每次运行程序时生成的随机数序列不同。
+如果不调用 srand，rand() 每次运行程序时都会生成相同的随机数序列，因为默认种子是固定的0。</p>
+<h3 id="3d">3D</h3>
+<p>一次性编译阶段</p>
+<ol>
+<li>
+<p><code>system("g++ rand_input.cpp -o rand_input");</code>
+   g++ 编译 <code>rand_input.cpp</code>，生成可执行文件 rand_input。</p>
+</li>
+<li>
+<p><code>system("g++ check_input.cpp -o check_input");</code>
+   编译 <code>check_input.cpp</code>，生成 check_input。</p>
+</li>
+<li>
+<p><code>system("g++ solution_1.cpp -o solution_1");</code>
+   编译第一份解法，生成 solution_1。</p>
+</li>
+<li>
+<p><code>system("g++ solution_2.cpp -o solution_2");</code>
+   编译第二份解法，生成 solution_2。</p>
+</li>
+</ol>
+<p>循环对拍阶段（<code>while(1)</code>）</p>
+<ol>
+<li>
+<p><code>system("./rand_input &gt; rand.in");</code>
+   运行数据生成器，把其标准输出重定向到文件 rand.in。</p>
+</li>
+<li>
+<p><code>if(system("./check_input &lt; rand.in")!=0){ ... }</code>
+   运行输入校验程序，从 rand.in 读入（<code>&lt;</code> 是输入重定向）。</p>
+</li>
+<li>
+<p><code>system("./solution_1 &lt; rand.in &gt; 1.out");</code>
+   运行第一份解法：从 rand.in 读入，结果写到 1.out。</p>
+</li>
+<li>
+<p><code>system("./solution_2 &lt; rand.in &gt; 2.out");</code>
+   运行第二份解法：同上，输出到 2.out。</p>
+</li>
+<li>
+<p><code>if(system("diff 1.out 2.out")!=0){ ... }</code>
+   用 <code>diff</code> 比较两个输出文件。</p>
+</li>
+</ol>
+<p><code>diff</code> 退出码：0 表示文件内容相同；1 表示不同；&gt;1 表示比较过程中出错（如文件不存在）。
+这里 <code>!= 0</code> 把“不同”和“出错”都当作失败：打印 <code>different output!</code> 并 <code>break</code>。</p>
+<h3 id="3e">3E</h3>
+<p>结论先说：</p>
+<p>最大可能数值的数量级：
+  子矩形最多包含 $n\times m \le 2000\times2000=4\times10^{6}$ 个元素；
+单次求和的最大绝对值为</p>
+<p>$$
+  4\times10^{6}\times10^{5}=4\times10^{11}=400{,}000{,}000{,}000.
+  $$</p>
+<p>需要的数据类型：
+  32 位 <code>int</code>（上限约 $2.1\times10^{9}$）会溢出；
+  应使用4 位有符号整数 <code>long long</code>上限约 $9.22\times10^{18}$），足够安全。</p>
+<h2 id="4">4</h2>
+<h3 id="4a">4A</h3>
+<p>solution_2.cpp 比 solution_1.cpp 少了一层循环，使用了一维前缀和的方法，solution_3.cpp 使用了二维前缀和的方法，进一步减少了查询时间复杂度，其算法思路为：</p>
+<ol>
+<li>预处理阶段：构建一个二维前缀和数组 ps，其中 ps[i][j] 表示原始矩阵中 (1,1) 到 (i,j) 的元素和。</li>
+<li>查询阶段：对于每个查询 (x,y,a,b)，通过前缀和数组快速计算子矩阵 (x,y) 到 (x+a-1,y+b-1) 的和，时间复杂度为 O(1)</li>
+</ol>
+<h3 id="4b">4B</h3>
+<p>我使用<ctime>测量了不同测例下三种解法的运行时间，通过分析得出两个代表性实例
+n=m=2000, q=1e5
+solution_1 time: 43.041824 seconds
+solution_2 time: 0.929999 seconds
+solution_3 time: 0.186934 seconds</p>
+<p>n=m=2000, q=500
+solution_1 time: 0.358786 seconds
+solution_2 time: 0.185471 seconds
+solution_3 time: 0.161679 seconds</p>
+<h3 id="4c">4C</h3>
+<p>可以发现在q较大时，solution_3的优势更明显，而q较小时，solution_2和solution_3的差距不大。同样在n和m较小时，三种解法的差距也不大，但随着n和m的增大，solution_3的优势会更加明显</p>
+<h2 id="5">5</h2>
+<h3 id="5b">5B</h3>
+<p>如何高效支持二维点修改与矩形求和,LLM给出的答案</p>
+<h2 id="1">1) 只查询、不修改（静态）</h2>
+<ul>
+<li>
+<p><strong>二维前缀和（2D Prefix Sum）</strong></p>
+</li>
+<li>
+<p>预处理：$O(nm)$</p>
+</li>
+<li>单次查询矩形和：$O(1)$（用四个前缀交错相减）</li>
+<li>不支持在线修改；适合“海量查询、无更新”。</li>
+</ul>
+<h2 id="2">2) 点修改 + 矩形求和（在线）</h2>
+<ul>
+<li>
+<p><strong>二维树状数组（2D Fenwick / BIT）</strong></p>
+</li>
+<li>
+<p>支持<strong>点加</strong>、<strong>前缀和</strong>：每次 $O(\log n \log m)$。</p>
+</li>
+<li>矩形和可用前缀和做 4 次包含-排除：同样 $O(\log^2)$。</li>
+<li>空间：$(n+1)\times(m+1)$。稠密矩阵可用；若坐标稀疏，结合<strong>坐标压缩</strong>或用“BIT 里套 map”以节省空间。</li>
+<li>
+<p>代码量较小，常作为首选。</p>
+</li>
+<li>
+<p><strong>二维线段树（SegTree of SegTree / Segment Tree 2D）</strong></p>
+</li>
+<li>
+<p>点修改/矩形求和：典型 $O(\log n \log m)$。</p>
+</li>
+<li>可扩展<strong>懒标记</strong>处理更复杂更新（见下一条）。</li>
+<li>
+<p>空间和实现难度较高（稠密情形约 $O(nm)$，稀疏可通过坐标压缩做到 $O(N \log N)$，其中 $N$ 为有效点数）。</p>
+</li>
+<li>
+<p><strong>分块/二维块状链表（Sqrt Decomposition 2D）</strong></p>
+</li>
+<li>
+<p>将矩阵分成 $B\times B$ 块，块内维护和。</p>
+</li>
+<li>查询复杂度近似 $O!\left(\frac{nm}{B^2}+B^2\right)$，点改 $O(1)$ 更新块和。</li>
+<li>选择 $B\approx \sqrt[4]{nm}$ 时，查询 $\tilde O(\sqrt{nm})$。</li>
+<li>常数低、易实现，但在大规模/高频查询下劣于 $\log^2$ 的结构。</li>
+</ul>
+<h2 id="3_1">3) 区间/矩形修改 + 矩形求和</h2>
+<ul>
+<li>
+<p><strong>四棵 2D BIT 做矩形加 &amp; 矩形和</strong></p>
+</li>
+<li>
+<p>一维里“两个 BIT 支持区间加/前缀求和”，二维可推广为<strong>四棵</strong> 2D BIT，分别存放系数，查询用二维包含-排除组合。</p>
+</li>
+<li>复杂度：每次更新/查询仍是 $O(\log n \log m)$。</li>
+<li>
+<p>代码复杂度较高，但很通用。</p>
+</li>
+<li>
+<p><strong>二维线段树 + 懒标记</strong></p>
+</li>
+<li>
+<p>直接支持矩形加、矩形求和。</p>
+</li>
+<li>复杂度：$O(\log n \log m)$。</li>
+<li>实现与内存开销最大，但表达力最强。</li>
+</ul>
+<h2 id="4_1">4) 离线技巧（当操作都可提前拿到）</h2>
+<ul>
+<li>
+<p><strong>CDQ 分治 / D\&amp;C on time + BIT</strong></p>
+</li>
+<li>
+<p>把时间维度分治，在线转离线；配合（1D/2D）BIT 处理“前缀贡献”。</p>
+</li>
+<li>总复杂度常见为 $O((n+q)\log^2 N)$（配合坐标压缩）。</li>
+<li>适合超大规模、稀疏坐标、或需要把多种操作统一为“加点/询问前缀”的场景。</li>
+</ul>
+<h2 id="5_1">5) 选择建议</h2>
+<ul>
+<li><strong>只查不改</strong>：二维前缀和。</li>
+<li><strong>点改 + 矩形和</strong>：优先二维 BIT；数据非常稀疏且坐标大时用“SegTree/BIT + 坐标压缩/散列”。</li>
+<li><strong>矩形改 + 矩形和</strong>：二维线段树带懒标记，或“四 BIT”方案。</li>
+<li><strong>离线可行</strong>：考虑 CDQ + BIT。</li>
+<li><strong>数值类型</strong>：和可能达 $O(nm\cdot \lvert v\rvert)$，建议用 64 位整型（<code>long long</code>/<code>int64_t</code>）。</li>
+</ul>
+<h2 id="6">6) 小表格（典型复杂度与要点）</h2>
+<table>
+<thead>
+<tr>
+<th>结构</th>
+<th>支持的操作</th>
+<th style="text-align: right;">单次复杂度</th>
+<th style="text-align: right;">空间</th>
+<th>难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2D 前缀和</td>
+<td>矩形和（静态）</td>
+<td style="text-align: right;">预处理 O(nm)，查询 O(1)</td>
+<td style="text-align: right;">O(nm)</td>
+<td>低</td>
+</tr>
+<tr>
+<td>2D BIT</td>
+<td>点加 / 矩形和</td>
+<td style="text-align: right;">O(log n log m)</td>
+<td style="text-align: right;">O(nm)（可压缩）</td>
+<td>中</td>
+</tr>
+<tr>
+<td>2D SegTree</td>
+<td>点加 / 矩形和</td>
+<td style="text-align: right;">O(log n log m)</td>
+<td style="text-align: right;">高（可压缩）</td>
+<td>高</td>
+</tr>
+<tr>
+<td>2D BIT×4</td>
+<td>矩形加 / 矩形和</td>
+<td style="text-align: right;">O(log n log m)</td>
+<td style="text-align: right;">4×2D BIT</td>
+<td>高</td>
+</tr>
+<tr>
+<td>2D SegTree+Lazy</td>
+<td>矩形加 / 矩形和</td>
+<td style="text-align: right;">O(log n log m)</td>
+<td style="text-align: right;">高</td>
+<td>最高</td>
+</tr>
+<tr>
+<td>2D 分块</td>
+<td>点改 / 矩形和</td>
+<td style="text-align: right;">\~O(√(nm))（调参）</td>
+<td style="text-align: right;">O(nm/B^2) 级</td>
+<td>低中</td>
+</tr>
+<tr>
+<td>CDQ + BIT（离线）</td>
+<td>统一求解多类操作</td>
+<td style="text-align: right;">O((n+q) log^2 N)</td>
+<td style="text-align: right;">依实现</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>我对上述回答的疑问</p>
+<ol>
+<li>二维线段树的内存如何精确估算？稠密 vs. 稀疏、坐标压缩后能降到多少量级？</li>
+<li>二维线段树做懒标记时，节点如何表达“矩形范围”上的增量与合并？边界与覆盖关系的实现细节是什么？</li>
+<li>四 BIT 的推导：二维从一维“两个 BIT”的公式怎么严格推广？四棵树各自存的系数具体是什么？</li>
+<li>坐标压缩的工程化做法：当坐标达 1e9 且只操作少量点/矩形时，如何在 2D BIT / 2D SegTree 中高效做压缩与动态插入？</li>
+<li>常数与缓存友好性：在相同 $O(\log^2)$ 下，2D BIT 与 2D SegTree 的常数差异和缓存局部性如何影响实际性能？</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../../../js/base.js"></script>
+        <script src="../../../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
